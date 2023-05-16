@@ -1,0 +1,139 @@
+:root {
+  --nav-main-color: #86cb86;
+  --nav-line-color: rgb(242, 242, 242);
+  --nav-searchbox-bg-color: #f4f4f4;
+}
+.NavHeaderContainer {
+  display: flex;
+  border: 1px solid var(--nav-line-color);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  background-color: white;
+  height: 86px;
+}
+.NavHeaderLeftContainer {
+  display: flex;
+  flex-grow: 1;
+}
+.NavHeaderLeftContainer .LogoContainer {
+  width: 178px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 2rem;
+}
+.NavHeaderLeftContainer .LogoContainer span {
+  color: var(--nav-main-color);
+  font-size: 3rem;
+}
+.VerticleDivider {
+  width: 1px;
+  background-color: var(--nav-line-color);
+  height: 100%;
+}
+.LocationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 40px;
+  padding: 5px 0px;
+  height: 86px;
+}
+.LocationContainer div {
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  font-size: small;
+}
+.LocationContainer .LocationDetail {
+  position: relative;
+}
+.LocationContainer div:first-of-type {
+  font-weight: 800;
+  margin-bottom: 6px;
+  font-size: large;
+}
+.SearchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 4;
+}
+.SearchContainer .SearchBox {
+  border: 1px solid var(--nav-line-color);
+  background-color: var(--nav-searchbox-bg-color);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 46px;
+}
+.SearchContainer .SearchBox .SearchIcon {
+  margin: 0px 10px;
+}
+
+/* .SearchAnimatedContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+} */
+/* .SearchAnimatedContainer .AnimatedSearchText {
+  position: absolute;
+  top: 20px;
+  animation: searchTextAnimation 5s ease;
+  animation-iteration-count: infinite;
+}
+@keyframes searchTextAnimation {
+  0% {
+    top: 20px;
+  }
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -30px;
+  }
+} */
+.NavHeaderRightContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+.CartIcon {
+  font-size: large;
+}
+.CartIcon:hover {
+  animation-name: shakeCartAnimation;
+  animation-duration: 1s;
+  cursor: pointer;
+}
+@keyframes shakeCartAnimation {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.NavHeaderRightContainer .CartContainer {
+  display: flex;
+  height: 52px;
+  width: 112px;
+  background-color: var(--nav-main-color);
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  font-size: medium;
+}

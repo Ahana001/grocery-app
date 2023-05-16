@@ -1,0 +1,40 @@
+.MainCategoryCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 200px;
+  background-color: #9aceaa;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+.MainCategoryCardContainer img {
+  height: 120px;
+  width: 120px;
+}
+.MainCategoryCardContainer div {
+  align-self: flex-start;
+}
+.MainCategoryCardContainer {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -12px;
+    right: -12px;
+    background: white;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transition: transform 0.25s ease-out;
+    opacity: 0.3;
+  }
+
+  &:hover:before {
+    transform: scale(17);
+  }
+}

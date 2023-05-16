@@ -12,7 +12,7 @@ import { Response } from "miragejs";
 
 export const getAllMainCategoriesHandler = function () {
   try {
-    return new Response(200, {}, { mainCategories: this.db.maincategories });
+    return new Response(200, {}, { mainCategories: this.db.mainCategories });
   } catch (error) {
     return new Response(
       500,

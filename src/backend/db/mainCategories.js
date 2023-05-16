@@ -7,27 +7,31 @@ export const main_categories = [
   {
     _id: "MC_1",
     name: "Vegetables & Fruits",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210012/grocery/main_category/MC_1_wmxcs0.webp",
   },
   {
     _id: "MC_2",
     name: "Bakery & Biscuits",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210012/grocery/main_category/MC_2_txxj3i.webp",
   },
   {
     _id: "MC_3",
     name: "Atta, Rice & Dal",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210012/grocery/main_category/MC_3_qszppw.webp",
   },
   {
     _id: "MC_4",
     name: "Cold Drinks & Juices",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210012/grocery/main_category/MC_4_uddyub.webp",
   },
   {
     _id: "MC_5",
     name: "Chicken, Meat & Fish",
     image:
-      "https://res.cloudinary.com/dcu6sympq/image/upload/v1683953978/grocery/main_category/MC_5_d1n59a.png",
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210011/grocery/main_category/Mc_5_vapd3w.webp",
   },
 ];

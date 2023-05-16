@@ -1,0 +1,50 @@
+:root {
+  --banner-heading-color: #a0addb;
+  --banner-sub-heading-color: #100c0d;
+  --banner-font-color: #716687;
+}
+.BannerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-top: 120px;
+}
+.BannerLeft {
+  display: flex;
+  flex-direction: column;
+}
+.BannerLeft .BannerHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--banner-sub-heading-color);
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+.BannerHeaderContainer .BannerMainHeading {
+  color: var(--banner-heading-color);
+}
+.BannerHeaderContainer .BannerTitle {
+  display: block;
+}
+
+.BannerLeft .BannerHeaderText {
+  margin-top: 20px;
+  max-width: 70%;
+  color: var(--banner-font-color);
+}
+.BannerRight .BannerGrid {
+  background-color: #fff;
+  background-image: radial-gradient(var(--banner-font-color) 0.8px, #fff 0px);
+  background-size: 10px 10px;
+  opacity: 0.8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  justify-items: center;
+  grid-row-gap: 3.5rem;
+  grid-column-gap: 1.5rem;
+}
