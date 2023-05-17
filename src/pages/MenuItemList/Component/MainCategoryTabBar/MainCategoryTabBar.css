@@ -1,0 +1,23 @@
+:root {
+  --tabbar-bg-color: #f4f4f4;
+}
+.MainCategoryTabContainer {
+  position: fixed;
+  top: 86px;
+  right: 0px;
+  left: 0px;
+  box-shadow: 0 8px 6px -6px rgba(99, 99, 99, 0.2);
+  text-align: center;
+  background: white;
+  z-index: 1;
+  height: 50px;
+  box-sizing: border-box;
+}
+.MainCategoryTab {
+  display: inline-block;
+  padding: 14px 13px;
+}
+.MainCategoryTab:hover {
+  cursor: pointer;
+  background-color: var(--tabbar-bg-color);
+}

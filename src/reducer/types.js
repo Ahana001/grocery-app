@@ -4,7 +4,6 @@ export const ActionTypes = {
 };
 export const Filters = {
   SortByPrice: "sortByPrice",
-  CurrentMainCategory: "currentMainCategory",
   CurrentSubCategory: "currentSubCategory",
   Rating: "rating",
   Search: "search",
