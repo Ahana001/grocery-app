@@ -20,3 +20,13 @@ export async function getAllMainCategoriesRequest() {
     console.log(error);
   }
 }
+export async function getAllSubCategoriesRequest() {
+  try {
+    const response = await axios.get("/api/sub_categories");
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}

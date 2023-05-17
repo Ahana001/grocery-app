@@ -3,7 +3,6 @@ import { ActionTypes } from "./types";
 export const initialState = {
   filter: {
     sortByPrice: "",
-    currentMainCategory: "",
     currentSubCategory: "",
     rating: 0,
     search: "",
@@ -47,7 +46,7 @@ export function DataReducer(state, action) {
     case ActionTypes.ChangeFilter: {
       result = {
         ...state,
-        filters: {
+        filter: {
           ...state.filters,
           [action.payload.filterType]: action.payload.filterValue,
         },

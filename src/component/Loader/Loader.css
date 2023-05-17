@@ -7,11 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 .HomeLoaderContainer .Loarder {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   border: 16px solid var(--loader-bg-color);
   border-top: 16px solid var(--loader-thumb-color);

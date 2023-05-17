@@ -6,13 +6,14 @@
 .NavHeaderContainer {
   display: flex;
   border: 1px solid var(--nav-line-color);
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 1;
   background-color: white;
   height: 86px;
+  box-sizing: border-box;
 }
 .NavHeaderLeftContainer {
   display: flex;

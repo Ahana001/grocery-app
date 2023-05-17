@@ -1,16 +1,15 @@
 import "./MainCategoryList.css";
 
 import { useContext } from "react";
-import { DataContext } from "../../context/DataContext";
-import { MainCategoryCard } from "./MainCategoryCard/MainCategoryCard";
+
+import { DataContext } from "../../../../context/DataContext";
+
+import { MainCategoryCard } from "../MainCategoryCard/MainCategoryCard";
 import { MainCategoriesCardColor } from "./Constants";
 
 export function MainCategoryList() {
   const { state } = useContext(DataContext);
 
-  if (state.mainCategories.length === 0) {
-    return <h2>Loarding.....</h2>;
-  }
   return (
     <>
       <div className="MainCategoryHeading">Shop by category</div>
@@ -18,7 +17,7 @@ export function MainCategoryList() {
         {state.mainCategories.map((mainCategory, i) => {
           return (
             <MainCategoryCard
-              key={mainCategory.id}
+              key={mainCategory._id}
               CardData={mainCategory}
               BGColor={MainCategoriesCardColor[i]}
             />

@@ -1,0 +1,8 @@
+.SubCategoryMenuItemContainer {
+  margin-top: 136px;
+  display: grid;
+  grid-template-columns: 300px 2fr;
+}
+.SubCategoryMenuItemLoader {
+  margin-top: 136px;
+}
