@@ -4,13 +4,17 @@ import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../../../../../context/DataContext";
 
 import { Loader } from "../../../../../../component/Loader/Loader";
+import { MenuItemCard } from "../../../../../../component/MenuItemCard/MenuItemCard";
+import { PriceFilterName } from "./constant";
+import { useFilterDataHook } from "../../../../../../Hook/FilterDataHook";
+import { PriceFilter } from "../../../../../../reducer/types";
+import { Filters } from "../../../../../../reducer/types";
+import { ActionTypes } from "../../../../../../reducer/types";
 
 export function ItemList() {
-  const { state } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const [menuListLoader, setMenuListLoader] = useState(false);
-  const filterMenuItemByCurrentSubCategory = state.menuItems.filter(
-    (menuItem) => menuItem.sub_category_id === state.filter.currentSubCategory
-  );
+  const filterMenuItems = useFilterDataHook();
 
   useEffect(() => {
     setMenuListLoader(() => true);
@@ -19,15 +23,88 @@ export function ItemList() {
     }, 1000);
   }, [state.filter]);
 
+  function getCurrentSubCategoryName() {
+    return (
+      state.subCategories.find(
+        ({ _id }) => _id === state.filter.currentSubCategory
+      )?.name ?? ""
+    );
+  }
+  function sortMenuItemByPriceHandler(e) {
+    const type = e.target.value;
+    let dispatchType;
+    switch (type) {
+      case "Price ( High to low )": {
+        dispatchType = PriceFilter.HighToLow;
+        break;
+      }
+      case "Price ( Low to high )": {
+        dispatchType = PriceFilter.LowToHight;
+        break;
+      }
+      default:
+        dispatchType = "Relevance";
+        break;
+    }
+    dispatch({
+      type: ActionTypes.ChangeFilter,
+      payload: {
+        filterType: Filters.SortByPrice,
+        filterValue: dispatchType,
+      },
+    });
+  }
+  function getSelectedValue(stateType) {
+    let displayType;
+    switch (stateType) {
+      case PriceFilter.HighToLow: {
+        displayType = "Price ( High to low )";
+        break;
+      }
+      case PriceFilter.LowToHight: {
+        displayType = "Price ( Low to high )";
+        break;
+      }
+      default:
+        displayType = "Relevance";
+        break;
+    }
+    return displayType;
+  }
+
   if (menuListLoader) {
     return <Loader height="100%" size="60px" />;
   }
-
   return (
-    <div className="ItemListContainer">
-      {filterMenuItemByCurrentSubCategory.map((menuItem) => {
-        return <div key={menuItem._id}>{menuItem.name}</div>;
-      })}
-    </div>
+    <>
+      <div className="MenuItemMiddleListContainer">
+        <div className="ItemListNavBar">
+          <div className="CurrentCategoryName">
+            Buy {getCurrentSubCategoryName()} Online
+          </div>
+          <div className="MenuItemFilterContainer">
+            <div className="SortName">Sort By</div>
+            <select
+              className="MenuItemPriceSortFilter"
+              onChange={sortMenuItemByPriceHandler}
+              defaultValue={getSelectedValue(state.filter.sortByPrice)}
+            >
+              {PriceFilterName.map((name) => {
+                return (
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
+        <div className="ItemListContainer">
+          {filterMenuItems.map((menuItem) => {
+            return <MenuItemCard menuItem={menuItem} key={menuItem._id} />;
+          })}
+        </div>
+      </div>
+    </>
   );
 }

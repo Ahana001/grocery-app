@@ -15,7 +15,7 @@ export function Home() {
     <>
       <Navbar />
       {loader ? (
-        <Loader height="100vh" size="100px" />
+        <Loader height="100vh" size="80px" />
       ) : (
         <div className="HomeContainer">
           <Banner />

@@ -1,6 +1,6 @@
 :root {
   --nav-main-color: #86cb86;
-  --nav-line-color: rgb(242, 242, 242);
+  --nav-line-color: rgb(238, 238, 238);
   --nav-searchbox-bg-color: #f4f4f4;
 }
 .NavHeaderContainer {
@@ -107,7 +107,7 @@
   flex-grow: 1;
 }
 .CartIcon {
-  font-size: large;
+  font-size: x-large;
 }
 .CartIcon:hover {
   animation-name: shakeCartAnimation;
