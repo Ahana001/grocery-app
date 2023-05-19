@@ -1,11 +1,12 @@
-import { ActionTypes } from "./types";
+import { ActionTypes, Filters } from "./types";
 
 export const initialState = {
   filter: {
-    sortByPrice: "",
+    sortByPrice: "Relevance",
     currentSubCategory: "",
-    rating: 0,
+    rating: 1,
     search: "",
+    priceRange: [],
   },
   menuItems: [],
   mainCategories: [],
@@ -44,13 +45,42 @@ export function DataReducer(state, action) {
       break;
     }
     case ActionTypes.ChangeFilter: {
-      result = {
-        ...state,
-        filter: {
-          ...state.filters,
-          [action.payload.filterType]: action.payload.filterValue,
-        },
-      };
+      if (action.payload.filterType === Filters.PriceRange) {
+        const findItemInState = state.filter.priceRange.find(
+          (range) => range.lower === action.payload.filterValue.lower
+        );
+        if (findItemInState) {
+          const removedItemFromState = state.filter.priceRange.filter(
+            ({ lower }) => lower !== action.payload.filterValue.lower
+          );
+          result = {
+            ...state,
+            filter: {
+              ...state.filter,
+              [action.payload.filterType]: removedItemFromState,
+            },
+          };
+        } else {
+          result = {
+            ...state,
+            filter: {
+              ...state.filter,
+              [action.payload.filterType]: [
+                ...state.filter.priceRange,
+                action.payload.filterValue,
+              ],
+            },
+          };
+        }
+      } else {
+        result = {
+          ...state,
+          filter: {
+            ...state.filter,
+            [action.payload.filterType]: action.payload.filterValue,
+          },
+        };
+      }
       break;
     }
   }

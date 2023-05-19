@@ -7,4 +7,9 @@ export const Filters = {
   CurrentSubCategory: "currentSubCategory",
   Rating: "rating",
   Search: "search",
+  PriceRange: "priceRange",
+};
+export const PriceFilter = {
+  HighToLow: "HighToLow",
+  LowToHight: "LowToHigh",
 };

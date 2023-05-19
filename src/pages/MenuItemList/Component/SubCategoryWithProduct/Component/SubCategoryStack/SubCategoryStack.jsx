@@ -34,24 +34,26 @@ export function SubCategoryStack() {
   }
   return (
     <div className="SubCategoryStackContainer">
-      {filterSubCategies.map((subCategory) => {
-        return (
-          <div
-            className="SubCategoryDisk"
-            key={subCategory._id}
-            style={{
-              background:
-                state.filter.currentSubCategory === subCategory._id
-                  ? "rgb(195, 232, 202)"
-                  : "",
-            }}
-            onClick={() => setCurrentSubCategoryHandler(subCategory._id)}
-          >
-            <div></div>
-            <div>{subCategory.name}</div>
-          </div>
-        );
-      })}
+      <div className="SubCategoryDiskContainer">
+        {filterSubCategies.map((subCategory) => {
+          return (
+            <div
+              className="SubCategoryDisk"
+              key={subCategory._id}
+              style={{
+                background:
+                  state.filter.currentSubCategory === subCategory._id
+                    ? "rgb(195, 232, 202)"
+                    : "",
+              }}
+              onClick={() => setCurrentSubCategoryHandler(subCategory._id)}
+            >
+              <div></div>
+              <div>{subCategory.name}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

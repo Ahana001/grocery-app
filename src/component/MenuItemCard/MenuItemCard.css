@@ -1,0 +1,113 @@
+:root {
+  --item-box-bg-color: #f4f4f4;
+  --item-line-color: rgb(238, 238, 238);
+  --item-button-light-color: rgb(247, 255, 249);
+  --item-button-dark-color: rgb(12, 131, 31);
+}
+.MenuItemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--item-line-color);
+  cursor: pointer;
+}
+
+.MenuItemImageTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.MenuItemImageTop img {
+  height: 150px;
+  width: 150px;
+  align-self: center;
+}
+.MenuItemType img {
+  height: 25px;
+  width: 25px;
+}
+.MenuItemDetailsBottom {
+  box-sizing: border-box;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* Start Rating */
+.checked {
+  color: orange;
+}
+.MenuItemTypeAndTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.DeliveryTimeContainer {
+  display: flex;
+  width: 90px;
+  background: var(--item-box-bg-color);
+  border-radius: 5px;
+  font-size: small;
+  border: none;
+  padding: 6px 2px;
+}
+.DeliveryTimeContainer .DeliveryTime,
+.ClockIconContainer {
+  margin-left: 5px;
+}
+.MenuItemName {
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  height: 36px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.MenuItemNameVericleLine {
+  background: var(--item-box-bg-color);
+  height: 1px;
+}
+
+.MenuItemVarinats {
+  outline: none;
+  border: 1px solid var(--item-line-color);
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.MenuItemVarinats,
+.MenuItemVarinat {
+  margin-top: 20px;
+  padding: 10px;
+}
+.PriceAndButtonContaine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0px;
+}
+.AddToCartButton {
+  border: 2px solid var(--item-button-dark-color);
+  color: var(--item-button-dark-color);
+  background: var(--item-button-light-color);
+  font-weight: 400;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.MenuItemContainer:hover {
+  outline: 1px solid var(--item-button-dark-color);
+}

@@ -12,8 +12,8 @@
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  border: 16px solid var(--loader-bg-color);
-  border-top: 16px solid var(--loader-thumb-color);
+  border: 14px solid var(--loader-bg-color);
+  border-top: 14px solid var(--loader-thumb-color);
   animation: rotateLoader 1s ease-in infinite;
 }
 @keyframes rotateLoader {

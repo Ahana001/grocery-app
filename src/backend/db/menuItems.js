@@ -84,7 +84,7 @@ export const menu_items = [
         _id: "V_5",
         unit: "1 piece (125 g - 175 g)",
         price: 50,
-        in_stock: true,
+        in_stock: false,
         default: true,
       },
     ],
@@ -1018,7 +1018,7 @@ export const menu_items = [
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952706/grocery/chicken/44_cvqc48.webp",
-    rating: 0.0,
+    rating: 2.6,
     delivery_time_in_mins: 20,
     item_variant: [
       {
@@ -1058,7 +1058,7 @@ export const menu_items = [
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952858/grocery/chicken/46_elxvjg.webp",
-    rating: 0.0,
+    rating: 1.7,
     delivery_time_in_mins: 19,
     item_variant: [
       {

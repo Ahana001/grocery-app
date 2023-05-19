@@ -19,7 +19,7 @@ export function MenuItemList() {
     <>
       <Navbar />
       {loader ? (
-        <Loader height="100vh" size="100px" />
+        <Loader height="100vh" size="80px" />
       ) : (
         <div className="MenuItemListContainer">
           <MainCategoryTabBar />

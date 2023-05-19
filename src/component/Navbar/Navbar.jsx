@@ -1,5 +1,6 @@
 import "./Navbar.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
 export function Navbar() {
   return (
@@ -21,7 +22,7 @@ export function Navbar() {
       <div className="SearchContainer">
         <div className="SearchBox">
           <div className="SearchIcon">
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <FaSearch />
           </div>
           <div className="SearchAnimatedContainer">
             <div className="AnimatedSearchText">Search</div>
@@ -32,7 +33,7 @@ export function Navbar() {
         <div className="UserProfile">Login</div>
         <div className="CartContainer">
           <div className="CartIcon">
-            <i className="fa-sharp fa-solid fa-cart-shopping"></i>
+            <FaShoppingCart />
           </div>
           <div className="CartText">Cart</div>
         </div>

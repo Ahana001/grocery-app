@@ -8,10 +8,8 @@
   margin-top: 15px;
 }
 .MainCategoryContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   cursor: pointer;
+  margin-top: 15px;
 }
