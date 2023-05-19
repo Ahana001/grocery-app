@@ -34,7 +34,7 @@ export function SubCategoryStack() {
   }
   return (
     <div className="SubCategoryStackContainer">
-      <div className="SubCategoryDiskContainer">
+      <div className="SubCategoryStackItemContainer">
         {filterSubCategies.map((subCategory) => {
           return (
             <div

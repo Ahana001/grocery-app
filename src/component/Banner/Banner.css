@@ -9,11 +9,11 @@
   align-items: center;
   margin-top: 120px;
 }
-.BannerLeft {
+.BannerLeftContainer {
   display: flex;
   flex-direction: column;
 }
-.BannerLeft .BannerHeaderContainer {
+.BannerLeftContainer .BannerBiggerContainer {
   display: flex;
   flex-direction: column;
   display: flex;
@@ -24,14 +24,14 @@
   line-height: 1.2;
   font-weight: 800;
 }
-.BannerHeaderContainer .BannerMainHeading {
+.BannerBiggerContainer .BannerMainHeading {
   color: var(--banner-heading-color);
 }
-.BannerHeaderContainer .BannerTitle {
+.BannerBiggerContainer .BannerTitle {
   display: block;
 }
 
-.BannerLeft .BannerHeaderText {
+.BannerLeftContainer .BannerSmallText {
   margin-top: 20px;
   max-width: 70%;
   color: var(--banner-font-color);

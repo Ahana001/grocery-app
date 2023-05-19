@@ -3,7 +3,7 @@
   --nav-line-color: rgb(238, 238, 238);
   --nav-searchbox-bg-color: #f4f4f4;
 }
-.NavHeaderContainer {
+.NavContainer {
   display: flex;
   border: 1px solid var(--nav-line-color);
   position: fixed;
@@ -15,11 +15,11 @@
   height: 86px;
   box-sizing: border-box;
 }
-.NavHeaderLeftContainer {
+.NavLeftContainer {
   display: flex;
   flex-grow: 1;
 }
-.NavHeaderLeftContainer .LogoContainer {
+.NavLeftContainer .LogoContainer {
   width: 178px;
   display: flex;
   align-items: center;
@@ -27,7 +27,7 @@
   font-weight: 800;
   font-size: 2rem;
 }
-.NavHeaderLeftContainer .LogoContainer span {
+.NavLeftContainer .LogoContainer span {
   color: var(--nav-main-color);
   font-size: 3rem;
 }
@@ -100,7 +100,7 @@
     top: -30px;
   }
 } */
-.NavHeaderRightContainer {
+.NavRightContainer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -128,7 +128,7 @@
     transform: rotate(-10deg);
   }
 }
-.NavHeaderRightContainer .CartContainer {
+.NavRightContainer .CartContainer {
   display: flex;
   height: 52px;
   width: 112px;

@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./HomePage.css";
 
 import { useContext } from "react";
 
@@ -8,7 +8,7 @@ import { Navbar } from "../../component/Navbar/Navbar";
 import { Banner } from "../../component/Banner/Banner";
 import { MainCategoryList } from "./Component/MainCategoryList/MainCategoryList";
 
-export function Home() {
+export function HomePage() {
   const { loader } = useContext(DataContext);
 
   return (
@@ -17,7 +17,7 @@ export function Home() {
       {loader ? (
         <Loader height="100vh" size="80px" />
       ) : (
-        <div className="HomeContainer">
+        <div className="HomePageContainer">
           <Banner />
           <MainCategoryList />
         </div>

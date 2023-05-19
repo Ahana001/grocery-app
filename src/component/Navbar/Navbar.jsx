@@ -4,8 +4,8 @@ import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
 export function Navbar() {
   return (
-    <header className="NavHeaderContainer">
-      <div className="NavHeaderLeftContainer">
+    <header className="NavContainer">
+      <div className="NavLeftContainer">
         <div className="LogoContainer">
           <div className="Logo">
             <span>G</span>rocery
@@ -29,7 +29,7 @@ export function Navbar() {
           </div>
         </div>
       </div>
-      <div className="NavHeaderRightContainer">
+      <div className="NavRightContainer">
         <div className="UserProfile">Login</div>
         <div className="CartContainer">
           <div className="CartIcon">

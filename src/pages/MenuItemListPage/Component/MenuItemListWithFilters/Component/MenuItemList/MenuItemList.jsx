@@ -1,4 +1,4 @@
-import "./ItemList.css";
+import "./MenuItemList.css";
 
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../../../../../context/DataContext";
@@ -11,7 +11,7 @@ import { PriceFilter } from "../../../../../../reducer/types";
 import { Filters } from "../../../../../../reducer/types";
 import { ActionTypes } from "../../../../../../reducer/types";
 
-export function ItemList() {
+export function MenuItemList() {
   const { state, dispatch } = useContext(DataContext);
   const [menuListLoader, setMenuListLoader] = useState(false);
   const filterMenuItems = useFilterDataHook();
@@ -78,14 +78,14 @@ export function ItemList() {
   return (
     <>
       <div className="MenuItemMiddleListContainer">
-        <div className="ItemListNavBar">
+        <div className="MenuItemListNavBar">
           <div className="CurrentCategoryName">
             Buy {getCurrentSubCategoryName()} Online
           </div>
           <div className="MenuItemFilterContainer">
             <div className="SortName">Sort By</div>
             <select
-              className="MenuItemPriceSortFilter"
+              className="MenuItemSortByPriceFilter"
               onChange={sortMenuItemByPriceHandler}
               defaultValue={getSelectedValue(state.filter.sortByPrice)}
             >
@@ -99,7 +99,7 @@ export function ItemList() {
             </select>
           </div>
         </div>
-        <div className="ItemListContainer">
+        <div className="MenuItemListContainer">
           {filterMenuItems.map((menuItem) => {
             return <MenuItemCard menuItem={menuItem} key={menuItem._id} />;
           })}

@@ -1,18 +1,18 @@
 import "./Banner.css";
 
-import { banner } from "./Constant";
+import { banner } from "./constant";
 import { BannerCard } from "./BannerCard/BannerCard";
 
 export function Banner() {
   return (
     <div className="BannerContainer">
-      <div className="BannerLeft">
-        <div className="BannerHeaderContainer">
+      <div className="BannerLeftContainer">
+        <div className="BannerBiggerContainer">
           <div className="BannerMainHeading">Quick</div>
           <div className="BannerTitle">delivery at</div>
           <div className="BannerSubTitle">your doorstep</div>
         </div>
-        <div className="BannerHeaderText">
+        <div className="BannerSmallText">
           With just a few taps on your smartphone, you can order fresh produce,
           meats, dairy products, and pantry staples.
         </div>

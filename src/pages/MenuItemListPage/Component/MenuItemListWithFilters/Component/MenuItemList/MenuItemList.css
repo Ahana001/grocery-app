@@ -14,7 +14,7 @@
 .MenuItemMiddleListContainer::-webkit-scrollbar {
   display: none;
 }
-.ItemListContainer {
+.MenuItemListContainer {
   background-color: var(--item-list-bg-color);
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -23,10 +23,10 @@
   padding: 10px;
   width: 100%;
 }
-.ItemListContainer::-webkit-scrollbar {
+.MenuItemListContainer::-webkit-scrollbar {
   display: none;
 }
-.ItemListNavBar {
+.MenuItemListNavBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,7 +45,7 @@
 .SortName {
   margin-right: 5px;
 }
-.MenuItemPriceSortFilter {
+.MenuItemSortByPriceFilter {
   padding: 5px;
   color: var(--filter-main-color);
   font-weight: 500;

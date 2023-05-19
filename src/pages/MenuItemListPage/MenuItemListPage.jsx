@@ -1,4 +1,4 @@
-import "./MenuItemList.css";
+import "./MenuItemListPage.css";
 
 import { useContext, useEffect } from "react";
 import { DataContext } from "../../context/DataContext";
@@ -6,9 +6,9 @@ import { DataContext } from "../../context/DataContext";
 import { Loader } from "../../component/Loader/Loader";
 import { Navbar } from "../../component/Navbar/Navbar";
 import { MainCategoryTabBar } from "./Component/MainCategoryTabBar/MainCategoryTabBar";
-import { SubCategoryWithProduct } from "./Component/SubCategoryWithProduct/SubCategoryWithProduct";
+import { MenuItemListWithFilters } from "./Component/MenuItemListWithFilters/MenuItemListWithFilters";
 
-export function MenuItemList() {
+export function MenuItemListPage() {
   const { loader } = useContext(DataContext);
 
   useEffect(() => {
@@ -21,9 +21,9 @@ export function MenuItemList() {
       {loader ? (
         <Loader height="100vh" size="80px" />
       ) : (
-        <div className="MenuItemListContainer">
+        <div className="MenuItemListPageContainer">
           <MainCategoryTabBar />
-          <SubCategoryWithProduct />
+          <MenuItemListWithFilters />
         </div>
       )}
     </>
