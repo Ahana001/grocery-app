@@ -10,7 +10,7 @@ import { ActionTypes, Filters } from "../../../../../../reducer/types";
 export function FilterStack() {
   const { dispatch } = useContext(DataContext);
 
-  function filterByPriceRangeHanlder(e) {
+  function filterByPriceRangeHandler(e) {
     let priceRange = [];
     switch (e.target.value) {
       case "Less than Rs 20": {
@@ -64,7 +64,7 @@ export function FilterStack() {
                 <input
                   type="checkbox"
                   value={price}
-                  onChange={filterByPriceRangeHanlder}
+                  onChange={filterByPriceRangeHandler}
                 />
                 <span>{price}</span>
               </div>

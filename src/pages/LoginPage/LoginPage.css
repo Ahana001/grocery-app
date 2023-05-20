@@ -1,0 +1,75 @@
+.LoginPageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.LoginForm,
+.LoginFormBorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.LoginForm {
+  gap: 12px;
+  padding: 4rem;
+  background-color: #f4f4f4;
+}
+.LoginFormBorder {
+  padding: 1rem;
+  border: 1px solid rgb(238, 238, 238);
+}
+.LoginFormHeader {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(12, 131, 31);
+  margin-bottom: 50px;
+}
+.LoginFormEmailContainer,
+.LoginFormPasswordContainer {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.LoginFormEmailContainer input,
+.LoginFormPasswordContainer input {
+  font-size: 1.1rem;
+  border: 1px solid rgb(238, 238, 238);
+  outline: none;
+  border-radius: 0.3rem;
+  padding: 5px;
+}
+.LoginFormEmailContainer label,
+.LoginFormPasswordContainer label {
+  font-weight: 500;
+}
+.LoginFormEmailContainer input:focus {
+  border: 1px solid rgb(12, 131, 31);
+  outline: none;
+}
+
+.LoginFormPasswordContainer input:focus {
+  border: 1px solid rgb(12, 131, 31);
+  outline: none;
+}
+.LoginForm button {
+  margin-top: 18px;
+  padding: 10px 0px;
+  border-radius: 0.3rem;
+  background-color: rgb(247, 255, 249);
+  color: rgb(12, 131, 31);
+  border: 1px solid rgb(12, 131, 31);
+  width: 100%;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.SignUpLink span {
+  color: rgb(12, 131, 31);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  margin-left: 5px;
+}

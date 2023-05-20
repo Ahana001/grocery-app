@@ -106,6 +106,9 @@
   justify-content: space-evenly;
   flex-grow: 1;
 }
+.UserProfile {
+  cursor: pointer;
+}
 .CartIcon {
   font-size: x-large;
 }

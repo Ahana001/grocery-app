@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { MenuItemListPage } from "./pages/MenuItemListPage/MenuItemListPage";
+import { SingleMenuItemPage } from "./pages/SingleMenuItemPage/SingleMenuItemPage";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
 
 function App() {
   return (
@@ -12,6 +15,12 @@ function App() {
           path="/main_category/:mainCategoryId"
           element={<MenuItemListPage />}
         ></Route>
+        <Route
+          path="/menu_item/:menuItemId"
+          element={<SingleMenuItemPage />}
+        ></Route>
+        <Route path="/user/login" element={<LoginPage />}></Route>
+        <Route path="/user/signup" element={<SignUpPage />}></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
     </div>

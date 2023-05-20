@@ -14,7 +14,7 @@ import { ActionTypes } from "../../../../../../reducer/types";
 export function MenuItemList() {
   const { state, dispatch } = useContext(DataContext);
   const [menuListLoader, setMenuListLoader] = useState(false);
-  const filterMenuItems = useFilterDataHook();
+  const filteredMenuItems = useFilterDataHook();
 
   useEffect(() => {
     setMenuListLoader(() => true);
@@ -100,7 +100,7 @@ export function MenuItemList() {
           </div>
         </div>
         <div className="MenuItemListContainer">
-          {filterMenuItems.map((menuItem) => {
+          {filteredMenuItems.map((menuItem) => {
             return <MenuItemCard menuItem={menuItem} key={menuItem._id} />;
           })}
         </div>

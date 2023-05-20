@@ -1,8 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
 export function Navbar() {
+  const navigate = useNavigate();
+  function userProfileOnClickHandler() {
+    navigate("/user/login");
+  }
   return (
     <header className="NavContainer">
       <div className="NavLeftContainer">
@@ -30,7 +35,9 @@ export function Navbar() {
         </div>
       </div>
       <div className="NavRightContainer">
-        <div className="UserProfile">Login</div>
+        <div className="UserProfile" onClick={userProfileOnClickHandler}>
+          Login
+        </div>
         <div className="CartContainer">
           <div className="CartIcon">
             <FaShoppingCart />

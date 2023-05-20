@@ -23,7 +23,7 @@ export function SubCategoryStack() {
     });
   }, [mainCategoryId]);
 
-  function setCurrentSubCategoryHandler(id) {
+  function onChangeCurrentSubCategoryHandler(id) {
     dispatch({
       type: ActionTypes.ChangeFilter,
       payload: {
@@ -46,7 +46,7 @@ export function SubCategoryStack() {
                     ? "rgb(195, 232, 202)"
                     : "",
               }}
-              onClick={() => setCurrentSubCategoryHandler(subCategory._id)}
+              onClick={() => onChangeCurrentSubCategoryHandler(subCategory._id)}
             >
               <div></div>
               <div>{subCategory.name}</div>

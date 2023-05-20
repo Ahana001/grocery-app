@@ -22,7 +22,7 @@ export const getAllMenuItemsHandler = function () {
 export const getMenuItemHandler = function (schema, request) {
   const menuItemId = request.params.menuItemId;
   try {
-    const menuItem = schema.menuitems.findBy({ _id: menuItemId });
+    const menuItem = schema.menuItems.findBy({ _id: menuItemId });
     return new Response(200, {}, { menuItem });
   } catch (error) {
     return new Response(

@@ -2,9 +2,11 @@ import "./MenuItemCard.css";
 
 import { useState } from "react";
 import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export function MenuItemCard({
   menuItem: {
+    _id,
     image,
     name,
     delivery_time_in_mins,
@@ -19,6 +21,7 @@ export function MenuItemCard({
   const [menuItemPriceAndUnit, setMenuItemPriceAndUnit] = useState(
     filterDefaultMenuItemVariant
   );
+  const navigate = useNavigate();
   function getImageByMenuType(veg_egg_non) {
     let resultUrl = "";
     switch (veg_egg_non) {
@@ -56,9 +59,17 @@ export function MenuItemCard({
     )[0];
     setMenuItemPriceAndUnit(() => filterMenuItemVariant);
   }
+  function selectMenuItemHandler(id) {
+    navigate(`/menu_item/${id}`);
+  }
   const itemAvailability = menuItemPriceAndUnit?.in_stock ? "" : "OutOfStock";
   return (
-    <div className={`MenuItemContainer ${itemAvailability}`}>
+    <div
+      className={`MenuItemContainer ${itemAvailability}`}
+      onClick={() => {
+        selectMenuItemHandler(_id);
+      }}
+    >
       <div className="LikeIconContainer"></div>
       <div className="MenuItemImageTop">
         <img src={image} alt={name} />

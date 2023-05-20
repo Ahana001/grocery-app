@@ -10,6 +10,16 @@ export async function getAllMenuItemRequest() {
     console.log(error);
   }
 }
+export async function getParticularMenuItemRequest(id) {
+  try {
+    const response = await axios.get(`/api/menu_item/${id}`);
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 export async function getAllMainCategoriesRequest() {
   try {
     const response = await axios.get("/api/main_categories");
