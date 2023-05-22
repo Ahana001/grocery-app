@@ -1,15 +1,23 @@
 import "./CartPage.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../context/DataContext";
 import { CartMenuItem } from "./Component/CartMenuItem";
 import { Navbar } from "../../component/Navbar/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export function CartPage() {
   const { state } = useContext(DataContext);
+  const { currentUser } = useContext(AuthContext);
+
   const location = useLocation();
   const navigate = useNavigate();
   const cart = state.cartlist;
+  useEffect(() => {
+    if (!currentUser.token) {
+      navigate("/");
+    }
+  }, [currentUser.token]);
 
   const cartLength = cart.length;
   function getCartTotal() {

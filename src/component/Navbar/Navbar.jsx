@@ -6,13 +6,14 @@ import { useContext, useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
+import { ActionTypes } from "../../reducer/types";
 
 export function Navbar() {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser, LogOutHandler } = useContext(AuthContext);
-  const { state } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
 
   function userProfileOnClickHandler() {
     navigate("/user/login", { state: { from: location } });
@@ -77,6 +78,12 @@ export function Navbar() {
                   <li
                     onClick={() => {
                       LogOutHandler();
+                      dispatch({
+                        type: ActionTypes.SetCartList,
+                        payload: {
+                          cart: [],
+                        },
+                      });
                     }}
                   >
                     Logout
