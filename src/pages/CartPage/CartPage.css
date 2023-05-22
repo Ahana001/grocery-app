@@ -1,0 +1,189 @@
+:root {
+  --cart-line-color: rgb(238, 238, 238);
+  --cart-small-text-color: rgb(79, 79, 79);
+  --cart-header-text-color: rgb(28, 28, 28);
+  --cart-button-light-color: #86cb86;
+  --cart-button-dark-color: rgb(12, 131, 31);
+}
+.CartPageContainer {
+  display: flex;
+  margin: 0px 50px;
+  margin-top: 86px;
+  gap: 1.5rem;
+}
+.LeftCartItemListContainer {
+  border-right: 1px solid var(--cart-line-color);
+  padding: 1.5rem;
+}
+.FinalDeliveryTime {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.DeliveryTimeIcon img {
+  height: 100px;
+  width: 100px;
+}
+.DeliveryTimeText {
+  display: flex;
+  flex-direction: column;
+}
+.DeliveryTimeTextHeader {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.DeliveryTimeTextSubTitle {
+  font-size: 0.8rem;
+  color: var(--cart-small-text-color);
+}
+.CartItemList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  gap: 50px;
+}
+.CartMenuItemContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
+}
+.CartMenuItemContainer .CartMenuItemImage {
+  border: 1px solid var(--cart-line-color);
+  border-radius: 0.3rem;
+}
+.CartMenuItemImage img {
+  max-height: 100%;
+  width: 100px;
+}
+.CartMenuItemDetails {
+  display: flex;
+  flex-direction: column;
+}
+.cartMenuItemName {
+  color: var(--cart-header-text-color);
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 16px;
+  height: 35px;
+}
+.CartMenuItemVariantContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+  gap: 30px;
+}
+.CartMenuItemVariant {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.VariantQuantityAndUnitContainer {
+  display: flex;
+  flex-direction: column;
+}
+.VariantUnit {
+  color: var(--cart-small-text-color);
+}
+.VariantPrice {
+  font-weight: 500;
+}
+
+.RightCartBillContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+.BillSummeryContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  min-width: 400px;
+}
+.BillHeader {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.BillSummeryContainer .HorizontaLine {
+  background-color: var(--cart-line-color);
+  height: 1px;
+  width: 100%;
+  margin-top: 5px;
+}
+.BillSummeryContainer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+.BillSummeryContainer li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.BillListHeader {
+  color: var(--cart-small-text-color);
+}
+.Delivery {
+  color: var(--cart-button-dark-color);
+}
+.Delivery span {
+  text-decoration: line-through;
+  color: black;
+}
+.GrandTotalContainer {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.CheckOutButton {
+  margin-top: 50px;
+  align-self: flex-end;
+  background-color: var(--cart-button-light-color);
+  text-transform: uppercase;
+  padding: 5px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.EmptyCartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.EmptyCartImageContainer img {
+  height: 400px;
+  width: 400px;
+}
+.EmptyCartDarkText {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.EmptyCartLightText {
+  color: var(--cart-small-text-color);
+  font-size: 0.9rem;
+}
+.EmptyCartShoppingBtn {
+  margin-top: 30px;
+  background-color: var(--cart-button-light-color);
+  text-transform: uppercase;
+  padding: 5px 20px;
+  cursor: pointer;
+  border-radius: 0.36rem;
+  user-select: none;
+}

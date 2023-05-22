@@ -1,0 +1,33 @@
+:root {
+  --variant-bg-light-color: rgb(247, 255, 249);
+  --variant-bg-dark-color: rgb(12, 131, 31);
+  --variant-line-color: rgb(238, 238, 238);
+}
+.MenuItemVariantList {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid var(--variant-line-color);
+  border-radius: 5px;
+}
+.MenuItemUnit {
+  width: 27%;
+  margin: 1rem 0 1rem 1rem;
+  flex-grow: 0;
+  font-weight: 600;
+}
+.MenuItemPrice {
+  flex-grow: 1;
+  margin: 1rem 0;
+}
+.RightTickIcon {
+  background-color: white;
+  height: 100%;
+  width: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}

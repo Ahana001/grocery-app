@@ -1,0 +1,183 @@
+:root {
+  --single-item-line-color: rgb(238, 238, 238);
+  --single-item-small-text-color: rgb(79, 79, 79);
+  --single-item-button-border-color: #979797;
+}
+.MenuItemDetailsContainer {
+  display: flex;
+}
+.MenuItemLeftSection {
+  flex: 5 1 0%;
+  border-right: 1px solid var(--single-item-line-color);
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.MenuItemLeftSection::-webkit-scrollbar {
+  display: none;
+}
+.MenuItemTopImageContainer {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--single-item-line-color);
+}
+.MenuItemRightSection {
+  flex: 4 1 0%;
+  position: sticky;
+  top: 90px;
+  bottom: 0px;
+  height: 100%;
+}
+.ZoomImageContainer {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  border: 1px solid var(--single-item-line-color);
+}
+
+.MenuItemRightDetailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.MenuItemDetailsName {
+  font-weight: 500;
+  font-size: 1.3rem;
+  height: 50px;
+}
+.MenuItemRightSection .MenuItemSelectedPrice {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.MenuItemNoteForTax {
+  font-weight: 400;
+  font-size: small;
+  color: var(--single-item-small-text-color);
+}
+.MenuItemRightSection .MenuItemSelectedUnit {
+  color: var(--single-item-small-text-color);
+}
+.AddToCartAndWishListContainer,
+.AddedToCartQuantitySelectorContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  height: 50px;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+.MenuItemQuantity {
+  color: var(--item-button-dark-color);
+  font-size: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MenuItemQuantitySelection {
+  height: 100%;
+  flex: 1;
+}
+.MenuItemQuantitySelection input,
+.IncreamentQuantityButton,
+.DecreamentQuantityButton {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--single-item-button-border-color);
+  box-sizing: border-box;
+  background-color: white;
+  outline: none;
+  border-radius: 5px;
+}
+.MenuItemQuantitySelection input:focus {
+  outline: none;
+}
+.AddToCartAndWishListContainer .MenuItemDetailsAddToCartButton {
+  height: 100%;
+  flex: 3;
+  border: 2px solid var(--item-button-dark-color);
+  color: var(--item-button-dark-color);
+  background: var(--item-button-light-color);
+  font-weight: 400;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.MenuItemDetailsAddToWishListButton {
+  height: 100%;
+  flex: 2;
+  border-radius: 5px;
+  border: 1px solid var(--single-item-button-border-color);
+  box-sizing: border-box;
+  background-color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: var(--single-item-button-border-color);
+}
+.IncreamentQuantityButton,
+.DecreamentQuantityButton {
+  flex: 1;
+  color: var(--item-button-dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.MenuItemQuantity {
+  flex: 2;
+}
+.AddedToCartQuantitySelectorContainer {
+  max-width: 200px;
+}
+.MenuDeliveryTimeContainer {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--single-item-button-border-color);
+  margin-top: 10px;
+}
+.MenuDeliveryTimeContainer .DeliveryIcon {
+  font-size: 20px;
+}
+.VariantSelectionHeader {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.VariantListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 12px;
+}
+.MenuItemSellerDetilsHeader {
+  font-size: 1.3rem;
+  margin: 15px 0px;
+  font-weight: 600;
+}
+.MenuItemSellerDetailsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-right: 4rem;
+  height: max-content;
+}

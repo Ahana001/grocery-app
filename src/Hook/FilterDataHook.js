@@ -7,22 +7,22 @@ export const useFilterDataHook = () => {
   const { filter, menuItems } = state;
   const { sortByPrice, currentSubCategory, rating, priceRange } = filter;
 
-  let filterMenuItems = menuItems;
+  let filteredMenuItems = menuItems;
   if (currentSubCategory !== "") {
-    filterMenuItems = filterMenuItems.filter(
+    filteredMenuItems = filteredMenuItems.filter(
       (menuItem) => menuItem.sub_category_id === currentSubCategory
     );
   }
 
   if (rating > 1) {
-    filterMenuItems = filterMenuItems.filter(
+    filteredMenuItems = filteredMenuItems.filter(
       (menuItem) => menuItem.rating >= rating
     );
   }
 
   if (priceRange.length > 0) {
-    filterMenuItems = priceRange.reduce((accumulator, { lower, upper }) => {
-      const menuItemInSideParticularRange = filterMenuItems.filter(
+    filteredMenuItems = priceRange.reduce((accumulator, { lower, upper }) => {
+      const menuItemInSideParticularRange = filteredMenuItems.filter(
         (menu_item) => {
           const itemVariantInsideRange = menu_item.item_variant.find(
             ({ price }) => price >= lower && price <= upper
@@ -41,7 +41,7 @@ export const useFilterDataHook = () => {
   if (sortByPrice !== "Relevance") {
     switch (sortByPrice) {
       case PriceFilter.HighToLow: {
-        filterMenuItems = filterMenuItems.sort((a, b) => {
+        filteredMenuItems = filteredMenuItems.sort((a, b) => {
           const findADefaultPrice = a.item_variant.find(
             (variant) => variant.default
           ).price;
@@ -53,7 +53,7 @@ export const useFilterDataHook = () => {
         break;
       }
       case PriceFilter.LowToHight: {
-        filterMenuItems = filterMenuItems.sort((a, b) => {
+        filteredMenuItems = filteredMenuItems.sort((a, b) => {
           const findADefaultPrice = a.item_variant.find(
             (variant) => variant.default
           ).price;
@@ -67,5 +67,5 @@ export const useFilterDataHook = () => {
     }
   }
 
-  return filterMenuItems;
+  return filteredMenuItems;
 };

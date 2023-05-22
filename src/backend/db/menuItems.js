@@ -148,7 +148,7 @@ export const menu_items = [
     ],
     veg_egg_non: "veg",
     image:
-      "https://res.cloudinary.com/dcu6sympq/image/upload/v1683920987/grocery/fresh_fruits/6_fnweje.avif",
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684614236/grocery/fresh_fruits/6_inflre.webp",
     rating: 4.1,
     delivery_time_in_mins: 20,
     item_variant: [
@@ -415,7 +415,8 @@ export const menu_items = [
     sub_category_id: "SC_5",
     benefits: [],
     veg_egg_non: "veg",
-    image: "",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924536/grocery/cookies/17_hdvfuw.webp",
     rating: 4.0,
     delivery_time_in_mins: 20,
     item_variant: [

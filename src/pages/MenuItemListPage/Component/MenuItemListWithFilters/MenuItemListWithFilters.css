@@ -1,0 +1,9 @@
+.MenuItemListWithFiltersContainer {
+  margin-top: 145px;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-areas: "left middle right";
+}
+.SubCategoryMenuItemLoader {
+  margin-top: 136px;
+}
