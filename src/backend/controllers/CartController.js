@@ -12,18 +12,28 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * send GET Request at /api/user/cart
  * */
 export const getCartItemsHandler = function (schema, request) {
-  const userId = requiresAuth.call(this, request);
-  if (!userId) {
+  try {
+    const userId = requiresAuth.call(this, request);
+    if (!userId) {
+      return new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    const userCart = schema.users.findBy({ _id: userId }).cart;
+    return new Response(200, {}, { cart: userCart });
+  } catch (error) {
     return new Response(
-      404,
+      500,
       {},
       {
-        errors: ["The email you entered is not Registered. Not Found error"],
+        error,
       }
     );
   }
-  const userCart = schema.users.findBy({ _id: userId }).cart;
-  return new Response(200, {}, { cart: userCart });
 };
 
 /**
@@ -46,15 +56,27 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { menuItem } = JSON.parse(request.requestBody);
-    userCart.push({
-      ...menuItem,
-      createdAt: formatDate(),
-      updatedAt: formatDate(),
-      qty: 1,
-    });
-    this.db.users.update({ _id: userId }, { cart: userCart });
+    const findMenuItemInCart = userCart.find(
+      (cartMenuItem) => cartMenuItem._id === menuItem._id
+    );
+    let updatedCart;
+    if (!findMenuItemInCart) {
+      userCart.push({
+        ...menuItem,
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+      });
+      updatedCart = userCart;
+    } else {
+      updatedCart = userCart.map((cartMenuItem) =>
+        cartMenuItem._id === menuItem._id ? menuItem : cartMenuItem
+      );
+    }
+
+    this.db.users.update({ _id: userId }, { cart: updatedCart });
     return new Response(201, {}, { cart: userCart });
   } catch (error) {
+    console.log(error);
     return new Response(
       500,
       {},
@@ -82,12 +104,13 @@ export const removeItemFromCartHandler = function (schema, request) {
         }
       );
     }
-    let userCart = schema.users.findBy({ _id: userId }).cart;
     const menuItemId = request.params.menuItemId;
+    let userCart = schema.users.findBy({ _id: userId }).cart;
     userCart = userCart.filter((item) => item._id !== menuItemId);
     this.db.users.update({ _id: userId }, { cart: userCart });
     return new Response(200, {}, { cart: userCart });
   } catch (error) {
+    console.log(error);
     return new Response(
       500,
       {},
@@ -105,7 +128,6 @@ export const removeItemFromCartHandler = function (schema, request) {
  * */
 
 export const updateCartItemHandler = function (schema, request) {
-  const menuItemId = request.params.menuItemId;
   const userId = requiresAuth.call(this, request);
   try {
     if (!userId) {
@@ -117,25 +139,19 @@ export const updateCartItemHandler = function (schema, request) {
         }
       );
     }
+    const menuItemId = request.params.menuItemId;
+    const { menuItem } = JSON.parse(request.requestBody);
+
     const userCart = schema.users.findBy({ _id: userId }).cart;
-    const { action } = JSON.parse(request.requestBody);
-    if (action.type === "increment") {
-      userCart.forEach((product) => {
-        if (product._id === menuItemId) {
-          product.qty += 1;
-          product.updatedAt = formatDate();
-        }
-      });
-    } else if (action.type === "decrement") {
-      userCart.forEach((product) => {
-        if (product._id === menuItemId) {
-          product.qty -= 1;
-          product.updatedAt = formatDate();
-        }
-      });
-    }
-    this.db.users.update({ _id: userId }, { cart: userCart });
-    return new Response(200, {}, { cart: userCart });
+    const updatedCart = userCart.map((cartMenuItem) => {
+      if (cartMenuItem._id === menuItemId) {
+        return menuItem;
+      } else {
+        return cartMenuItem;
+      }
+    });
+    this.db.users.update({ _id: userId }, { cart: updatedCart });
+    return new Response(200, {}, { cart: updatedCart });
   } catch (error) {
     return new Response(
       500,

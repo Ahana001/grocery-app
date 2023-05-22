@@ -5,6 +5,8 @@ import { MenuItemListPage } from "./pages/MenuItemListPage/MenuItemListPage";
 import { SingleMenuItemPage } from "./pages/SingleMenuItemPage/SingleMenuItemPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
+import { UserProfile } from "./pages/UserProfilePage/UserProfilePage";
+import { CartPage } from "./pages/CartPage/CartPage";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         ></Route>
         <Route path="/user/login" element={<LoginPage />}></Route>
         <Route path="/user/signup" element={<SignUpPage />}></Route>
+        <Route path="/user/account" element={<UserProfile />}></Route>
+        <Route path="/user/cart" element={<CartPage />}></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
     </div>

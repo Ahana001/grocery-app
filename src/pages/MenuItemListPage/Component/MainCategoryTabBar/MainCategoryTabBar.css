@@ -9,7 +9,6 @@
   box-shadow: 0 8px 6px -6px rgba(99, 99, 99, 0.2);
   text-align: center;
   background: white;
-  z-index: 1;
   height: 50px;
   box-sizing: border-box;
 }

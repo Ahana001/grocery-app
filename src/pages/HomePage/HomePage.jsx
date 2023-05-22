@@ -1,6 +1,6 @@
 import "./HomePage.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { DataContext } from "../../context/DataContext";
 import { Loader } from "../../component/Loader/Loader";
@@ -10,7 +10,9 @@ import { MainCategoryList } from "./Component/MainCategoryList/MainCategoryList"
 
 export function HomePage() {
   const { loader } = useContext(DataContext);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
       <Navbar />

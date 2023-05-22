@@ -50,6 +50,7 @@
 .MenuItemDetailsName {
   font-weight: 500;
   font-size: 1.3rem;
+  height: 50px;
 }
 .MenuItemRightSection .MenuItemSelectedPrice {
   font-weight: 500;
@@ -67,10 +68,19 @@
 .AddedToCartQuantitySelectorContainer {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 5px;
   height: 50px;
   max-width: 400px;
   box-sizing: border-box;
+}
+.MenuItemQuantity {
+  color: var(--item-button-dark-color);
+  font-size: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .MenuItemQuantitySelection {
   height: 100%;

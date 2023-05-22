@@ -43,7 +43,6 @@ export function FilterStack() {
     });
   }
   function filterByRatingHandler(e) {
-    console.log(e.target.value);
     dispatch({
       type: ActionTypes.ChangeFilter,
       payload: {

@@ -1,0 +1,13 @@
+.CartPageContainer {
+  display: flex;
+  margin: 0px 50px;
+  margin-top: 86px;
+}
+.LeftCartItemListContainer {
+  flex: 1;
+  border: 1px solid red;
+}
+.RightCartBillContainer {
+  flex: 1;
+  border: 1px solid green;
+}

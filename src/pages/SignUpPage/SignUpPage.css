@@ -1,75 +1,77 @@
-.SignUpPageContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+:root {
+  --signup-border-color: rgb(238, 238, 238);
+  --signup-dark-color: rgb(12, 131, 31);
+  --signup-light-color: rgb(247, 255, 249);
+  --signup-bg-color: #f4f4f4;
 }
-.SignUpForm,
-.SignUpFormBorder {
+.SignUpPageContainer {
+  margin-top: 40px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem;
 }
 .SignUpForm {
-  gap: 12px;
-  padding: 4rem;
-  background-color: #f4f4f4;
-}
-.SignUpFormBorder {
-  padding: 1rem;
-  border: 1px solid rgb(238, 238, 238);
-}
-.SignUpFormHeader {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: rgb(12, 131, 31);
-  margin-bottom: 50px;
-}
-.SignUpFormEmailContainer,
-.SignUpFormPasswordContainer {
-  align-self: flex-start;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
-.SignUpFormEmailContainer input,
-.SignUpFormPasswordContainer input {
-  font-size: 1.1rem;
-  border: 1px solid rgb(238, 238, 238);
+.SignUpPageContainer {
+  margin-top: 120px;
+}
+.SignUpFormBorder {
+  border: 1px solid var(--signup-border-color);
+  padding: 1rem;
+}
+.SignUpForm {
+  gap: 18px;
+  background-color: var(--signup-bg-color);
+  min-width: 400px;
+}
+.SignUpFormNameContainer,
+.SignUpFormEmailContainer,
+.SignUpFormPasswordContainer,
+.SignUpFormConfirmPasswordContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+}
+.SignUpForm input {
+  border: 1px solid var(--signup-border-color);
+  padding: 0.5rem;
   outline: none;
-  border-radius: 0.3rem;
-  padding: 5px;
 }
-.SignUpFormEmailContainer label,
-.SignUpFormPasswordContainer label {
+.SignUpForm input:focus {
+  outline: 1px solid var(--signup-dark-color);
+}
+.SignUpForm label {
   font-weight: 500;
 }
-.SignUpFormEmailContainer input:focus {
-  border: 1px solid rgb(12, 131, 31);
-  outline: none;
+.SignUpFormHeader {
+  color: var(--signup-dark-color);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
-
-.SignUpFormPasswordContainer input:focus {
-  border: 1px solid rgb(12, 131, 31);
-  outline: none;
+.LoginLink {
+  padding: 1rem;
 }
 .SignUpForm button {
-  margin-top: 18px;
-  padding: 10px 0px;
-  border-radius: 0.3rem;
-  background-color: rgb(247, 255, 249);
-  color: rgb(12, 131, 31);
-  border: 1px solid rgb(12, 131, 31);
-  width: 100%;
-  cursor: pointer;
+  color: var(--signup-dark-color);
+  border: 1px solid var(--signup-dark-color);
+  background-color: var(--signup-light-color);
+  padding: 10px;
+  width: 80%;
   text-transform: uppercase;
-  font-weight: 600;
-}
-.LoginLink span {
-  color: rgb(12, 131, 31);
   font-weight: 500;
   cursor: pointer;
-  user-select: none;
+}
+.LoginLink span {
+  color: var(--signup-dark-color);
   margin-left: 5px;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
 }

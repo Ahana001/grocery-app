@@ -1,5 +1,5 @@
 .MenuItemListWithFiltersContainer {
-  margin-top: 136px;
+  margin-top: 145px;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   grid-template-areas: "left middle right";

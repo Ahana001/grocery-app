@@ -8,8 +8,9 @@
   margin-top: 15px;
 }
 .MainCategoryContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   cursor: pointer;
   margin-top: 15px;
 }

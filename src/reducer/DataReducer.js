@@ -24,9 +24,21 @@ export function DataReducer(state, action) {
           ...state,
           menuItems: action.payload.menuItems.map((menuItem) => ({
             ...menuItem,
-            carted: false,
-            wished: false,
-            quantity: 0,
+            item_variant: menuItem.item_variant.map((variant) =>
+              variant.default
+                ? {
+                    ...variant,
+                    carted: false,
+                    selected: true,
+                    quantity: 0,
+                  }
+                : {
+                    ...variant,
+                    carted: false,
+                    selected: false,
+                    quantity: 0,
+                  }
+            ),
           })),
         };
       }
@@ -82,6 +94,30 @@ export function DataReducer(state, action) {
         };
       }
       break;
+    }
+    case ActionTypes.SetCartList: {
+      result = {
+        ...state,
+        cartlist: action.payload.cart,
+      };
+      break;
+    }
+    case ActionTypes.ChangeItem: {
+      const changeMenuItemProperties = state.menuItems.map((menu_item) =>
+        menu_item._id === action.payload.menuItem._id
+          ? action.payload.menuItem
+          : menu_item
+      );
+      return {
+        ...state,
+        menuItems: [...changeMenuItemProperties],
+      };
+    }
+    case ActionTypes.SetMenuItems: {
+      return {
+        ...state,
+        menuItems: action.payload.menuItems,
+      };
     }
   }
   return result;

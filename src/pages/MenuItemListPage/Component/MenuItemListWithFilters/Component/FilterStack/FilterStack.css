@@ -8,6 +8,7 @@
   flex-direction: column;
   grid-area: right;
   height: calc(100vh - 151px);
+  z-index: -1;
   position: sticky;
 }
 .SubCategoryDisk {
