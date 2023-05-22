@@ -15,7 +15,6 @@
   overflow-y: auto;
   position: sticky;
   grid-area: left;
-  z-index: -1;
 }
 .SubCategoryDisk {
   display: flex;

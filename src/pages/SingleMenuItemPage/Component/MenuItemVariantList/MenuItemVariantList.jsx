@@ -11,22 +11,26 @@ export function MenuItemVariantList({ menuItem, variant, selectedVariant }) {
     <div
       className="MenuItemVariantList"
       onClick={() => {
+        menuItem.item_variant = menuItem.item_variant.map((variant) =>
+          variant._id === _id
+            ? { ...variant, selected: true }
+            : { ...variant, selected: false }
+        );
+
         dispatch({
           type: ActionTypes.ChangeItem,
           payload: {
-            menuItem: {
-              ...menuItem,
-              item_variant: menuItem.item_variant.map((variant) =>
-                variant._id === _id
-                  ? { ...variant, selected: true }
-                  : { ...variant, selected: false }
-              ),
-            },
+            menuItem: menuItem,
           },
         });
       }}
       style={{
-        backgroundColor: selectedVariant._id === _id ? "#86cb86" : "white",
+        backgroundColor: variant.in_stock
+          ? selectedVariant._id === _id
+            ? "#86cb86"
+            : "white"
+          : "#f4f4f4",
+        pointerEvents: variant.in_stock ? "all" : "none",
       }}
     >
       <div className="MenuItemUnit">{unit}</div>
@@ -37,6 +41,7 @@ export function MenuItemVariantList({ menuItem, variant, selectedVariant }) {
           backgroundColor:
             selectedVariant._id === _id ? "rgb(12, 131, 31)" : "white",
           color: selectedVariant._id === _id ? " white" : "black",
+          pointerEvents: variant.in_stock ? "all" : "none",
         }}
       >
         <TiTick />

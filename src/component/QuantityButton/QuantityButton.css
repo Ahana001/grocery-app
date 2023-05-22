@@ -1,0 +1,20 @@
+.QuantityContainer {
+  display: flex;
+  background-color: var(--cart-button-light-color);
+  width: 4rem;
+  height: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-radius: 0.3rem;
+  margin-right: 10px;
+  font-weight: 500;
+}
+.Decreament,
+.Increament {
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: var(--cart-button-light-color);
+  border: none;
+  outline: none;
+}

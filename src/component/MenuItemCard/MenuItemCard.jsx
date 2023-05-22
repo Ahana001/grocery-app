@@ -64,14 +64,14 @@ export function MenuItemCard({
   }
   const itemAvailability = menuItemPriceAndUnit?.in_stock ? "" : "OutOfStock";
   return (
-    <div
-      className={`MenuItemContainer ${itemAvailability}`}
-      onClick={() => {
-        selectMenuItemHandler(_id);
-      }}
-    >
+    <div className={`MenuItemContainer ${itemAvailability}`}>
       <div className="LikeIconContainer"></div>
-      <div className="MenuItemImageTop">
+      <div
+        className="MenuItemImageTop"
+        onClick={() => {
+          selectMenuItemHandler(_id);
+        }}
+      >
         <img src={image} alt={name} />
       </div>
       <div className="MenuItemDetailsBottom">

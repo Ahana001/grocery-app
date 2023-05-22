@@ -5,19 +5,21 @@ import { useContext, useState } from "react";
 
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthContext";
+import { DataContext } from "../../context/DataContext";
 
 export function Navbar() {
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser, LogOutHandler } = useContext(AuthContext);
+  const { state } = useContext(DataContext);
 
   function userProfileOnClickHandler() {
     navigate("/user/login", { state: { from: location } });
   }
   function userCartOnClickHandler() {
     if (currentUser.token) {
-      navigate("/user/cart");
+      navigate("/user/cart", { state: { from: location } });
     } else {
       navigate("/user/login", { state: { from: location } });
     }
@@ -98,7 +100,9 @@ export function Navbar() {
             <FaShoppingCart />
           </div>
           <div className="CartText" onClick={userCartOnClickHandler}>
-            Cart
+            {state.cartlist.length === 0
+              ? "My Cart"
+              : `${state.cartlist.length} items`}
           </div>
         </div>
       </div>

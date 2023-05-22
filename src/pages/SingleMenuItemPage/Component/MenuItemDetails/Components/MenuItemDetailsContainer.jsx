@@ -24,6 +24,9 @@ export function MenuItemDetailsContainer({ menuItem }) {
   async function AddToCartHandler() {
     if (selectedVariant.quantity > 0 && selectedVariant.quantity <= 5) {
       if (currentUser.token) {
+        const isMenuItemIsCarted = menuItem.item_variant.find(
+          (variant) => variant.carted
+        );
         menuItem.item_variant = menuItem.item_variant.map((variant) =>
           variant._id === selectedVariant._id
             ? { ...variant, carted: true, quantity: selectedVariant.quantity }
@@ -35,12 +38,20 @@ export function MenuItemDetailsContainer({ menuItem }) {
             menuItem: menuItem,
           },
         });
-        const response = await addToCartRequest(menuItem, currentUser.token);
-        if (response?.status === 201) {
+        let cartResponse;
+        if (isMenuItemIsCarted) {
+          cartResponse = await changeCartQuantityRequest(
+            menuItem,
+            currentUser.token
+          );
+        } else {
+          cartResponse = await addToCartRequest(menuItem, currentUser.token);
+        }
+        if (cartResponse?.status === 201 || cartResponse?.status === 200) {
           dispatch({
             type: ActionTypes.SetCartList,
             payload: {
-              cart: response.data.cart,
+              cart: cartResponse.data.cart,
             },
           });
         }
