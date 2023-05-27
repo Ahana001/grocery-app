@@ -32,7 +32,7 @@ export const getAllSubCategoriesHandler = function () {
 export const getSubCategoryHandler = function (schema, request) {
   const subCategoryId = request.params.subCategoryId;
   try {
-    const subCategory = schema.subcategories.findBy({
+    const subCategory = schema.subCategories.findBy({
       _id: subCategoryId,
     });
     return new Response(200, {}, { subCategory });

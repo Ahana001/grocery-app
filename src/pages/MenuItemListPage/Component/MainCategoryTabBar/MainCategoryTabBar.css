@@ -3,20 +3,36 @@
 }
 .MainCategoryTabContainer {
   position: fixed;
-  top: 86px;
-  right: 0px;
-  left: 0px;
-  box-shadow: 0 8px 6px -6px rgba(99, 99, 99, 0.2);
+  top: 8.6rem;
+  right: 0rem;
+  left: 0rem;
+  box-shadow: 0 0.8rem 0.6rem -0.6rem rgba(99, 99, 99, 0.2);
   text-align: center;
   background: white;
-  height: 50px;
+  height: 5rem;
   box-sizing: border-box;
+  font-size: 1.5rem;
+  z-index: 99;
 }
 .MainCategoryTab {
   display: inline-block;
-  padding: 14px 13px;
+  padding: 1.6rem 1.3rem;
 }
 .MainCategoryTab:hover {
   cursor: pointer;
   background-color: var(--tabbar-bg-color);
+}
+@media (max-width: 1024px) {
+  .MainCategoryTabContainer {
+    overflow-x: scroll;
+    z-index: 100;
+  }
+  .MainCategoryTabContainer {
+    top: 14.3rem;
+  }
+}
+@media (max-width: 925px) {
+  .MainCategoryTabContainer {
+    display: none;
+  }
 }

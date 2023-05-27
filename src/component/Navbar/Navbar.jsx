@@ -3,7 +3,8 @@ import "./Navbar.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaRegUserCircle } from "react-icons/fa";
+import { BiArrowBack } from "react-icons/bi";
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
 import { ActionTypes } from "../../reducer/types";
@@ -25,6 +26,13 @@ export function Navbar() {
       navigate("/user/login", { state: { from: location } });
     }
   }
+  function SmallViewUserProfileHandler() {
+    if (currentUser.token) {
+      navigate("/user/account", { state: { from: location } });
+    } else {
+      navigate("/user/login", { state: { from: location } });
+    }
+  }
 
   return (
     <header className="NavContainer">
@@ -35,18 +43,38 @@ export function Navbar() {
           </div>
         </div>
         <div className="VerticleDivider"></div>
-        <div className="LocationContainer">
-          <div>Delivery in 19 minutes</div>
-          <div className="LocationDetail">Ahmedabad, Gujarat, India</div>
-        </div>
       </div>
-      <div className="SearchContainer">
-        <div className="SearchBox">
-          <div className="SearchIcon">
-            <FaSearch />
+      <div className="LocationAndSearchContainer">
+        <div className="LocationAndProfileContainer">
+          <div className="BackArrowAndLocationContainer">
+            {location.pathname === "/" ? (
+              <></>
+            ) : (
+              <div className="BackButtonContainer">
+                <BiArrowBack onClick={() => navigate(-1)} />
+              </div>
+            )}
+            <div className="LocationContainer">
+              <div>Delivery in 19 minutes</div>
+              <div className="LocationDetail">Ahmedabad, Gujarat, India</div>
+            </div>
           </div>
-          <div className="SearchAnimatedContainer">
-            <div className="AnimatedSearchText">Search</div>
+          <div className="SmallNavRightContainer">
+            {location.pathname === "/" ? (
+              <FaRegUserCircle onClick={SmallViewUserProfileHandler} />
+            ) : (
+              <FaSearch />
+            )}
+          </div>
+        </div>
+        <div className="SearchContainer">
+          <div className="SearchBox">
+            <div className="SearchIcon">
+              <FaSearch />
+            </div>
+            <div className="SearchAnimatedContainer">
+              <div className="AnimatedSearchText">Search</div>
+            </div>
           </div>
         </div>
       </div>
@@ -63,7 +91,12 @@ export function Navbar() {
               </div>
               <div
                 className="UserProfileDropDownContent"
-                style={{ display: dropdownVisibility ? "block" : "none" }}
+                style={{
+                  display: dropdownVisibility ? "block" : "none",
+                  top: location.pathname.includes("main_category")
+                    ? "10.5rem"
+                    : "5rem",
+                }}
               >
                 <div className="UserProfileName">
                   {currentUser.user.firstName}
@@ -72,7 +105,7 @@ export function Navbar() {
                   <li onClick={() => navigate("/user/account/orders")}>
                     My Orders
                   </li>
-                  <li onClick={() => navigate("/user/account/addresses")}>
+                  <li onClick={() => navigate("/user/account/address")}>
                     Saved Address
                   </li>
                   <li

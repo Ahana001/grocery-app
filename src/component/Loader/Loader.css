@@ -9,11 +9,11 @@
   align-items: center;
 }
 .HomeLoaderContainer .Loarder {
-  height: 80px;
-  width: 80px;
+  height: 8rem;
+  width: 8rem;
   border-radius: 50%;
-  border: 14px solid var(--loader-bg-color);
-  border-top: 14px solid var(--loader-thumb-color);
+  border: 1.4rem solid var(--loader-bg-color);
+  border-top: 1.4rem solid var(--loader-thumb-color);
   animation: rotateLoader 1s ease-in infinite;
 }
 @keyframes rotateLoader {

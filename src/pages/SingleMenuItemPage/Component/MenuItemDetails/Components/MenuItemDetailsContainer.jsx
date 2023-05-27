@@ -13,13 +13,30 @@ import { DataContext } from "../../../../../context/DataContext";
 import { ActionTypes } from "../../../../../reducer/types";
 
 export function MenuItemDetailsContainer({ menuItem }) {
-  const { dispatch } = useContext(DataContext);
+  const { dispatch, state } = useContext(DataContext);
   const { currentUser } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const selectedVariant = menuItem.item_variant.find(
     (variant) => variant.selected
   );
+  const defaultVarint = menuItem.item_variant.find(
+    (variant) => variant.default
+  );
+
+  let findMainCategory = {
+    _id: "",
+    name: "",
+  };
+  const currentSubCategoryId = menuItem.sub_category_id;
+  const findSubCategory = state.subCategories.find(
+    (subCategory) => subCategory._id === currentSubCategoryId
+  );
+  if (findSubCategory) {
+    findMainCategory = state.mainCategories.find(
+      (mainCategory) => mainCategory._id === findSubCategory.main_category_id
+    );
+  }
 
   async function AddToCartHandler() {
     if (selectedVariant.quantity > 0 && selectedVariant.quantity <= 5) {
@@ -64,170 +81,187 @@ export function MenuItemDetailsContainer({ menuItem }) {
   return (
     <div className="MenuItemRightDetailContainer">
       <div className="MenuItemPathContainer">
-        Home / subCategory / Menu Item
+        <span onClick={() => navigate("/")}>Home</span> /
+        <span
+          onClick={() =>
+            navigate(`/main_category/${findMainCategory._id.slice(3)}`)
+          }
+        >
+          {findMainCategory.name}
+        </span>
+        /<span>{menuItem.name}</span>
       </div>
       <div className="MenuItemDetailsName">
         {menuItem.name} - {selectedVariant.unit}
       </div>
-      <div className="MenuItemSelectedPrice">
-        <div>RS. {selectedVariant.price}</div>
-        <div className="MenuItemNoteForTax">
-          <em>(Inclusive of all taxes)</em>
-        </div>
-      </div>
       <div className="MenuItemSelectedUnit">{selectedVariant.unit}</div>
-      {selectedVariant.quantity > 0 && selectedVariant.carted ? (
-        <div className="AddedToCartQuantitySelectorContainer">
-          <div
-            className="IncreamentQuantityButton"
-            onClick={async () => {
-              menuItem.item_variant = menuItem.item_variant.map((variant) =>
-                variant.selected && variant.quantity < 5
-                  ? { ...variant, quantity: variant.quantity + 1 }
-                  : variant
-              );
-              dispatch({
-                type: ActionTypes.ChangeItem,
-                payload: {
-                  menuItem: menuItem,
-                },
-              });
-              const response = await changeCartQuantityRequest(
-                menuItem,
-                currentUser.token
-              );
-              if (response?.status === 200) {
-                dispatch({
-                  type: ActionTypes.SetCartList,
-                  payload: {
-                    cart: response.data.cart,
-                  },
-                });
-              }
-            }}
-          >
-            +
+      {defaultVarint.in_stock ? (
+        <>
+          <div className="MenuItemSelectedPrice">
+            <div>RS. {selectedVariant.price}</div>
+            <div className="MenuItemNoteForTax">
+              <em>(Inclusive of all taxes)</em>
+            </div>
           </div>
-          <div className="MenuItemQuantity">{selectedVariant.quantity}</div>
-          <div
-            className="DecreamentQuantityButton"
-            onClick={async () => {
-              (menuItem.item_variant = menuItem.item_variant.map((variant) =>
-                variant.selected && variant.quantity > 0
-                  ? {
-                      ...variant,
-                      quantity: variant.quantity - 1,
-                      ...(variant.quantity - 1 === 0 ? { carted: false } : {}),
-                    }
-                  : variant
-              )),
-                dispatch({
-                  type: ActionTypes.ChangeItem,
-                  payload: {
-                    menuItem: menuItem,
-                  },
-                });
-              const itemHaveAtOneCartedVariant = menuItem.item_variant.find(
-                (variant) => variant.carted
-              );
-              if (itemHaveAtOneCartedVariant) {
-                const response = await changeCartQuantityRequest(
-                  menuItem,
-                  currentUser.token
-                );
-                if (response?.status === 200) {
-                  dispatch({
-                    type: ActionTypes.SetCartList,
-                    payload: {
-                      cart: response.data.cart,
-                    },
-                  });
-                }
-              } else {
-                const response = await removeMenuItemFromCartRequest(
-                  menuItem,
-                  currentUser.token
-                );
-                if (response?.status === 200) {
-                  dispatch({
-                    type: ActionTypes.SetCartList,
-                    payload: {
-                      cart: response.data.cart,
-                    },
-                  });
-                }
-              }
-            }}
-          >
-            -
-          </div>
-        </div>
-      ) : (
-        <div className="AddToCartAndWishListContainer">
-          <div className="MenuItemQuantitySelection">
-            <input
-              type="number"
-              min={1}
-              max={5}
-              value={selectedVariant.quantity}
-              onChange={(e) => {
-                if (
-                  Math.abs(e.target.value) > 0 &&
-                  Math.abs(e.target.value) < 5
-                ) {
+          {selectedVariant.quantity > 0 && selectedVariant.carted ? (
+            <div className="AddedToCartQuantitySelectorContainer">
+              <div
+                className="IncreamentQuantityButton"
+                onClick={async () => {
+                  menuItem.item_variant = menuItem.item_variant.map((variant) =>
+                    variant.selected && variant.quantity < 5
+                      ? { ...variant, quantity: variant.quantity + 1 }
+                      : variant
+                  );
                   dispatch({
                     type: ActionTypes.ChangeItem,
                     payload: {
-                      menuItem: {
-                        ...menuItem,
-                        item_variant: menuItem.item_variant.map((variant) =>
-                          variant.selected
-                            ? { ...variant, quantity: +e.target.value }
-                            : variant
-                        ),
-                      },
+                      menuItem: menuItem,
                     },
                   });
-                }
-              }}
-            />
-          </div>
-          <div
-            className="MenuItemDetailsAddToCartButton"
-            onClick={AddToCartHandler}
-          >
-            Add To Basket
-          </div>
-          <div className="MenuItemDetailsAddToWishListButton">Save</div>
-        </div>
-      )}
-
-      <div className="MenuDeliveryTimeContainer">
-        <div className="DeliveryIcon">
-          <BsTruck />
-        </div>
-        <div className="DeliveryTimeInDay">
-          {menuItem.delivery_time_in_mins} MINS
-        </div>
-      </div>
-      <div className="MenuItemVariantSelectionContainer">
-        {menuItem.item_variant.length > 1 && (
-          <div className="VariantSelectionHeader">Pack Sizes</div>
-        )}
-        <div className="VariantListContainer">
-          {menuItem.item_variant.length > 1 &&
-            menuItem.item_variant.map((variant) => {
-              return (
-                <MenuItemVariantList
-                  key={variant._id}
-                  variant={variant}
-                  menuItem={menuItem}
-                  selectedVariant={selectedVariant}
+                  const response = await changeCartQuantityRequest(
+                    menuItem,
+                    currentUser.token
+                  );
+                  if (response?.status === 200) {
+                    dispatch({
+                      type: ActionTypes.SetCartList,
+                      payload: {
+                        cart: response.data.cart,
+                      },
+                    });
+                  }
+                }}
+              >
+                +
+              </div>
+              <div className="MenuItemQuantity">{selectedVariant.quantity}</div>
+              <div
+                className="DecreamentQuantityButton"
+                onClick={async () => {
+                  (menuItem.item_variant = menuItem.item_variant.map(
+                    (variant) =>
+                      variant.selected && variant.quantity > 0
+                        ? {
+                            ...variant,
+                            quantity: variant.quantity - 1,
+                            ...(variant.quantity - 1 === 0
+                              ? { carted: false }
+                              : {}),
+                          }
+                        : variant
+                  )),
+                    dispatch({
+                      type: ActionTypes.ChangeItem,
+                      payload: {
+                        menuItem: menuItem,
+                      },
+                    });
+                  const itemHaveAtOneCartedVariant = menuItem.item_variant.find(
+                    (variant) => variant.carted
+                  );
+                  if (itemHaveAtOneCartedVariant) {
+                    const response = await changeCartQuantityRequest(
+                      menuItem,
+                      currentUser.token
+                    );
+                    if (response?.status === 200) {
+                      dispatch({
+                        type: ActionTypes.SetCartList,
+                        payload: {
+                          cart: response.data.cart,
+                        },
+                      });
+                    }
+                  } else {
+                    const response = await removeMenuItemFromCartRequest(
+                      menuItem,
+                      currentUser.token
+                    );
+                    if (response?.status === 200) {
+                      dispatch({
+                        type: ActionTypes.SetCartList,
+                        payload: {
+                          cart: response.data.cart,
+                        },
+                      });
+                    }
+                  }
+                }}
+              >
+                -
+              </div>
+            </div>
+          ) : (
+            <div className="AddToCartAndWishListContainer">
+              <div className="MenuItemQuantitySelection">
+                <input
+                  type="number"
+                  min={1}
+                  max={5}
+                  value={selectedVariant.quantity}
+                  onChange={(e) => {
+                    if (
+                      Math.abs(e.target.value) > 0 &&
+                      Math.abs(e.target.value) < 5
+                    ) {
+                      dispatch({
+                        type: ActionTypes.ChangeItem,
+                        payload: {
+                          menuItem: {
+                            ...menuItem,
+                            item_variant: menuItem.item_variant.map((variant) =>
+                              variant.selected
+                                ? { ...variant, quantity: +e.target.value }
+                                : variant
+                            ),
+                          },
+                        },
+                      });
+                    }
+                  }}
                 />
-              );
-            })}
-        </div>
-      </div>
+              </div>
+              <div
+                className="MenuItemDetailsAddToCartButton"
+                onClick={AddToCartHandler}
+              >
+                Add To Basket
+              </div>
+              <div className="MenuItemDetailsAddToWishListButton">Save</div>
+            </div>
+          )}
+
+          <div className="MenuDeliveryTimeContainer">
+            <div className="DeliveryIcon">
+              <BsTruck />
+            </div>
+            <div className="DeliveryTimeInDay">
+              {menuItem.delivery_time_in_mins} MINS
+            </div>
+          </div>
+          <div className="MenuItemVariantSelectionContainer">
+            {menuItem.item_variant.length > 1 && (
+              <div className="VariantSelectionHeader">Pack Sizes</div>
+            )}
+            <div className="VariantListContainer">
+              {menuItem.item_variant.length > 1 &&
+                menuItem.item_variant.map((variant) => {
+                  return (
+                    <MenuItemVariantList
+                      key={variant._id}
+                      variant={variant}
+                      menuItem={menuItem}
+                      selectedVariant={selectedVariant}
+                    />
+                  );
+                })}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="SingleMenuItemOutOfStock">out of stock</div>
+      )}
     </div>
   );
 }

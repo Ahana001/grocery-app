@@ -10,9 +10,9 @@ export async function getAllMenuItemRequest() {
     console.log(error);
   }
 }
-export async function getParticularMenuItemRequest(id) {
+export async function getAllMainCategoriesRequest() {
   try {
-    const response = await axios.get(`/api/menu_item/${id}`);
+    const response = await axios.get("/api/main_categories");
     if (response.status === 200) {
       return response;
     }
@@ -20,9 +20,9 @@ export async function getParticularMenuItemRequest(id) {
     console.log(error);
   }
 }
-export async function getAllMainCategoriesRequest() {
+export async function getParticularMainCategoriesRequest(id) {
   try {
-    const response = await axios.get("/api/main_categories");
+    const response = await axios.get(`/api/main_category/${id}`);
     if (response.status === 200) {
       return response;
     }
@@ -40,6 +40,7 @@ export async function getAllSubCategoriesRequest() {
     console.log(error);
   }
 }
+
 export async function loginRequest(email, password) {
   try {
     const response = await axios.post("/api/auth/login", { email, password });
@@ -136,6 +137,60 @@ export async function removeMenuItemFromCartRequest(menuItem, token) {
 export async function getCartRequest(token) {
   try {
     const response = await axios.get("/api/user/cart", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function AddAddressToAddressList(address, token) {
+  try {
+    const response = await axios.post(
+      "/api/user/address",
+      {
+        address,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (response.status === 201) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function updatedAddressToAddressList(updatedAddress, token) {
+  try {
+    const response = await axios.post(
+      `/api/user/address/${updatedAddress._id}`,
+      {
+        address: updatedAddress,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function removeAddressFromAddressList(id, token) {
+  try {
+    const response = await axios.delete(`/api/user/address/${id}`, {
       headers: {
         authorization: token,
       },

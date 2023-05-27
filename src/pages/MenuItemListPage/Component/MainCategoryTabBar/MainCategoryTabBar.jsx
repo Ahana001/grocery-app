@@ -13,7 +13,6 @@ export function MainCategoryTabBar() {
   function ChangeMainCategoryHandler(id) {
     navigate(`/main_category/${id}`);
   }
-
   return (
     <>
       <div className="MainCategoryTabContainer">

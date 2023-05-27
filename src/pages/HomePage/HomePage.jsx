@@ -10,14 +10,16 @@ import { MainCategoryList } from "./Component/MainCategoryList/MainCategoryList"
 
 export function HomePage() {
   const { loader } = useContext(DataContext);
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
   return (
     <>
       <Navbar />
       {loader ? (
-        <Loader height="100vh" size="80px" />
+        <Loader height="100vh" size="8rem" />
       ) : (
         <div className="HomePageContainer">
           <Banner />

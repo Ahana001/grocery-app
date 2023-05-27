@@ -4,4 +4,5 @@ export const MainCategoriesCardColor = [
   "#9aceaa",
   "#be8055",
   "#ffb940",
+  "#A471C4",
 ];

@@ -2,15 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  width: 200px;
+  justify-content: center;
+  padding: 1rem;
+  width: 28rem;
   background-color: #9aceaa;
-  border-radius: 10px;
-  margin-top: 15px;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
 }
 .MainCategoryCardContainer img {
-  height: 120px;
-  width: 120px;
+  height: 14rem;
+  width: 14rem;
 }
 .MainCategoryCardContainer div {
   align-self: flex-start;
@@ -24,17 +25,87 @@
     content: "";
     position: absolute;
     z-index: -1;
-    top: -12px;
-    right: -12px;
+    top: -1.6rem;
+    right: -1.6rem;
     background: white;
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 4.5rem;
     transition: transform 0.25s ease-out;
     opacity: 0.3;
   }
 
   &:hover:before {
     transform: scale(17);
+  }
+}
+
+@media (max-width: 1024px) {
+  .MainCategoryCardContainer {
+    width: 20rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+@media (max-width: 798px) {
+  .MainCategoryCardContainer {
+    width: 16rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .MainCategoryCardContainer:before {
+    transition: none;
+  }
+}
+@media (max-width: 640px) {
+  .MainCategoryCardContainer {
+    width: 16rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 10rem;
+    width: 10rem;
+  }
+  .MainCategoryCardContainer:before {
+    display: none;
+  }
+}
+@media (max-width: 595px) {
+  .MainCategoryCardContainer {
+    width: 10rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 8rem;
+    width: 8rem;
+  }
+}
+@media (max-width: 430px) {
+  .MainCategoryCardContainer {
+    width: 15rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 9rem;
+    width: 9rem;
+  }
+}
+@media (max-width: 395px) {
+  .MainCategoryCardContainer {
+    width: 12rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 8rem;
+    width: 8rem;
+  }
+}
+@media (width <= 309px) {
+  .MainCategoryCardContainer {
+    width: 8rem;
+  }
+  .MainCategoryCardContainer img {
+    height: 8rem;
+    width: 8rem;
   }
 }

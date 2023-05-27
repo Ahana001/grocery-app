@@ -50,7 +50,12 @@ export function CartPage() {
           <div
             className="EmptyCartShoppingBtn"
             onClick={() =>
-              navigate(location?.state?.from.pathname || "/", { replace: true })
+              navigate(
+                location?.state?.from?.pathname?.includes("/user/account")
+                  ? "/"
+                  : location?.state?.from.pathname || "/",
+                { replace: true }
+              )
             }
           >
             Start Shopping
@@ -64,7 +69,6 @@ export function CartPage() {
       <Navbar />
       <div className="CartPageContainer">
         <div className="LeftCartItemListContainer">
-          <div>CONTINUE SHOPPING</div>
           <div className="FinalDeliveryTime">
             <div className="DeliveryTimeIcon">
               <img src="../images/clock.png" alt="clock" />
@@ -95,10 +99,6 @@ export function CartPage() {
               <li>
                 <div className="BillListHeader">MRP</div>
                 <div>Rs. {parseFloat(getCartTotal().total).toFixed(2)}</div>
-              </li>
-              <li>
-                <div className="BillListHeader">Coupon Discount</div>
-                <div>Rs. 00.00</div>
               </li>
               <li>
                 <div className="BillListHeader">Delivery charge</div>

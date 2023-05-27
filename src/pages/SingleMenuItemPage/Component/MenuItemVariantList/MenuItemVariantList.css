@@ -5,22 +5,22 @@
 }
 .MenuItemVariantList {
   display: flex;
-  height: 50px;
+  height: 5rem;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border: 1px solid var(--variant-line-color);
-  border-radius: 5px;
+  border: 0.1rem solid var(--variant-line-color);
+  border-radius: 0.5rem;
 }
 .MenuItemUnit {
   width: 27%;
-  margin: 1rem 0 1rem 1rem;
+  margin: 0.1rem 0 1rem 1rem;
   flex-grow: 0;
   font-weight: 600;
 }
 .MenuItemPrice {
   flex-grow: 1;
-  margin: 1rem 0;
+  margin: 0.1rem 0;
 }
 .RightTickIcon {
   background-color: white;
@@ -29,5 +29,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+@media (max-width: 640px) {
+  .MenuItemUnit {
+    width: 35%;
+  }
+}
+
+@media (width <= 395px) {
+  .MenuItemUnit {
+    width: 45%;
+  }
 }

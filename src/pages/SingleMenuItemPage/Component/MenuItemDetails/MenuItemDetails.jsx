@@ -17,7 +17,7 @@ export function MenuItemDetails() {
     (menuItem) => menuItem._id === menuItemId
   );
   if (!menuItem) {
-    return <Loader height="100vh" size="80px" />;
+    return <Loader height="100vh" size="8rem" />;
   }
 
   return (
@@ -25,12 +25,15 @@ export function MenuItemDetails() {
       <div className="MenuItemDetailsContainer">
         <div className="MenuItemLeftSection">
           <MenuItemImageContainer menuItem={menuItem} />
-          <MenuItemSellerDetails />
         </div>
         <div className="MenuItemRightSection">
           <MenuItemZoomImageContainer />
           <MenuItemDetailsContainer menuItem={menuItem} />
         </div>
+      </div>
+      <div className="MenuItemBottomContainer">
+        <MenuItemSellerDetails />
+        <div className="BottomRightContainer"></div>
       </div>
     </>
   );

@@ -48,8 +48,7 @@ export function SubCategoryStack() {
               }}
               onClick={() => onChangeCurrentSubCategoryHandler(subCategory._id)}
             >
-              <div></div>
-              <div>{subCategory.name}</div>
+              <div className="SubCategoryName">{subCategory.name}</div>
             </div>
           );
         })}

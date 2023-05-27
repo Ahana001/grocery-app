@@ -34,4 +34,10 @@ export const main_categories = [
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1684210011/grocery/main_category/Mc_5_vapd3w.webp",
   },
+  {
+    _id: "MC_6",
+    name: "Paan Corner",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1684984430/grocery/main_category/MC_6_v9gwsv.png",
+  },
 ];
