@@ -3,7 +3,7 @@ import { MenuItemSellerDetailsList } from "./MenuItemSellerDetailsList";
 
 export function MenuItemSellerDetails() {
   return (
-    <div className="MenuItemBottomContainer">
+    <div className="MenuItemBottomContainerWrapper">
       <div className="MenuItemSellerDetilsHeader">Product Details</div>
       <div className="MenuItemSellerDetailsListContainer">
         {sellerDetails.map(({ header, text }) => {

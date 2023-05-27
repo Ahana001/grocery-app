@@ -1,15 +1,18 @@
 :root {
   --filter-line-color: rgb(238, 238, 238);
+  --filter-bg-color: rgb(244, 246, 251);
 }
 .FilterContainer {
-  width: 100%;
-  border: 1px solid var(--stack-tab-line-color);
+  width: fit-content;
+  border: 0.1rem solid var(--stack-tab-line-color);
   display: flex;
   flex-direction: column;
-  grid-area: right;
-  height: calc(100vh - 151px);
-  z-index: -1;
+  height: calc(100vh - 15.1rem);
   position: sticky;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
 }
 .SubCategoryDisk {
   display: flex;
@@ -17,14 +20,14 @@
   justify-content: flex-start;
 }
 .PriceFilterContainer {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 .RatingFilterContainer {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 .PriceFilterList span,
 .RatingFilterList span {
-  margin-left: 5px;
+  margin-left: 0.5rem;
 }
 .PriceHeader,
 .RatingHeader {
@@ -34,19 +37,52 @@
 .PriceFilterList,
 .RatingHeader,
 .RatingFilterList {
-  margin-top: 5px;
-  margin-left: 16px;
+  margin-top: 0.5rem;
+  margin: 1.6rem;
 }
 .HorizontalLine {
-  height: 1px;
+  height: 0.1rem;
   background-color: var(--filter-line-color);
-  margin-top: 5px;
+  margin-top: 0.5rem;
   width: 100%;
 }
 .PriceFilterList,
 .RatingFilterList {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 .Star {
   color: orange;
+}
+.FilterContainerCloseButton {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+@media (max-width: 1024px) {
+  .FilterContainer {
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 925px) {
+  .FilterContainer {
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 798px) {
+  .FilterContainer {
+    transform: translateX(100%);
+    background-color: var(--filter-bg-color);
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+  }
+}
+@media (width <= 398px) {
+  .PriceHeader,
+  .PriceFilterList,
+  .RatingHeader,
+  .RatingFilterList {
+    margin-left: 0.6rem;
+  }
 }

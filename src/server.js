@@ -30,6 +30,12 @@ import { main_categories } from "./backend/db/mainCategories";
 import { sub_categories } from "./backend/db/subCategories";
 import { menu_items } from "./backend/db/menuItems";
 import { users } from "./backend/db/users";
+import {
+  addAddressToAddressListHandler,
+  getAllAddressHandler,
+  removeAddressFromAddressListHandler,
+  updateAddressFromAddressListHandler,
+} from "./backend/controllers/AddressController";
 
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
@@ -56,7 +62,12 @@ export function makeServer({ environment = "development" } = {}) {
       });
 
       users.forEach((item) =>
-        server.create("user", { ...item, cart: [], wishlist: [] })
+        server.create("user", {
+          ...item,
+          cart: [],
+          wishlist: [],
+          addresslist: [],
+        })
       );
 
       main_categories.forEach((item) =>
@@ -107,6 +118,18 @@ export function makeServer({ environment = "development" } = {}) {
       this.delete(
         "/user/wishlist/:menuItemId",
         removeItemFromWishlistHandler.bind(this)
+      );
+
+      // address routes (private)
+      this.get("/user/address", getAllAddressHandler.bind(this));
+      this.post("/user/address", addAddressToAddressListHandler.bind(this));
+      this.post(
+        "/user/address/:addressId",
+        updateAddressFromAddressListHandler.bind(this)
+      );
+      this.delete(
+        "/user/address/:addressId",
+        removeAddressFromAddressListHandler.bind(this)
       );
     },
   });

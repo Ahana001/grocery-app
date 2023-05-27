@@ -3,30 +3,58 @@
   --bannercard-title-color: #100c0d;
 }
 .BannerCardContainer {
-  height: 140px;
-  width: 180px;
-  border-radius: 10px;
+  height: 14rem;
+  width: 18rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease-in-out;
 }
 .BannerCardContainer img {
-  height: 120px;
-  width: 120px;
-  margin-top: -3rem;
+  height: 10rem;
+  width: 10rem;
+  margin-top: -3.5rem;
 }
 .BannerCardContainer .BannerCardTitle {
   color: var(--bannercard-title-color);
   font-weight: 600;
+  font-size: 1.6rem;
 }
 .BannerCardContainer .BannerCardSubTitle {
   color: var(--bannercard-font-color);
-  padding: 10px;
-  font-size: small;
+  padding: 1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 .BannerCardContainer:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+@media (max-width: 640px) {
+  .BannerCardContainer {
+    height: 12rem;
+    width: 16rem;
+  }
+  .BannerCardContainer img {
+    height: 8rem;
+    width: 8rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .BannerCardContainer {
+    height: 10rem;
+    width: 12rem;
+  }
+  .BannerCardContainer img {
+    height: 7rem;
+    width: 7rem;
+  }
+  .BannerCardContainer .BannerCardTitle {
+    font-size: 1.2rem;
+  }
+  .BannerCardContainer .BannerCardSubTitle {
+    font-size: 1rem;
+  }
 }

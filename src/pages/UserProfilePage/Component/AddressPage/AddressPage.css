@@ -1,0 +1,313 @@
+:root {
+  --address-line-color: rgb(238, 238, 238);
+  --address-small-text-color: rgb(79, 79, 79);
+  --address-button-light-color: #86cb86;
+  --address-button-dark-color: rgb(12, 131, 31);
+}
+
+.NoAddressContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 56.4rem;
+  gap: 0.5rem;
+}
+.NoAddressHeader {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+}
+.NoAddressSubTitle {
+  font-size: 1.2rem;
+  color: var(--address-small-text-color);
+  text-align: center;
+}
+.NoAddressAddAddressBtn,
+.SaveAddressBtn {
+  background-color: var(--address-button-light-color);
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+.NoAddressAddAddressBtn {
+  margin-top: 2rem;
+}
+/* Address Form */
+.ModalPortal {
+  position: fixed;
+  inset: 0rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999999;
+  overflow-y: scroll;
+}
+.ModalPortal::-webkit-scrollbar {
+  display: none;
+}
+.ModalOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.ModalPortalContent {
+  background-color: white;
+  border-radius: 1.2rem;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 8rem;
+}
+.ModalPortalCloseButton {
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.AddressInputContainer {
+  display: flex;
+  gap: 1rem;
+}
+.AddressSelectionSection {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  gap: 1.6rem;
+}
+.DeliveryAddressHeader {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.DeliveryAddressSubTitle {
+  color: var(--address-small-text-color);
+  font-size: 1.4rem;
+}
+.ReceiverDetails,
+.AreaNameContainer,
+.AdressNameContainer,
+.PinCodeAndStateContainer {
+  display: flex;
+  gap: 1rem;
+  width: 45rem;
+  height: 5rem;
+  position: relative;
+}
+.Title,
+.StateContainer {
+  border: 0.1rem solid var(--address-line-color);
+  padding: 1rem 2rem;
+  color: var(--address-small-text-color);
+  background-color: white;
+  border-radius: 0.36rem;
+  height: 100%;
+}
+.ReceiverNameContainer {
+  width: 100%;
+  position: relative;
+}
+.PinCodeContainer {
+  position: relative;
+}
+.ReceiverNameContainer input[type="text"]:focus + label,
+.AreaNameContainer input[type="text"]:focus + label,
+.CityContainer input[type="text"]:focus + label,
+.AdressNameContainer input[type="text"]:focus + label,
+.PinCodeContainer input[type="number"]:focus + label {
+  top: -0.7rem;
+  padding: 0rem 0.5rem;
+  color: black;
+}
+.AddressInputContainer input[type="text"],
+.AddressInputContainer input[type="number"] {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 0.1rem solid var(--address-line-color);
+  border-radius: 0.36rem;
+}
+
+.AddressInputContainer input[type="text"]:focus,
+.AddressInputContainer input[type="number"]:focus {
+  outline: none;
+  border-color: black;
+}
+
+.AddressInputContainer label {
+  background-color: white;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--address-small-text-color);
+  transition: 0.2s;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+.SaveAddressAs {
+  color: var(--address-small-text-color);
+  font-size: 1.2rem;
+}
+.SaveAddressAs ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.SaveAddressAs ul li {
+  padding: 1rem 2rem;
+  border: 0.1rem solid var(--address-line-color);
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.SaveAddressBtn {
+  width: 20rem;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.AddressListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+.AddressListAddAddresBtn {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 5rem;
+  border: 0.1rem solid var(--address-line-color);
+  cursor: pointer;
+  height: 5rem;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  padding: 0rem 2rem;
+  color: var(--address-button-dark-color);
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+.MapContainer {
+  padding: 2rem;
+  width: 100%;
+}
+.input-container {
+  position: relative;
+  margin-top: 2rem;
+}
+.IFrameContainer {
+  width: 45rem;
+  height: auto;
+  padding: 2rem;
+  border: 1px solid rgb(238, 238, 238);
+  box-sizing: border-box;
+}
+.AddressList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+.AddressList .AddressCardContainer:last-of-type {
+  border-bottom: 0.1rem solid var(--address-line-color);
+}
+.AddressCardContainer {
+  display: flex;
+  gap: 1rem;
+  border: 0.1rem solid var(--address-line-color);
+  border-bottom: none;
+  padding: 1.5rem;
+}
+.AddressCardIcon {
+  font-size: 2rem;
+}
+.AddressCardName {
+  font-size: 1.4rem;
+}
+.AddressCardDetailsAndEditSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  font-size: 1.3rem;
+}
+.AddressCardDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+  color: var(--address-small-text-color);
+}
+.AddressCardDetails span {
+  color: black;
+}
+.AddressEditLink {
+  display: flex;
+  gap: 1rem;
+}
+.AddressEditButton {
+  color: var(--address-button-dark-color);
+}
+.AddressEditButton,
+.AddressDeleteButton {
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .UserProfileLeftContainer {
+    display: none;
+  }
+  .UserProfileRightContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .UserProfileWrapper {
+    margin-top: 18rem;
+  }
+  .AddressInputContainer {
+    flex-direction: column;
+  }
+  .ModalPortalContent {
+    margin-top: 18rem;
+  }
+  .UserProfileRightContainer {
+    border-left: none;
+  }
+  .ModalPortalContent {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ReceiverDetails,
+  .AreaNameContainer,
+  .AdressNameContainer,
+  .PinCodeAndStateContainer,
+  .IFrameContainer {
+    width: 30rem;
+  }
+  .SaveAddressBtn {
+    width: 14rem;
+  }
+}
+@media (width <= 395px) {
+  .ReceiverDetails,
+  .AreaNameContainer,
+  .AdressNameContainer,
+  .PinCodeAndStateContainer,
+  .IFrameContainer {
+    width: fit-content;
+  }
+  .ModalPortalContent {
+    padding: 1rem;
+  }
+  .PinCodeAndStateContainer {
+    flex-direction: column;
+    height: auto;
+  }
+  .SaveAddressBtn {
+    width: 8rem;
+  }
+}

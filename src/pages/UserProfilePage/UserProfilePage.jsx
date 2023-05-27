@@ -1,3 +1,5 @@
-export function UserProfile() {
-  return <h2>Profile</h2>;
+import { UserProfileContainer } from "./Component/UserProfileContainer/UserProfileContainer";
+
+export function UserProfilePage() {
+  return <UserProfileContainer />;
 }

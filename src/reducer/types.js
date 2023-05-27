@@ -5,6 +5,7 @@ export const ActionTypes = {
   ChangeItem: "CHANGE_ITEM",
   CartChange: "CART_CHANGE",
   SetMenuItems: "SET_MENUITEMS",
+  SetAddressList: "SET_ADDRESSLIST",
 };
 export const Filters = {
   SortByPrice: "sortByPrice",

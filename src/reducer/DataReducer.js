@@ -11,6 +11,7 @@ export const initialState = {
   menuItems: [],
   mainCategories: [],
   subCategories: [],
+  addresslist: [],
   wishlist: [],
   cartlist: [],
   orderlist: [],
@@ -118,6 +119,13 @@ export function DataReducer(state, action) {
         ...state,
         menuItems: action.payload.menuItems,
       };
+    }
+    case ActionTypes.SetAddressList: {
+      result = {
+        ...state,
+        addresslist: action.payload.addresslist,
+      };
+      break;
     }
   }
   return result;

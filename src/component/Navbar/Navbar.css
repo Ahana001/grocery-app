@@ -5,77 +5,90 @@
 }
 .NavContainer {
   display: flex;
-  border: 1px solid var(--nav-line-color);
+  border: 0.1rem solid var(--nav-line-color);
   position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0rem;
+  left: 0rem;
+  right: 0rem;
   z-index: 1;
   background-color: white;
-  height: 86px;
+  height: 8.6rem;
   box-sizing: border-box;
 }
 .NavLeftContainer {
   display: flex;
-  flex-grow: 1;
 }
 .NavLeftContainer .LogoContainer {
-  width: 178px;
+  width: 17.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
 }
 .NavLeftContainer .LogoContainer span {
   color: var(--nav-main-color);
-  font-size: 3rem;
+  font-size: 4rem;
 }
 .VerticleDivider {
-  width: 1px;
+  width: 0.1rem;
   background-color: var(--nav-line-color);
   height: 100%;
+}
+.LocationAndSearchContainer {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 4;
+  margin-left: 2rem;
+  padding: 0rem 2rem;
+  align-items: center;
 }
 .LocationContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 40px;
-  padding: 5px 0px;
-  height: 86px;
+  padding: 0.5rem 0rem;
+  height: 8.6rem;
+  width: 23rem;
 }
 .LocationContainer div {
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  font-size: small;
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+  font-size: 1.5rem;
 }
 .LocationContainer .LocationDetail {
   position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .LocationContainer div:first-of-type {
   font-weight: 800;
-  margin-bottom: 6px;
-  font-size: large;
+  margin-bottom: 0.6rem;
+  font-size: 1.8rem;
 }
 .SearchContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-grow: 4;
+  width: 100%;
 }
 .SearchContainer .SearchBox {
-  border: 1px solid var(--nav-line-color);
+  border: 0.1rem solid var(--nav-line-color);
   background-color: var(--nav-searchbox-bg-color);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 46px;
+  height: 4.6rem;
+  font-size: 1.5rem;
 }
 .SearchContainer .SearchBox .SearchIcon {
-  margin: 0px 10px;
+  margin: 0rem 1rem;
 }
 
 /* .SearchAnimatedContainer {
@@ -86,19 +99,19 @@
 } */
 /* .SearchAnimatedContainer .AnimatedSearchText {
   position: absolute;
-  top: 20px;
+  top: 20rem;
   animation: searchTextAnimation 5s ease;
   animation-iteration-count: infinite;
 }
 @keyframes searchTextAnimation {
   0% {
-    top: 20px;
+    top: 20rem;
   }
   0% {
-    top: 10px;
+    top: 10rem;
   }
   100% {
-    top: -30px;
+    top: -30rem;
   }
 } */
 .NavRightContainer {
@@ -107,11 +120,8 @@
   justify-content: space-evenly;
   flex-grow: 1;
 }
-.UserProfile {
-  cursor: pointer;
-}
 .CartIcon {
-  font-size: x-large;
+  font-size: 2.5rem;
 }
 .CartIcon:hover {
   animation-name: shakeCartAnimation;
@@ -134,36 +144,38 @@
 }
 .NavRightContainer .CartContainer {
   display: flex;
-  height: 52px;
-  width: 112px;
+  height: 5.2rem;
+  width: 13.2rem;
   background-color: var(--nav-main-color);
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 5px;
-  font-size: medium;
+  border-radius: 0.5rem;
   cursor: pointer;
+  font-size: 1.8rem;
 }
 .UserProfile {
   position: relative;
+  cursor: pointer;
+  font-size: 2rem;
 }
 .UserProfileDropDown {
   display: flex;
   align-items: center;
 }
 .UserProfileArrow {
-  width: 0px;
-  height: 0px;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgb(0, 0, 0);
+  width: 0rem;
+  height: 0rem;
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+  border-top: 0.6rem solid rgb(0, 0, 0);
 }
 
 .UserProfileDropDownBtn {
-  padding: 5px 15px;
+  padding: 0.5rem 1.5rem;
   background-color: white;
   border: none;
   outline: none;
-  font-size: 1.1rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 .NavContainer .UserProfile .UserProfileDropDownContent {
@@ -172,37 +184,108 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  z-index: 2000;
-  width: 256px;
-  right: 5px;
-  top: 45px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  z-index: 999999;
+  width: 25.6rem;
+  right: 0.5rem;
+  top: 5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
-.UserProfileName {
-  padding: 16px;
+.UserProfileDropDownContent .UserProfileName {
+  padding: 1.2rem;
   font-weight: 500;
-  border-bottom: 1px solid var(--nav-line-color);
+  border-bottom: 0.1rem solid var(--nav-line-color);
+  font-size: 2rem;
 }
-.UserProfileDropDownList {
+.UserProfileDropDownContent .UserProfileDropDownList {
   list-style: none;
   color: #666666;
   padding: 0;
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
 }
 .UserProfileDropDownList li {
-  margin-bottom: 4px;
+  margin-bottom: 0.8rem;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 1rem 1.6rem;
 }
 .UserProfileDropDownList li:hover {
   background-color: var(--nav-searchbox-bg-color);
 }
 .UserProfileDropDownShadow {
   background-color: rgb(0, 0, 0);
-  inset: 86px 0px 0px;
+  inset: 8.6rem 0rem 0rem;
   position: fixed;
   z-index: 5;
   opacity: 0.5;
+}
+.BackButtonContainer,
+.SmallNavRightContainer {
+  display: none;
+}
+.BackArrowAndLocationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .NavLeftContainer {
+    display: none;
+  }
+  .NavContainer {
+    height: auto;
+  }
+  .LocationContainer {
+    height: auto;
+    padding: 1rem 0rem;
+  }
+  .LocationAndSearchContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    margin-left: 0rem;
+  }
+  .NavRightContainer {
+    display: none;
+  }
+  .LocationAndProfileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .BackButtonContainer,
+  .SmallNavRightContainer {
+    font-size: 2.5rem;
+    display: block;
+  }
+  .BackButtonContainer {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 640px) {
+  .LocationAndSearchContainer {
+    margin-left: 0.1rem;
+  }
+  .NavContainer {
+    display: block;
+  }
+  .SmallNavRightContainer {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 350px) {
+  .SearchContainer {
+    width: (100vh - 0.1rem);
+    padding-right: 0.1rem;
+  }
+  .LocationContainer div:first-of-type {
+    font-size: 1.4rem;
+  }
+  .LocationContainer {
+    width: fit-content;
+  }
 }

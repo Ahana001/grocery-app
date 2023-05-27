@@ -5,8 +5,10 @@ import { MenuItemListPage } from "./pages/MenuItemListPage/MenuItemListPage";
 import { SingleMenuItemPage } from "./pages/SingleMenuItemPage/SingleMenuItemPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { SignUpPage } from "./pages/SignUpPage/SignUpPage";
-import { UserProfile } from "./pages/UserProfilePage/UserProfilePage";
+import { UserProfilePage } from "./pages/UserProfilePage/UserProfilePage";
+import { AddressPage } from "./pages/UserProfilePage/Component/AddressPage/AddressPage";
 import { CartPage } from "./pages/CartPage/CartPage";
+import { OrdersPage } from "./pages/UserProfilePage/Component/OrdersPage/OrdersPage";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         ></Route>
         <Route path="/user/login" element={<LoginPage />}></Route>
         <Route path="/user/signup" element={<SignUpPage />}></Route>
-        <Route path="/user/account" element={<UserProfile />}></Route>
+        <Route path="/user/account" element={<UserProfilePage />}></Route>
+        <Route path="/user/account/address" element={<AddressPage />}></Route>
+        <Route path="/user/account/orders" element={<OrdersPage />}></Route>
         <Route path="/user/cart" element={<CartPage />}></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>

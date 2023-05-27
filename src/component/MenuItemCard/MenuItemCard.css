@@ -9,9 +9,10 @@
   flex-direction: column;
   align-items: flex-start;
   background-color: white;
-  border-radius: 5px;
-  border: 1px solid var(--item-line-color);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--item-line-color);
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .MenuItemImageTop {
@@ -21,13 +22,13 @@
   width: 100%;
 }
 .MenuItemImageTop img {
-  height: 150px;
-  width: 150px;
+  height: 15rem;
+  width: 15rem;
   align-self: center;
 }
 .MenuItemType img {
-  height: 25px;
-  width: 25px;
+  height: 2.5rem;
+  width: 2.5rem;
 }
 .MenuItemDetailsBottom {
   box-sizing: border-box;
@@ -46,26 +47,26 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 0.1rem;
 }
 .DeliveryTimeContainer {
   display: flex;
-  width: 90px;
+  width: 9rem;
   background: var(--item-box-bg-color);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-size: small;
   border: none;
-  padding: 6px 2px;
+  padding: 0.6rem 0.2rem;
 }
 .DeliveryTimeContainer .DeliveryTime,
 .ClockIconContainer {
-  margin-left: 5px;
+  margin-left: 0.5rem;
 }
 .MenuItemName {
   font-weight: 600;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  height: 36px;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  height: 3.6rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -74,14 +75,14 @@
 }
 .MenuItemNameVericleLine {
   background: var(--item-box-bg-color);
-  height: 1px;
+  height: 0.1rem;
 }
 
 .MenuItemVarinats {
   outline: none;
-  border: 1px solid var(--item-line-color);
+  border: 0.1rem solid var(--item-line-color);
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background: white;
   cursor: pointer;
   overflow: hidden;
@@ -89,25 +90,46 @@
 }
 .MenuItemVarinats,
 .MenuItemVarinat {
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 .PriceAndButtonContaine {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0px;
+  padding: 0.8rem 0rem;
 }
 .AddToCartButton {
-  border: 2px solid var(--item-button-dark-color);
+  border: 0.2rem solid var(--item-button-dark-color);
   color: var(--item-button-dark-color);
-  background: var(--item-button-light-color);
+  background-color: var(--item-button-light-color);
   font-weight: 400;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 0.8rem 1.2rem;
   cursor: pointer;
 }
+.OutOfStockContainer {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: -4rem;
+  left: 0rem;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: none;
+  z-index: 100;
+  text-transform: capitalize;
+}
+.OutOfStock {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 0.36rem;
+  padding: 0.5rem;
+}
 .MenuItemContainer:hover {
-  outline: 1px solid var(--item-button-dark-color);
+  outline: 0.1rem solid var(--item-button-dark-color);
 }

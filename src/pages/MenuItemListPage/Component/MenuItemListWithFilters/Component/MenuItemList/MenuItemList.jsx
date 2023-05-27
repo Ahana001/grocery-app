@@ -10,8 +10,9 @@ import { useFilterDataHook } from "../../../../../../Hook/FilterDataHook";
 import { PriceFilter } from "../../../../../../reducer/types";
 import { Filters } from "../../../../../../reducer/types";
 import { ActionTypes } from "../../../../../../reducer/types";
+import { BsFilterCircle } from "react-icons/bs";
 
-export function MenuItemList() {
+export function MenuItemList({ setFilterPriceRatingDisplay }) {
   const { state, dispatch } = useContext(DataContext);
   const [menuListLoader, setMenuListLoader] = useState(false);
   const filteredMenuItems = useFilterDataHook();
@@ -73,7 +74,7 @@ export function MenuItemList() {
   }
 
   if (menuListLoader) {
-    return <Loader height="100%" size="60px" />;
+    return <Loader height="100%" size="6rem" />;
   }
   return (
     <>
@@ -81,6 +82,10 @@ export function MenuItemList() {
         <div className="MenuItemListNavBar">
           <div className="CurrentCategoryName">
             Buy {getCurrentSubCategoryName()} Online
+            <BsFilterCircle
+              className="SmallFilterIcon"
+              onClick={() => setFilterPriceRatingDisplay(() => true)}
+            />
           </div>
           <div className="MenuItemFilterContainer">
             <div className="SortName">Sort By</div>

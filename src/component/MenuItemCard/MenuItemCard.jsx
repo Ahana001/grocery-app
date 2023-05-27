@@ -1,11 +1,19 @@
 import "./MenuItemCard.css";
 
-import { useState } from "react";
 import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../../context/DataContext";
+import { ActionTypes } from "../../reducer/types";
+import { QuantityButton } from "../QuantityButton/QuantityButton";
+import {
+  addToCartRequest,
+  changeCartQuantityRequest,
+} from "../../service/Service";
+import { AuthContext } from "../../context/AuthContext";
 
-export function MenuItemCard({
-  menuItem: {
+export function MenuItemCard({ menuItem }) {
+  const {
     _id,
     image,
     name,
@@ -13,14 +21,14 @@ export function MenuItemCard({
     item_variant,
     veg_egg_non,
     rating,
-  },
-}) {
-  const filterDefaultMenuItemVariant = item_variant?.find(
-    (variant) => variant.default
+  } = menuItem;
+  const filterDefaultSelectedMenuItemVariant = item_variant?.find(
+    (variant) => variant.selected
   );
-  const [menuItemPriceAndUnit, setMenuItemPriceAndUnit] = useState(
-    filterDefaultMenuItemVariant
-  );
+  const defaultVariant = item_variant.find((variant) => variant.default);
+  const { dispatch } = useContext(DataContext);
+  const { currentUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
   function getImageByMenuType(veg_egg_non) {
     let resultUrl = "";
@@ -54,17 +62,71 @@ export function MenuItemCard({
   }
   function getSelectedVariant(e) {
     const variantId = e.target.value;
-    const filterMenuItemVariant = item_variant.filter(
-      (variant) => variant._id === variantId
-    )[0];
-    setMenuItemPriceAndUnit(() => filterMenuItemVariant);
+    menuItem.item_variant = menuItem.item_variant.map((variant) =>
+      variant._id === variantId
+        ? { ...variant, selected: true }
+        : { ...variant, selected: false }
+    );
+
+    dispatch({
+      type: ActionTypes.ChangeItem,
+      payload: {
+        menuItem: menuItem,
+      },
+    });
   }
   function selectMenuItemHandler(id) {
     navigate(`/menu_item/${id}`);
   }
-  const itemAvailability = menuItemPriceAndUnit?.in_stock ? "" : "OutOfStock";
+
+  async function AddToCartHandler() {
+    if (currentUser.token) {
+      const isMenuItemIsCarted = menuItem.item_variant.find(
+        (variant) => variant.carted
+      );
+      menuItem.item_variant = menuItem.item_variant.map((variant) =>
+        variant._id === filterDefaultSelectedMenuItemVariant._id
+          ? {
+              ...variant,
+              carted: true,
+              quantity: 1,
+            }
+          : { ...variant }
+      );
+      dispatch({
+        type: ActionTypes.ChangeItem,
+        payload: {
+          menuItem: menuItem,
+        },
+      });
+      let cartResponse;
+      if (isMenuItemIsCarted) {
+        cartResponse = await changeCartQuantityRequest(
+          menuItem,
+          currentUser.token
+        );
+      } else {
+        cartResponse = await addToCartRequest(menuItem, currentUser.token);
+      }
+      if (cartResponse?.status === 201 || cartResponse?.status === 200) {
+        dispatch({
+          type: ActionTypes.SetCartList,
+          payload: {
+            cart: cartResponse.data.cart,
+          },
+        });
+      }
+    } else {
+      navigate("/user/login", { state: { from: location } });
+    }
+  }
   return (
-    <div className={`MenuItemContainer ${itemAvailability}`}>
+    <div
+      className="MenuItemContainer"
+      style={{
+        position: defaultVariant.in_stock ? "" : "relative",
+      }}
+    >
       <div className="LikeIconContainer"></div>
       <div
         className="MenuItemImageTop"
@@ -101,7 +163,7 @@ export function MenuItemCard({
             <select
               className="MenuItemVarinats"
               onChange={getSelectedVariant}
-              defaultValue={menuItemPriceAndUnit._id}
+              defaultValue={filterDefaultSelectedMenuItemVariant._id}
             >
               {item_variant.map(({ unit, price, _id, in_stock }) => {
                 return (
@@ -116,8 +178,28 @@ export function MenuItemCard({
           <div className="MenuItemVarinat">{item_variant[0].unit}</div>
         )}
         <div className="PriceAndButtonContaine">
-          <div className="MenuItemPrice">Rs. {menuItemPriceAndUnit.price}</div>
-          <div className="AddToCartButton">Add</div>
+          <div className="MenuItemPrice">
+            Rs. {filterDefaultSelectedMenuItemVariant.price}
+          </div>
+          {filterDefaultSelectedMenuItemVariant.carted ? (
+            <QuantityButton
+              menuItem={menuItem}
+              variant={filterDefaultSelectedMenuItemVariant}
+            />
+          ) : defaultVariant.in_stock ? (
+            <div className="AddToCartButton" onClick={AddToCartHandler}>
+              Add
+            </div>
+          ) : (
+            <div
+              className="OutOfStockContainer"
+              onClick={() => {
+                selectMenuItemHandler(_id);
+              }}
+            >
+              <div className="OutOfStock">Out Of Stock</div>
+            </div>
+          )}
         </div>
       </div>
     </div>

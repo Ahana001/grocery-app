@@ -6,8 +6,13 @@ import { FaStar } from "react-icons/fa";
 import { priceFilter, ratingFilter } from "./constant";
 import { DataContext } from "../../../../../../context/DataContext";
 import { ActionTypes, Filters } from "../../../../../../reducer/types";
+import { RxCross1 } from "react-icons/rx";
 
-export function FilterStack() {
+export function FilterStack({
+  FilterPriceRatingDisplay,
+  setFilterPriceRatingDisplay,
+  screenSize,
+}) {
   const { dispatch } = useContext(DataContext);
 
   function filterByPriceRangeHandler(e) {
@@ -52,8 +57,25 @@ export function FilterStack() {
     });
   }
   return (
-    <div className="FilterContainer">
+    <div
+      className="FilterContainer"
+      style={{
+        transform: FilterPriceRatingDisplay
+          ? "translateX(0)"
+          : "translateX(100%)",
+      }}
+    >
       <div className="PriceFilterContainer">
+        <RxCross1
+          className="FilterContainerCloseButton"
+          onClick={() => setFilterPriceRatingDisplay(false)}
+          style={{
+            display:
+              FilterPriceRatingDisplay && screenSize.width <= 798
+                ? "block"
+                : "none",
+          }}
+        />
         <div className="PriceHeader">Price</div>
         <div className="HorizontalLine"></div>
         <div className="PriceFilterList">

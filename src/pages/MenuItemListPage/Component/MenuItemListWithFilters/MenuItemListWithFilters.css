@@ -1,9 +1,27 @@
 .MenuItemListWithFiltersContainer {
-  margin-top: 145px;
+  margin-top: 14.5rem;
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  grid-template-areas: "left middle right";
+  grid-template-columns: 20rem 1fr 20rem;
+  grid-template-areas: "left middle ";
 }
 .SubCategoryMenuItemLoader {
-  margin-top: 136px;
+  margin-top: 13.6rem;
+}
+.MenuItemGridFilterContainer {
+  position: relative;
+}
+@media (max-width: 1024px) {
+  .MenuItemListWithFiltersContainer {
+    grid-template-columns: 10rem 1fr 20rem;
+  }
+}
+@media (max-width: 798px) {
+  .MenuItemListWithFiltersContainer {
+    grid-template-columns: 10rem 1fr;
+  }
+}
+@media (width <= 395px) {
+  .MenuItemListWithFiltersContainer {
+    grid-template-columns: 7rem 1fr;
+  }
 }
