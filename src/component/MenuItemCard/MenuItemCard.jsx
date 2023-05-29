@@ -12,7 +12,7 @@ import {
 } from "../../service/Service";
 import { AuthContext } from "../../context/AuthContext";
 
-export function MenuItemCard({ menuItem }) {
+export function MenuItemCard({ menuItem, width }) {
   const {
     _id,
     image,
@@ -125,6 +125,8 @@ export function MenuItemCard({ menuItem }) {
       className="MenuItemContainer"
       style={{
         position: defaultVariant.in_stock ? "" : "relative",
+        minWidth: width,
+        maxWidth: width,
       }}
     >
       <div className="LikeIconContainer"></div>

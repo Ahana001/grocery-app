@@ -54,7 +54,7 @@
 .MenuItemDetailsName {
   font-weight: 600;
   font-size: 2rem;
-  height: 5rem;
+  height: auto;
 }
 .SingleMenuItemOutOfStock {
   color: var(--single-item-small-text-color);
@@ -203,9 +203,8 @@
   display: flex;
   gap: 1rem;
   font-size: 1.2rem;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
+
 .MenuItemPathContainer span:hover {
   color: var(--link-dark-color);
   cursor: pointer;

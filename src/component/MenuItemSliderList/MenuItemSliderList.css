@@ -1,0 +1,55 @@
+.MenuItemSliderListHeader {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.MenuItemSliderListWrapper {
+  position: relative;
+  overflow: hidden;
+}
+.MenuItemSliderListHeader {
+  margin: 3.2rem 0rem 1.4rem;
+}
+.MenuItemSliderList {
+  padding: 1rem;
+  display: flex;
+  gap: 1.8rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.MenuSliderLeftThumbContainer,
+.MenuSliderRightThumbContainer {
+  background-color: transparent;
+  position: absolute;
+  top: 0rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+.MenuSliderLeftThumbContainer {
+  left: 0rem;
+}
+.MenuSliderRightThumbContainer {
+  right: 0rem;
+}
+.MenuSliderLeftThumb,
+.MenuSliderRightThumb {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+@media (max-width: 640px) {
+  .MenuSliderLeftThumbContainer,
+  .MenuSliderRightThumbContainer {
+    display: none;
+  }
+}

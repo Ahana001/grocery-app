@@ -9,11 +9,6 @@ export const menu_items = [
     _id: "1",
     name: "Cabbage (Patta Gobhi)",
     sub_category_id: "SC_1",
-    benefits: [
-      "Cabbage improves brain health and vision. Best for people who want to lose weight in a healthy way.",
-      "It detoxifies the body and contains glutamine that reduces effects of inflammation, allergies, joint pain, irritation, fever.",
-      " Cabbages also help prevent cancer.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683919054/grocery/fresh_vegetables/1_dk4hoe.webp",
@@ -33,13 +28,6 @@ export const menu_items = [
     _id: "2",
     name: "Onion (Pyaz)",
     sub_category_id: "SC_1",
-    benefits: [
-      "If a piece of onion is inhaled, it can slow down or stop nose bleeding.",
-      "Those who have sleeping disorders or insomnia can have a good night sleep if they have an onion every day.",
-      "Onions are known to have antiseptic, antimicrobial and antibiotic properties which help you to get rid of infections.",
-      "Onions are high in sulphur, vitamin B6 and B9. It has high quantities of water and naturally low in fat. It is high in phytochemical compounds.",
-      "Onions are known to contain manganese, copper, Vitamin B6, Vitamin C, Folic acid, Amino acid and dietary fibers along with phosphorus, folate and copper.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683920213/grocery/fresh_vegetables/2_g4ecfh.webp",
@@ -73,7 +61,7 @@ export const menu_items = [
     _id: "3",
     name: "Red Capsicum",
     sub_category_id: "SC_1",
-    benefits: [],
+
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683920599/grocery/fresh_vegetables/3_shemvi.webp",
@@ -93,10 +81,6 @@ export const menu_items = [
     _id: "4",
     name: "Corn Cob (Bhutta)",
     sub_category_id: "SC_1",
-    benefits: [
-      "Sweet corn is good for vision and heart health. It is a good source of energy and reduces joint pains.",
-      "Suggested as a regular diet for pregnant women and Alzheimer's patients.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683920754/grocery/fresh_vegetables/4_m2nyij.webp",
@@ -116,11 +100,6 @@ export const menu_items = [
     _id: "5",
     name: "Cherry Tomato - Hydroponically Grown",
     sub_category_id: "SC_1",
-    benefits: [
-      "Cherry Tomatoes contain lycopene, an antioxidant that reduces the risk of cancer and heart diseases.",
-      "They protect the eyes from light-induced damage.",
-      "Essential for pregnant women as these tomatoes protect infants against neural tube defects.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683920849/grocery/fresh_vegetables/5_q7m7aq.webp",
@@ -141,11 +120,6 @@ export const menu_items = [
     _id: "6",
     name: "Kiran Watermelon (Tarbuj)",
     sub_category_id: "SC_2",
-    benefits: [
-      "Watermelons have excellent hydrating properties with 90% water content.",
-      "Rich in anti-oxidant flavonoids that protects against prostate, breast, colon, pancreatic and lung cancers.",
-      "They are an excellent source of lycopene which protects skin against harmful UV rays. It is also a great source for A, C, B-complex vitamins, iron and fiber which boosts body metabolism.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1684614236/grocery/fresh_fruits/6_inflre.webp",
@@ -172,10 +146,6 @@ export const menu_items = [
     _id: "7",
     name: "Kiwi",
     sub_category_id: "SC_2",
-    benefits: [
-      "Kiwi fruits are rich in vitamin C, fiber, potassium. They reduce the risk of cancer, stroke and respiratory disorders.",
-      "Repairs damaged cells and helps in quick wound healing. They are a good choice of snack for diabetic people and weight watchers.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683921355/grocery/fresh_fruits/7_ibdbk1.webp",
@@ -195,9 +165,6 @@ export const menu_items = [
     _id: "8",
     name: "Tender Coconut",
     sub_category_id: "SC_2",
-    benefits: [
-      "Coconut is to stabilizing blood sugar, lowering cholesterol, healing, hydration and even replacing blood plasma in an emergency.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683921479/grocery/fresh_fruits/8_wofdex.webp",
@@ -217,11 +184,6 @@ export const menu_items = [
     _id: "9",
     name: "Pomegranate",
     sub_category_id: "SC_2",
-    benefits: [
-      "Pomegranate is a rich supplier of soluble and insoluble dietary fibers, vitamin K, C, minerals and B-complex vitamins such as B5, B6.",
-      "Pomegranate juice lowers bad cholesterol and raises good cholesterol.Reduces the risk of heart stoke.",
-      "Gives a boost of energy and freshness. So, this is specially recommended for women during menopause. Good for pregnant women as it prevents brain damage in infants.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683921842/grocery/fresh_fruits/9_gtcxgl.webp",
@@ -248,9 +210,6 @@ export const menu_items = [
     _id: "10",
     name: "Pear Imported",
     sub_category_id: "SC_2",
-    benefits: [
-      "It contains no cholesterol, no sodium, free from saturated fat, an excellent source of fiber and a good source of vitamin C. South AfricaPears are a good source of potassium, which can help in lowering blood pressure and reduce risk of cancer. They have a large amount of natural fructose and glucose, making them a quick source of healthy energy.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683922003/grocery/fresh_fruits/10_zyhyua.webp",
@@ -271,11 +230,6 @@ export const menu_items = [
     _id: "11",
     name: "Spinach (Palak)",
     sub_category_id: "SC_3",
-    benefits: [
-      "Palak contains low fat and cholesterol, but a good amount of fiber.",
-      "They lower the risk of cancer and the occurrence of asthma.",
-      "It improves the blood glucose levels in people suffering from diabetes and also improves skin and bone health.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683922779/grocery/leafies_herbs/11_anjsb4.webp",
@@ -295,10 +249,6 @@ export const menu_items = [
     _id: "12",
     name: "Mint Leaves (Pudina)",
     sub_category_id: "SC_3",
-    benefits: [
-      "Mint is a remedy to manage ailments related to the digestive tract, oral, respiratory and skin disorders such as acne, insect bites & burns.",
-      "It is found to alleviate migraine pains, minor aches, muscle sprains and cramps.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683922869/grocery/leafies_herbs/12_yz5vv4.webp",
@@ -318,13 +268,6 @@ export const menu_items = [
     _id: "13",
     name: "Coriander Bunch (Dhaniya)",
     sub_category_id: "SC_3",
-    benefits: [
-      "Coriander leaves fight food poisoning and lower blood sugar levels.",
-      "They relieve urinary tract infections and help in maintaining a healthy menstrual cycle while preventing neurological inflammations and diseases.",
-      "Tip - Add coriander leaves to boiling water.",
-      "Let it cool down and then consume it.",
-      "Drink this water every morning to cleanse the stomach.",
-    ],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683923000/grocery/leafies_herbs/13_qwwojq.webp",
@@ -345,7 +288,6 @@ export const menu_items = [
     _id: "14",
     name: "Super White Bread",
     sub_category_id: "SC_4",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683923244/grocery/bread_pav/14_ad3pbg.webp",
@@ -365,7 +307,6 @@ export const menu_items = [
     _id: "15",
     name: "The Baker's Dozen 100% Wholewheat Pizza Base",
     sub_category_id: "SC_4",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924097/grocery/bread_pav/15_uie2ax.webp",
@@ -386,7 +327,6 @@ export const menu_items = [
     _id: "16",
     name: "Parle Platina Hide & Seek Chocolate Chip Cookies",
     sub_category_id: "SC_5",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924246/grocery/cookies/16_udxcan.webp",
@@ -413,7 +353,7 @@ export const menu_items = [
     _id: "17",
     name: "Britannia Good Day Chocochip Cookies",
     sub_category_id: "SC_5",
-    benefits: [],
+
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924536/grocery/cookies/17_hdvfuw.webp",
@@ -433,7 +373,6 @@ export const menu_items = [
     _id: "18",
     name: "Sunfeast Dark Fantasy Biscuit - Choco Fills Biscuit",
     sub_category_id: "SC_5",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924733/grocery/cookies/18_rtblk9.webp",
@@ -453,7 +392,6 @@ export const menu_items = [
     _id: "19",
     name: "Oreo Choco Flavour Sandwich Cream Biscuits",
     sub_category_id: "SC_5",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924894/grocery/cookies/19_ussngt.webp",
@@ -473,7 +411,6 @@ export const menu_items = [
     _id: "20",
     name: "Britannia Bourbon The Original Biscuit - Buy 4 Get 1 Free",
     sub_category_id: "SC_5",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683924934/grocery/cookies/20_crp8or.webp",
@@ -494,7 +431,6 @@ export const menu_items = [
     _id: "21",
     name: "Aashirvaad Shudh Chakki Whole Wheat Atta",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683925342/grocery/atta/21_ef7vhw.webp",
@@ -521,7 +457,6 @@ export const menu_items = [
     _id: "22",
     name: "Fortune Chakki Fresh (100% Atta, 0% Maida) Atta",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683925610/grocery/atta/22_zwj5d3.webp",
@@ -541,7 +476,6 @@ export const menu_items = [
     _id: "23",
     name: "Amul Organic Atta (Whole Wheat)",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683925789/grocery/atta/23_ixtmoo.webp",
@@ -561,7 +495,6 @@ export const menu_items = [
     _id: "24",
     name: "Chakki Atta",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683925952/grocery/atta/24_c9kscz.webp",
@@ -581,7 +514,6 @@ export const menu_items = [
     _id: "25",
     name: "Uttam Sooji/Rava",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926181/grocery/atta/26_e9bhqr.webp",
@@ -592,7 +524,7 @@ export const menu_items = [
         _id: "V_31",
         unit: "1 kg",
         price: 55,
-        in_stock: false,
+        in_stock: true,
         default: true,
       },
       {
@@ -622,7 +554,6 @@ export const menu_items = [
     _id: "26",
     name: "Praakritik Organic Khapli Wheat Atta",
     sub_category_id: "SC_6",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926066/grocery/atta/25_dsckts.webp",
@@ -643,7 +574,6 @@ export const menu_items = [
     _id: "27",
     name: "Daawat Rozana Gold Basmati Rice",
     sub_category_id: "SC_7",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926524/grocery/rice/27_ijghji.webp",
@@ -663,7 +593,6 @@ export const menu_items = [
     _id: "28",
     name: "Daawat Sehat Mini Mogra Basmati Rice (Broken)",
     sub_category_id: "SC_7",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926593/grocery/rice/28_f1ibwz.webp",
@@ -684,7 +613,6 @@ export const menu_items = [
     _id: "29",
     name: "24 Mantra Wheat Organic Daliya",
     sub_category_id: "SC_8",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926794/grocery/poha_daliya_rains/29_eted6u.webp",
@@ -704,7 +632,6 @@ export const menu_items = [
     _id: "30",
     name: "Laxmi Maize Thin Poha",
     sub_category_id: "SC_8",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683926896/grocery/poha_daliya_rains/30_zxzvqm.webp",
@@ -725,7 +652,6 @@ export const menu_items = [
     _id: "31",
     name: "Mountain Dew Grip Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927058/grocery/soft_drinks/31_itstxe.webp",
@@ -745,7 +671,6 @@ export const menu_items = [
     _id: "32",
     name: "Mirinda Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927200/grocery/soft_drinks/32_z0a8em.webp",
@@ -779,7 +704,6 @@ export const menu_items = [
     _id: "33",
     name: "Pepsi Black Zero Sugar Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927377/grocery/soft_drinks/33_fldvs3.webp",
@@ -806,7 +730,6 @@ export const menu_items = [
     _id: "34",
     name: "Thums Up Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927609/grocery/soft_drinks/34_udimed.webp",
@@ -826,7 +749,6 @@ export const menu_items = [
     _id: "35",
     name: "Coca-Cola Diet Coke Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927697/grocery/soft_drinks/35_wijlmi.webp",
@@ -846,7 +768,6 @@ export const menu_items = [
     _id: "36",
     name: "Fanta Orange Flavoured Soft Drink",
     sub_category_id: "SC_9",
-    benefits: [],
     veg_egg_non: "veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683927779/grocery/soft_drinks/36_opov7h.webp",
@@ -867,7 +788,6 @@ export const menu_items = [
     _id: "37",
     name: "Egg First Kadaknath Eggs",
     sub_category_id: "SC_10",
-    benefits: [],
     veg_egg_non: "egg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683951639/grocery/eggs/37_uiiqxv.webp",
@@ -887,7 +807,6 @@ export const menu_items = [
     _id: "38",
     name: "Egg First Duck Speciality Eggs",
     sub_category_id: "SC_10",
-    benefits: [],
     veg_egg_non: "egg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683951738/grocery/eggs/38_xy6uuj.webp",
@@ -907,7 +826,6 @@ export const menu_items = [
     _id: "39",
     name: "Pure Eggs Ala Omega 3 Speciality Eggs",
     sub_category_id: "SC_10",
-    benefits: [],
     veg_egg_non: "egg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683951918/grocery/eggs/39_lsaezo.webp",
@@ -934,7 +852,6 @@ export const menu_items = [
     _id: "40",
     name: "Egg First Shell Brown Eggs",
     sub_category_id: "SC_10",
-    benefits: [],
     veg_egg_non: "egg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952186/grocery/eggs/40_xrldtk.webp",
@@ -955,7 +872,6 @@ export const menu_items = [
     _id: "41",
     name: "ITC Master Chef Desi Style Chicken Patty (Frozen)",
     sub_category_id: "SC_11",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952350/grocery/chicken/41_pd4irp.webp",
@@ -975,7 +891,6 @@ export const menu_items = [
     _id: "42",
     name: "Sumeru Grilled Chicken Burger Patty (Frozen)",
     sub_category_id: "SC_11",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952459/grocery/chicken/42_dugtvr.webp",
@@ -995,7 +910,7 @@ export const menu_items = [
     _id: "43",
     name: "Sumeru Wassup Chicken Nuggets (Frozen) - Buy 1 Get 1 Free",
     sub_category_id: "SC_11",
-    benefits: [],
+
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952563/grocery/chicken/43_e6uzne.webp",
@@ -1015,7 +930,6 @@ export const menu_items = [
     _id: "44",
     name: "Prasuma Original Chicken Momos (Frozen)",
     sub_category_id: "SC_11",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952706/grocery/chicken/44_cvqc48.webp",
@@ -1035,7 +949,6 @@ export const menu_items = [
     _id: "45",
     name: "ITC Master Chef Crispy Chicken Fries (Frozen)",
     sub_category_id: "SC_11",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952767/grocery/chicken/45_lovysu.webp",
@@ -1055,7 +968,6 @@ export const menu_items = [
     _id: "46",
     name: "ITC Master Chef Chicken Seekh Kebab (Frozen)",
     sub_category_id: "SC_11",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683952858/grocery/chicken/46_elxvjg.webp",
@@ -1076,7 +988,6 @@ export const menu_items = [
     _id: "47",
     name: "ITC Master Chef Medium Prawns Peeled & Deveined (Frozen)",
     sub_category_id: "SC_12",
-    benefits: [],
     veg_egg_non: "non-veg",
     image:
       "https://res.cloudinary.com/dcu6sympq/image/upload/v1683953095/grocery/fish_seafood/47_n5pi7g.webp",
@@ -1087,6 +998,666 @@ export const menu_items = [
         _id: "V_58",
         unit: "200 g",
         price: 203,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Rolling Paper */
+  {
+    _id: "48",
+    name: "White Rolling Paper Cones - Stash Pro",
+    sub_category_id: "SC_16",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685214560/grocery/Rolling%20Paper/48_wyvhyr.jpg",
+    rating: 4.6,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_59",
+        unit: "6 pieces",
+        price: 90,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_60",
+        unit: "1 pack (12 pieces)",
+        price: 150,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "49",
+    name: "Brown Connoisseur Single Wide Rolling Paper With Tips - Raw",
+    sub_category_id: "SC_16",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685214633/grocery/Rolling%20Paper/49_a77nin.jpg",
+    rating: 4.2,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_61",
+        unit: "1 pack (50 + 50 pieces)",
+        price: 200,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "50",
+    name: "Red Alert Flavoured Blunt Wrap - Juicy Jay's",
+    sub_category_id: "SC_16",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685214920/grocery/Rolling%20Paper/50_i3qkkb.avif",
+    rating: 3.2,
+    delivery_time_in_mins: 8,
+    item_variant: [
+      {
+        _id: "V_62",
+        unit: "1 pack (2 pieces)",
+        price: 120,
+        in_stock: false,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Mouth Fresheners */
+  {
+    _id: "51",
+    name: "Chandan Mitha Amla Candy",
+    sub_category_id: "SC_14",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685215122/grocery/mouth_fresheners/51_e1g8nk.avif",
+    rating: 4.6,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_63",
+        unit: "100 g",
+        price: 54,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "52",
+    name: "Chandan Sweety Imli Digestive Tablets",
+    sub_category_id: "SC_14",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685215237/grocery/mouth_fresheners/52_mkaicx.webp",
+    rating: 4.9,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_64",
+        unit: "150 g",
+        price: 105,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "53",
+    name: "Wonka Nerds Wild Cherry Watermelon Candy",
+    sub_category_id: "SC_14",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685215348/grocery/mouth_fresheners/53_onnbuh.webp",
+    rating: 4.5,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_65",
+        unit: "46 g",
+        price: 175,
+        in_stock: false,
+        default: true,
+      },
+    ],
+  },
+  /**=========== EXTRA DATA ============ */
+  /* SUB CATEGORY : Fresh Vegetables */
+  {
+    _id: "54",
+    name: "Lemon (Nimbu)",
+    sub_category_id: "SC_1",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685215663/grocery/fresh_vegetables/54_spm5i1.webp",
+    rating: 4.0,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_66",
+        unit: "250 g - 300 g",
+        price: 46,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "55",
+    name: "Orange Carrot",
+    sub_category_id: "SC_1",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685215845/grocery/fresh_vegetables/55_o3wsiz.jpg",
+    rating: 4.5,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_67",
+        unit: "500 g",
+        price: 38,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_68",
+        unit: "250 g",
+        price: 20,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "56",
+    name: "Broccoli Smoothie Combo",
+    sub_category_id: "SC_1",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685216007/grocery/fresh_vegetables/56_qilcxz.webp",
+    rating: 4.7,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_69",
+        unit: "Combo of 3",
+        price: 285,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+
+  /* SUB CATEGORY : Sweet & Salty */
+  {
+    _id: "57",
+    name: "Britannia Little Hearts Classic Biscuit",
+    sub_category_id: "SC_15",
+
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685216641/grocery/sweet_and_salty/57_c3oyxt.webp",
+    rating: 4.8,
+    delivery_time_in_mins: 21,
+    item_variant: [
+      {
+        _id: "V_70",
+        unit: "26 g",
+        price: 10,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_71",
+        unit: "4 x 26 g - Pack of 4",
+        price: 39,
+        in_stock: false,
+        default: false,
+      },
+      {
+        _id: "V_72",
+        unit: "2 x 75 g - Pack of 2",
+        price: 57,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "58",
+    name: "Parle Krackjack Original Sweet & Salty Biscuits",
+    sub_category_id: "SC_15",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685217248/grocery/sweet_and_salty/58_wrz1dk.webp",
+    rating: 4.8,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_73",
+        unit: "400 g",
+        price: 80,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_74",
+        unit: "800 g",
+        price: 134,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "59",
+    name: "Britannia Nice Time Coconut Biscuit",
+    sub_category_id: "SC_15",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685217379/grocery/sweet_and_salty/59_cudh38.webp",
+    rating: 4.3,
+    delivery_time_in_mins: 15,
+    item_variant: [
+      {
+        _id: "V_75",
+        unit: "143 g",
+        price: 24,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_76",
+        unit: "2 x 143 g - Pack of 2",
+        price: 47,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "60",
+    name: "Parle 20-20 Nice Sugar Sprinkled Coconut Biscuit",
+    sub_category_id: "SC_15",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685217608/grocery/sweet_and_salty/60_t01l0u.webp",
+    rating: 4.5,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_77",
+        unit: "500 g",
+        price: 77,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "61",
+    name: "Orion Light & Tasty O'Rice Cracker",
+    sub_category_id: "SC_15",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685217761/grocery/sweet_and_salty/61_twzjdo.webp",
+    rating: 3.5,
+    delivery_time_in_mins: 16,
+    item_variant: [
+      {
+        _id: "V_78",
+        unit: "500 g",
+        price: 77,
+        in_stock: false,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "62",
+    name: "Dukes Jeera Crackers Biscuit",
+    sub_category_id: "SC_15",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685218007/grocery/sweet_and_salty/62_opyhhb.webp",
+    rating: 3.9,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_79",
+        unit: "150 g",
+        price: 55,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Cookies */
+  {
+    _id: "63",
+    name: "Open Secret Chocolate Almond Cookies",
+    sub_category_id: "SC_5",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685218311/grocery/cookies/63_gbbxnh.webp",
+    rating: 4.2,
+    delivery_time_in_mins: 15,
+    item_variant: [
+      {
+        _id: "V_80",
+        unit: "75 g",
+        price: 94,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_81",
+        unit: "2 x 75 g - Pack of 2",
+        price: 94,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "64",
+    name: "Cadbury Chocobakes Choco Chip Cookies",
+    sub_category_id: "SC_5",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685247210/grocery/cookies/64_ok11mk.webp",
+    rating: 4.8,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_82",
+        unit: "167 g",
+        price: 68,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "65",
+    name: "Open Secret Nutty Cookies Gift Box (Assorted) + Open Secret Un-Junked Choco Almond Brownie Combo",
+    sub_category_id: "SC_5",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685247464/grocery/cookies/65_svxi6p.webp",
+    rating: 4.2,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_83",
+        unit: "150 g + 30 g",
+        price: 340,
+        in_stock: false,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Rice */
+  {
+    _id: "66",
+    name: "Daawat Rozana Super Basmati Rice",
+    sub_category_id: "SC_7",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685247972/grocery/rice/66_kk6opb.webp",
+    rating: 4.0,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_84",
+        unit: "1 kg",
+        price: 79,
+        in_stock: false,
+        default: true,
+      },
+      {
+        _id: "V_85",
+        unit: "5 kg",
+        price: 359,
+        in_stock: false,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "67",
+    name: "India Gate Weight Watchers Special Brown Rice",
+    sub_category_id: "SC_7",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685256205/grocery/rice/67_imgbe9.webp",
+    rating: 4.0,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_86",
+        unit: "1 kg",
+        price: 143,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "68",
+    name: "Kohinoor Charminar Select Basmati Rice",
+    sub_category_id: "SC_7",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685256205/grocery/rice/68_ugal2d.webp",
+    rating: 4.0,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_87",
+        unit: "1 kg",
+        price: 106,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_88",
+        unit: "5 kg",
+        price: 501,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Poha, Daliya & Other Grains */
+  {
+    _id: "69",
+    name: "Vijay Premium Quality Poha",
+    sub_category_id: "SC_8",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685256311/grocery/poha_daliya_rains/69_tyr7vn.webp",
+    rating: 4.3,
+    delivery_time_in_mins: 16,
+    item_variant: [
+      {
+        _id: "V_89",
+        unit: "1 kg",
+        price: 61,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "70",
+    name: "True Elements Quinoa + Fruit and Nut Muesli Combo",
+    sub_category_id: "SC_8",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685256311/grocery/poha_daliya_rains/70_pawhwo.webp",
+    rating: 3.7,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_90",
+        unit: "1 kg + 250 g",
+        price: 250,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "71",
+    name: "Yoga Bar Organic Quinoa",
+    sub_category_id: "SC_8",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685275907/grocery/poha_daliya_rains/71_crinoc.webp",
+    rating: 3.5,
+    delivery_time_in_mins: 19,
+    item_variant: [
+      {
+        _id: "V_91",
+        unit: "1.5 kg",
+        price: 377,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Rolling Paper */
+  {
+    _id: "72",
+    name: "Activated Charcoal Smoking Filter (Slim) - SLIMJIM",
+    sub_category_id: "SC_16",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685276288/grocery/Rolling%20Paper/72_yqdvme.webp",
+    rating: 4.2,
+    delivery_time_in_mins: 17,
+    item_variant: [
+      {
+        _id: "V_92",
+        unit: "1 pack",
+        price: 200,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "73",
+    name: "Classic Filter Tips & Rolling Paper (King Size) - Raw",
+    sub_category_id: "SC_16",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685276724/grocery/Rolling%20Paper/73_ek5mmr.webp",
+    rating: 4.2,
+    delivery_time_in_mins: 17,
+    item_variant: [
+      {
+        _id: "V_93",
+        unit: "1 pack (32 pieces)",
+        price: 115,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_94",
+        unit: "1 pack (32 + 32 pieces)",
+        price: 170,
+        in_stock: false,
+        default: false,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Mouth Fresheners */
+  {
+    _id: "74",
+    name: "Center Fresh Sugar Free Mint Candy",
+    sub_category_id: "SC_14",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685277466/grocery/Rolling%20Paper/74_r2cumy.webp",
+    rating: 4.6,
+    delivery_time_in_mins: 20,
+    item_variant: [
+      {
+        _id: "V_95",
+        unit: "35 g",
+        price: 90,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  /* SUB CATEGORY : Cigarettes */
+  {
+    _id: "75",
+    name: "Benson & Hedges Blue Gold",
+    sub_category_id: "SC_13",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685278343/grocery/cigarettes/75_u9gsnd.webp",
+    rating: 4.3,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_96",
+        unit: "1 pack (20 pieces)",
+        price: 340,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "76",
+    name: "Classic Ice Burst",
+    sub_category_id: "SC_13",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685278699/grocery/cigarettes/76_xske8u.jpg",
+    rating: 4.0,
+    delivery_time_in_mins: 16,
+    item_variant: [
+      {
+        _id: "V_97",
+        unit: "1 pack (10 pieces)",
+        price: 165,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_98",
+        unit: "1 pack (20 pieces)",
+        price: 340,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "77",
+    name: "Gold Flake Kings Lights",
+    sub_category_id: "SC_13",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685278838/grocery/cigarettes/77_deiupd.jpg",
+    rating: 4.3,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_97",
+        unit: "1 pack (20 pieces)",
+        price: 340,
         in_stock: true,
         default: true,
       },
