@@ -1,5 +1,5 @@
 <h1 align="center">
-       ✨  Stunners Hub  ✨
+       ✨  Grossy  ✨
 </h1>
 
 <div align="center">
