@@ -32,7 +32,8 @@ export function MenuItemCard({ menuItem, width }) {
   const defaultVariant = item_variant.find((variant) => variant.default);
   const { dispatch } = useContext(DataContext);
   const { currentUser } = useContext(AuthContext);
-  const { dropdownVisibility } = useContext(DisplayContext);
+  const { dropdownVisibility, FilterPriceRatingDisplay } =
+    useContext(DisplayContext);
 
   const navigate = useNavigate();
 
@@ -183,7 +184,9 @@ export function MenuItemCard({ menuItem, width }) {
       <div
         className="LikeIconContainer"
         onClick={() => AddToWishListHandler(menuItem)}
-        style={{ zIndex: dropdownVisibility ? "0" : "100" }}
+        style={{
+          zIndex: dropdownVisibility || FilterPriceRatingDisplay ? "0" : "100",
+        }}
       >
         {menuItem.wished ? (
           <AiFillHeart
