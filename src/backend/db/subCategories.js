@@ -64,4 +64,26 @@ export const sub_categories = [
     name: "Fish & Seafood",
     main_category_id: "MC_5",
   },
+  /* MAIN CATEGORY : Paan Corner */
+  {
+    _id: "SC_13",
+    name: "Cigarettes",
+    main_category_id: "MC_6",
+  },
+  {
+    _id: "SC_16",
+    name: "Rolling Paper",
+    main_category_id: "MC_6",
+  },
+  {
+    _id: "SC_14",
+    name: "Mouth Fresheners",
+    main_category_id: "MC_6",
+  },
+  /**=========== EXTRA DATA ============ */
+  {
+    _id: "SC_15",
+    name: "Sweet & Salty",
+    main_category_id: "MC_2",
+  },
 ];

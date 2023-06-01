@@ -7,14 +7,12 @@ import { priceFilter, ratingFilter } from "./constant";
 import { DataContext } from "../../../../../../context/DataContext";
 import { ActionTypes, Filters } from "../../../../../../reducer/types";
 import { RxCross1 } from "react-icons/rx";
+import { DisplayContext } from "../../../../../../context/DisplayContext";
 
-export function FilterStack({
-  FilterPriceRatingDisplay,
-  setFilterPriceRatingDisplay,
-  screenSize,
-}) {
-  const { dispatch } = useContext(DataContext);
-
+export function FilterStack() {
+  const { dispatch, state } = useContext(DataContext);
+  const { FilterPriceRatingDisplay, setFilterPriceRatingDisplay, screenSize } =
+    useContext(DisplayContext);
   function filterByPriceRangeHandler(e) {
     let priceRange = [];
     switch (e.target.value) {
@@ -52,7 +50,29 @@ export function FilterStack({
       type: ActionTypes.ChangeFilter,
       payload: {
         filterType: Filters.Rating,
-        filterValue: e.target.value,
+        filterValue: Number(e.target.value),
+      },
+    });
+  }
+  function getHumanReadablePriceName({ lower, upper }) {
+    if (lower === 0) {
+      return "Less than Rs 20";
+    } else if (upper === 1000000) {
+      return "More than Rs 201";
+    } else {
+      return `Rs ${lower} to Rs ${upper}`;
+    }
+  }
+  function clearAllFilter() {
+    dispatch({
+      type: ActionTypes.ReserFilters,
+      payload: {
+        filter: {
+          sortByPrice: "Relevance",
+          rating: 1,
+          search: "",
+          priceRange: [],
+        },
       },
     });
   }
@@ -65,6 +85,9 @@ export function FilterStack({
           : "translateX(100%)",
       }}
     >
+      <div className="ClearAllFilter" onClick={clearAllFilter}>
+        Clear All
+      </div>
       <div className="PriceFilterContainer">
         <RxCross1
           className="FilterContainerCloseButton"
@@ -79,15 +102,23 @@ export function FilterStack({
         <div className="PriceHeader">Price</div>
         <div className="HorizontalLine"></div>
         <div className="PriceFilterList">
-          {priceFilter.map((price) => {
+          {priceFilter.map((price, index) => {
             return (
-              <div key={price}>
+              <div key={index}>
                 <input
                   type="checkbox"
-                  value={price}
+                  checked={
+                    state.filter.priceRange.find(
+                      ({ lower, upper }) =>
+                        lower === price.lower && upper === price.upper
+                    )
+                      ? true
+                      : false
+                  }
                   onChange={filterByPriceRangeHandler}
+                  value={getHumanReadablePriceName(price)}
                 />
-                <span>{price}</span>
+                <span>{getHumanReadablePriceName(price)}</span>
               </div>
             );
           })}
@@ -102,8 +133,9 @@ export function FilterStack({
               <div key={rating}>
                 <input
                   type="radio"
-                  name="star"
+                  className="star"
                   value={rating.length}
+                  checked={state.filter.rating === rating.length ? true : false}
                   onChange={filterByRatingHandler}
                 />
                 {rating.map((star) => {

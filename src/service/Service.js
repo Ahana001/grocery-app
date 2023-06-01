@@ -40,7 +40,6 @@ export async function getAllSubCategoriesRequest() {
     console.log(error);
   }
 }
-
 export async function loginRequest(email, password) {
   try {
     const response = await axios.post("/api/auth/login", { email, password });
@@ -120,9 +119,9 @@ export async function changeCartQuantityRequest(menuItem, token) {
     console.error(error);
   }
 }
-export async function removeMenuItemFromCartRequest(menuItem, token) {
+export async function removeMenuItemFromCartRequest(id, token) {
   try {
-    const response = await axios.delete(`/api/user/cart/${menuItem._id}`, {
+    const response = await axios.delete(`/api/user/cart/${id}`, {
       headers: {
         authorization: token,
       },
@@ -191,6 +190,38 @@ export async function updatedAddressToAddressList(updatedAddress, token) {
 export async function removeAddressFromAddressList(id, token) {
   try {
     const response = await axios.delete(`/api/user/address/${id}`, {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function addToWishlistRequest(menuItem, token) {
+  try {
+    const response = await axios.post(
+      "/api/user/wishlist",
+      { menuItem },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (response.status === 201) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function removeFromWishlistRequest(id, token) {
+  try {
+    const response = await axios.delete(`/api/user/wishlist/${id}`, {
       headers: {
         authorization: token,
       },

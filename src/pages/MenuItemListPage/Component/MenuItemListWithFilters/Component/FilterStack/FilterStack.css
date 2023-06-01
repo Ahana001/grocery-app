@@ -57,6 +57,15 @@
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
 }
+.ClearAllFilter {
+  align-self: flex-end;
+  margin: 0.5rem 1rem;
+  background-color: var(--stack-tab-line-color);
+  padding: 1rem 0.5rem;
+  border-radius: 0.36rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
 @media (max-width: 1024px) {
   .FilterContainer {
     margin-top: 5rem;

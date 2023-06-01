@@ -1,19 +1,22 @@
 import "./Navbar.css";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { FaShoppingCart, FaSearch, FaRegUserCircle } from "react-icons/fa";
+import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
 import { ActionTypes } from "../../reducer/types";
+import { DisplayContext } from "../../context/DisplayContext";
 
 export function Navbar() {
-  const [dropdownVisibility, setDropdownVisibility] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { currentUser, LogOutHandler } = useContext(AuthContext);
+  const { setDropdownVisibility, dropdownVisibility } =
+    useContext(DisplayContext);
   const { state, dispatch } = useContext(DataContext);
 
   function userProfileOnClickHandler() {
@@ -135,6 +138,19 @@ export function Navbar() {
             Login
           </div>
         )}
+        <div
+          className="WishlistIconContainer"
+          onClick={() =>
+            navigate("/user/wishlist", { state: { from: location } })
+          }
+        >
+          {state.wishlist.length > 0 ? (
+            <div className="WishlistItemCountConstainer">
+              {state.wishlist.length > 9 ? "9+" : state.wishlist.length}
+            </div>
+          ) : undefined}
+          <AiOutlineHeart className="WishlistIcon" />
+        </div>
         <div className="CartContainer">
           <div className="CartIcon">
             <FaShoppingCart />

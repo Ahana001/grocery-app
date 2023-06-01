@@ -11,11 +11,37 @@ import { ActionTypes } from "../reducer/types";
 import { AuthContext } from "./AuthContext";
 
 export const DataContext = createContext();
+export function getCurrentDimension() {
+  return {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+}
 
 export function DataContextProvider({ children }) {
   const { currentUser } = useContext(AuthContext);
   const [state, dispatch] = useReducer(DataReducer, initialState);
   const [loader, setLoader] = useState(true);
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+  const [FilterPriceRatingDisplay, setFilterPriceRatingDisplay] =
+    useState(false);
+  useEffect(() => {
+    if (screenSize.width <= 798) {
+      setFilterPriceRatingDisplay(false);
+    } else {
+      setFilterPriceRatingDisplay(true);
+    }
+  }, [screenSize]);
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener("resize", updateDimension);
+    return () => {
+      window.removeEventListener("resize", updateDimension);
+    };
+  }, [screenSize]);
 
   async function FetchInitialData() {
     try {
@@ -102,7 +128,17 @@ export function DataContextProvider({ children }) {
   }, [currentUser.token]);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, loader, setLoader }}>
+    <DataContext.Provider
+      value={{
+        state,
+        dispatch,
+        loader,
+        setLoader,
+        screenSize,
+        FilterPriceRatingDisplay,
+        setFilterPriceRatingDisplay,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
