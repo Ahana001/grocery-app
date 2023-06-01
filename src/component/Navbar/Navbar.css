@@ -10,7 +10,7 @@
   top: 0rem;
   left: 0rem;
   right: 0rem;
-  z-index: 1;
+  z-index: 10000;
   background-color: white;
   height: 8.6rem;
   box-sizing: border-box;
