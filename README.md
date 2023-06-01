@@ -47,9 +47,8 @@ You can filter various products based on category, ratings, and pricewise.It als
 
 ## Folder Structure 📒
 <pre>
-    ├───Authentication
-    │   ├───login
-    │   └───signup
+    |───login
+    |───signup
     ├───cart
     ├───home
     ├───products
