@@ -110,7 +110,7 @@ export const menu_items = [
         _id: "V_7",
         unit: "1 piece",
         price: 19,
-        in_stock: false,
+        in_stock: true,
         default: true,
       },
     ],
@@ -1161,7 +1161,7 @@ export const menu_items = [
         _id: "V_67",
         unit: "500 g",
         price: 38,
-        in_stock: true,
+        in_stock: false,
         default: true,
       },
       {
@@ -1201,7 +1201,7 @@ export const menu_items = [
 
     veg_egg_non: "veg",
     image:
-      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685216641/grocery/sweet_and_salty/57_c3oyxt.webp",
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685217108/grocery/sweet_and_salty/57_ohevbe.webp",
     rating: 4.8,
     delivery_time_in_mins: 21,
     item_variant: [
@@ -1655,7 +1655,7 @@ export const menu_items = [
     delivery_time_in_mins: 18,
     item_variant: [
       {
-        _id: "V_97",
+        _id: "V_99",
         unit: "1 pack (20 pieces)",
         price: 340,
         in_stock: true,

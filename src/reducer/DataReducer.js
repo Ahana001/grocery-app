@@ -25,6 +25,7 @@ export function DataReducer(state, action) {
           ...state,
           menuItems: action.payload.menuItems.map((menuItem) => ({
             ...menuItem,
+            wished: false,
             item_variant: menuItem.item_variant.map((variant) =>
               variant.default
                 ? {
@@ -124,6 +125,22 @@ export function DataReducer(state, action) {
       result = {
         ...state,
         addresslist: action.payload.addresslist,
+      };
+      break;
+    }
+    case ActionTypes.ReserFilters: {
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          ...action.payload.filter,
+        },
+      };
+    }
+    case ActionTypes.SetWishlist: {
+      result = {
+        ...state,
+        wishlist: action.payload.wishlist,
       };
       break;
     }

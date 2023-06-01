@@ -9,6 +9,7 @@ import { UserProfilePage } from "./pages/UserProfilePage/UserProfilePage";
 import { AddressPage } from "./pages/UserProfilePage/Component/AddressPage/AddressPage";
 import { CartPage } from "./pages/CartPage/CartPage";
 import { OrdersPage } from "./pages/UserProfilePage/Component/OrdersPage/OrdersPage";
+import { WishlistPage } from "./pages/WishlistPage/WishlistPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/user/account/address" element={<AddressPage />}></Route>
         <Route path="/user/account/orders" element={<OrdersPage />}></Route>
         <Route path="/user/cart" element={<CartPage />}></Route>
+        <Route path="/user/wishlist" element={<WishlistPage />}></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
     </div>

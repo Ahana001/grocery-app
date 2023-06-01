@@ -13,6 +13,7 @@
   border: 0.1rem solid var(--item-line-color);
   cursor: pointer;
   font-size: 1.5rem;
+  position: relative;
 }
 
 .MenuItemImageTop {
@@ -20,6 +21,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  text-decoration: none;
 }
 .MenuItemImageTop img {
   height: 15rem;
@@ -54,7 +56,7 @@
   width: 9rem;
   background: var(--item-box-bg-color);
   border-radius: 0.5rem;
-  font-size: small;
+  font-size: 1.2rem;
   border: none;
   padding: 0.6rem 0.2rem;
 }
@@ -85,13 +87,21 @@
   border-radius: 0.5rem;
   background: white;
   cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 .MenuItemVarinats,
 .MenuItemVarinat {
-  margin-top: 2rem;
-  padding: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MenuItemVarinat {
+  padding: 0rem;
+  margin: 3rem 0rem 1rem;
 }
 .PriceAndButtonContaine {
   display: flex;
@@ -99,7 +109,8 @@
   align-items: center;
   padding: 0.8rem 0rem;
 }
-.AddToCartButton {
+.AddToCartButton,
+.GoToCartButton {
   border: 0.2rem solid var(--item-button-dark-color);
   color: var(--item-button-dark-color);
   background-color: var(--item-button-light-color);
@@ -108,20 +119,18 @@
   text-transform: uppercase;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
+  text-decoration: none;
 }
 .OutOfStockContainer {
   background-color: rgba(255, 255, 255, 0.3);
   height: 100%;
   width: 100%;
   position: absolute;
-  top: -4rem;
+  top: 0rem;
   left: 0rem;
   box-sizing: border-box;
-  align-items: center;
-  display: flex;
-  justify-content: center;
   border: none;
-  z-index: 100;
+  text-decoration: none;
   text-transform: capitalize;
 }
 .OutOfStock {
@@ -129,7 +138,32 @@
   color: white;
   border-radius: 0.36rem;
   padding: 0.5rem;
+  position: absolute;
+  right: 1rem;
+  left: 1rem;
+  top: 16rem;
+  text-align: center;
 }
 .MenuItemContainer:hover {
   outline: 0.1rem solid var(--item-button-dark-color);
+}
+.LikeIconContainer {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  font-size: 2.2rem;
+  color: var(--item-button-dark-color);
+  padding: 1rem;
+}
+@media (max-width: 395px) {
+  .GoToCartButton {
+    font-size: 1rem;
+    padding: 1rem 0.2rem;
+  }
+}
+@media (max-width: 640px) {
+  .GoToCartButton {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
 }

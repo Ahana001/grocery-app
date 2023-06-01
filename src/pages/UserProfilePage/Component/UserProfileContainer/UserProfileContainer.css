@@ -62,14 +62,16 @@
   font-size: 2rem;
   padding-right: 1rem;
 }
-.UserProfileLink,
-.UserProfileLogout button {
+.UserProfileLink {
   text-decoration: none;
   color: var(--user-profile-nav-color);
   height: 100%;
 }
 .UserProfileAddress,
-.UserProfileOrder {
+.UserProfileOrder,
+.UserProfileCart,
+.UserProfileWishlist,
+.UserProfileLogout {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -77,22 +79,29 @@
 .UserProfileNavList li:hover {
   background-color: var(--user-profile-line-color);
 }
-.UserProfileNavList li:hover button {
-  background-color: var(--user-profile-line-color);
-}
-.UserProfileNavList button {
-  border: none;
-  background-color: white;
-  outline: none;
-  cursor: pointer;
-  height: 4.5rem;
-  min-width: 18rem;
-  text-align: left;
-  font-size: 1.2rem;
+
+@media (max-width: 1024px) {
+  .UserProfileRightContainer {
+    width: calc(100% - 2rem);
+    margin: auto;
+  }
 }
 @media (max-width: 1024px) {
   .UserProfileRightContainer {
     width: calc(100% - 2rem);
     margin: auto;
+  }
+}
+@media (width <= 595px) {
+  .UserProfileLeftContainer {
+    width: 100%;
+    border-right: none;
+  }
+  .UserProfileName {
+    font-size: 1.8rem;
+  }
+  .UserProfileNavList li {
+    border-bottom: none;
+    font-size: 1.6rem;
   }
 }

@@ -1,16 +1,20 @@
 import "./MenuItemCard.css";
 
 import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { useNavigate, Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import { ActionTypes } from "../../reducer/types";
-import { QuantityButton } from "../QuantityButton/QuantityButton";
 import {
   addToCartRequest,
+  addToWishlistRequest,
   changeCartQuantityRequest,
+  removeFromWishlistRequest,
 } from "../../service/Service";
 import { AuthContext } from "../../context/AuthContext";
+import { ActionTypes } from "../../reducer/types";
+import { DisplayContext } from "../../context/DisplayContext";
+// import { QuantityButton } from "../QuantityButton/QuantityButton";
 
 export function MenuItemCard({ menuItem, width }) {
   const {
@@ -28,8 +32,10 @@ export function MenuItemCard({ menuItem, width }) {
   const defaultVariant = item_variant.find((variant) => variant.default);
   const { dispatch } = useContext(DataContext);
   const { currentUser } = useContext(AuthContext);
+  const { dropdownVisibility } = useContext(DisplayContext);
 
   const navigate = useNavigate();
+
   function getImageByMenuType(veg_egg_non) {
     let resultUrl = "";
     switch (veg_egg_non) {
@@ -75,10 +81,6 @@ export function MenuItemCard({ menuItem, width }) {
       },
     });
   }
-  function selectMenuItemHandler(id) {
-    navigate(`/menu_item/${id}`);
-  }
-
   async function AddToCartHandler() {
     if (currentUser.token) {
       const isMenuItemIsCarted = menuItem.item_variant.find(
@@ -120,6 +122,55 @@ export function MenuItemCard({ menuItem, width }) {
       navigate("/user/login", { state: { from: location } });
     }
   }
+  async function AddToWishListHandler(menuItem) {
+    if (currentUser.token) {
+      const menuItemAlreadyWished = menuItem.wished;
+      if (menuItemAlreadyWished) {
+        const response = await removeFromWishlistRequest(
+          menuItem._id,
+          currentUser.token
+        );
+        if (response.status === 200) {
+          dispatch({
+            type: ActionTypes.SetWishlist,
+            payload: {
+              wishlist: response.data.wishlist,
+            },
+          });
+          const updatedMenuItem = { ...menuItem, wished: false };
+          dispatch({
+            type: ActionTypes.ChangeItem,
+            payload: {
+              menuItem: updatedMenuItem,
+            },
+          });
+        }
+      } else {
+        const response = await addToWishlistRequest(
+          menuItem,
+          currentUser.token
+        );
+        if (response.status === 201) {
+          dispatch({
+            type: ActionTypes.SetWishlist,
+            payload: {
+              wishlist: response.data.wishlist,
+            },
+          });
+          const updatedMenuItem = { ...menuItem, wished: true };
+          dispatch({
+            type: ActionTypes.ChangeItem,
+            payload: {
+              menuItem: updatedMenuItem,
+            },
+          });
+        }
+      }
+    } else {
+      navigate("/user/login", { state: { from: location } });
+    }
+  }
+
   return (
     <div
       className="MenuItemContainer"
@@ -129,15 +180,24 @@ export function MenuItemCard({ menuItem, width }) {
         maxWidth: width,
       }}
     >
-      <div className="LikeIconContainer"></div>
       <div
-        className="MenuItemImageTop"
-        onClick={() => {
-          selectMenuItemHandler(_id);
-        }}
+        className="LikeIconContainer"
+        onClick={() => AddToWishListHandler(menuItem)}
+        style={{ zIndex: dropdownVisibility ? "0" : "100" }}
       >
-        <img src={image} alt={name} />
+        {menuItem.wished ? (
+          <AiFillHeart
+            style={{
+              color: menuItem.wished ? "#dc2626" : "",
+            }}
+          />
+        ) : (
+          <AiOutlineHeart />
+        )}
       </div>
+      <Link className="MenuItemImageTop" to={`/menu_item/${_id}`}>
+        <img src={image} alt={name} />
+      </Link>
       <div className="MenuItemDetailsBottom">
         <div>
           {getStars(rating).map((ratingStar) => {
@@ -184,23 +244,21 @@ export function MenuItemCard({ menuItem, width }) {
             Rs. {filterDefaultSelectedMenuItemVariant.price}
           </div>
           {filterDefaultSelectedMenuItemVariant.carted ? (
-            <QuantityButton
-              menuItem={menuItem}
-              variant={filterDefaultSelectedMenuItemVariant}
-            />
-          ) : defaultVariant.in_stock ? (
+            <Link className="GoToCartButton" to="/user/cart">
+              Go To Cart
+            </Link>
+          ) : // <QuantityButton
+          //   menuItem={menuItem}
+          //   variant={filterDefaultSelectedMenuItemVariant}
+          // />
+          defaultVariant.in_stock ? (
             <div className="AddToCartButton" onClick={AddToCartHandler}>
               Add
             </div>
           ) : (
-            <div
-              className="OutOfStockContainer"
-              onClick={() => {
-                selectMenuItemHandler(_id);
-              }}
-            >
+            <Link className="OutOfStockContainer" to={`/menu_item/${_id}`}>
               <div className="OutOfStock">Out Of Stock</div>
-            </div>
+            </Link>
           )}
         </div>
       </div>

@@ -47,9 +47,28 @@
   justify-content: center;
   font-size: 1.8rem;
 }
+@media (max-width: 395px) {
+  .MenuItemSliderListHeader {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 430px) {
+  .MenuItemSliderListHeader {
+    font-size: 2rem;
+  }
+}
 @media (max-width: 640px) {
   .MenuSliderLeftThumbContainer,
   .MenuSliderRightThumbContainer {
     display: none;
+  }
+  .MenuItemSliderList {
+    padding: 0.2rem;
+    overflow-x: scroll;
+  }
+}
+@media (max-width: 798px) {
+  .MenuItemSliderListHeader {
+    font-size: 2.5rem;
   }
 }

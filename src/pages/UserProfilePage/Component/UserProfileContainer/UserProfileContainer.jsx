@@ -3,6 +3,7 @@ import "./UserProfileContainer.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GoLocation } from "react-icons/go";
 import { RiFileList3Line } from "react-icons/ri";
+import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { Navbar } from "../../../../component/Navbar/Navbar";
 import { useContext, useEffect } from "react";
@@ -65,9 +66,32 @@ export function UserProfileContainer({ children, childName }) {
                     <RiFileList3Line className="UserProfileIcon" />
                     <div className="UserProfileLink">My Orders</div>
                   </li>
+                  <li
+                    className="UserProfileCart"
+                    style={{
+                      backgroundColor:
+                        childName === "orders" ? "#eee" : "white ",
+                    }}
+                    onClick={() => navigate("/user/cart")}
+                  >
+                    <AiOutlineShoppingCart className="UserProfileIcon" />
+                    <div className="UserProfileLink">My Cart</div>
+                  </li>
+                  <li
+                    className="UserProfileWishlist"
+                    style={{
+                      backgroundColor:
+                        childName === "orders" ? "#eee" : "white ",
+                    }}
+                    onClick={() => navigate("/user/wishlist")}
+                  >
+                    <AiOutlineHeart className="UserProfileIcon" />
+                    <div className="UserProfileLink">My Favorite</div>
+                  </li>
                   <li className="UserProfileLogout">
                     <BiUser className="UserProfileIcon" />
-                    <button
+                    <div
+                      className="UserProfileLink"
                       onClick={() => {
                         LogOutHandler();
                         dispatch({
@@ -79,7 +103,7 @@ export function UserProfileContainer({ children, childName }) {
                       }}
                     >
                       Logout
-                    </button>
+                    </div>
                   </li>
                 </ul>
               </div>

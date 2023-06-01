@@ -11,10 +11,13 @@ import { PriceFilter } from "../../../../../../reducer/types";
 import { Filters } from "../../../../../../reducer/types";
 import { ActionTypes } from "../../../../../../reducer/types";
 import { BsFilterCircle } from "react-icons/bs";
+import { DisplayContext } from "../../../../../../context/DisplayContext";
 
-export function MenuItemList({ setFilterPriceRatingDisplay }) {
+export function MenuItemList() {
   const { state, dispatch } = useContext(DataContext);
   const [menuListLoader, setMenuListLoader] = useState(false);
+  const { setFilterPriceRatingDisplay } = useContext(DisplayContext);
+
   const filteredMenuItems = useFilterDataHook();
 
   useEffect(() => {

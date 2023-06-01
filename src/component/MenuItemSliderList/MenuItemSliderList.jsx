@@ -1,13 +1,32 @@
 import "./MenuItemSliderList.css";
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
 import { DataContext } from "../../context/DataContext";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
-  const { state } = useContext(DataContext);
-  let MenuItemCardWidth = 179;
+  const { state, screenSize } = useContext(DataContext);
+  const [cardWidth, setCardWidth] = useState("17.9rem");
+
+  useEffect(() => {
+    if (screenSize.width <= 395) {
+      setCardWidth(() => "14.8rem");
+    } else if (screenSize.width <= 640) {
+      setCardWidth(() => "16rem");
+    } else {
+      setCardWidth(() => "17.9rem");
+    }
+  }, []);
+  useEffect(() => {
+    if (screenSize.width <= 395) {
+      setCardWidth(() => "14.8rem");
+    } else if (screenSize.width <= 640) {
+      setCardWidth(() => "16rem");
+    } else {
+      setCardWidth(() => "17.9rem");
+    }
+  }, [screenSize]);
 
   const filterSubCategoriesIds = state.subCategories.reduce(
     (accumulator, subCategory) => {
@@ -32,15 +51,18 @@ export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
 
   function slidePreviosHandler() {
     const box = document.querySelector(`.SliderList${mainCategory._id}`);
+    const card = document.querySelector(".MenuItemContainer");
+
     let boxWidth = box.clientWidth;
-    let NoOfCardInFrame = Math.floor(boxWidth / MenuItemCardWidth);
-    box.scrollLeft = box.scrollLeft - NoOfCardInFrame * MenuItemCardWidth;
+    let NoOfCardInFrame = Math.floor(boxWidth / card.clientWidth);
+    box.scrollLeft = box.scrollLeft - NoOfCardInFrame * card.clientWidth;
   }
   function slideNextHandler() {
     const box = document.querySelector(`.SliderList${mainCategory._id}`);
+    const card = document.querySelector(".MenuItemContainer");
     let boxWidth = box.clientWidth;
-    let NoOfCardInFrame = Math.floor(boxWidth / MenuItemCardWidth);
-    box.scrollLeft = box.scrollLeft + NoOfCardInFrame * MenuItemCardWidth;
+    let NoOfCardInFrame = Math.floor(boxWidth / card.clientWidth);
+    box.scrollLeft = box.scrollLeft + NoOfCardInFrame * card.clientWidth;
   }
 
   return (
@@ -58,7 +80,7 @@ export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
               <MenuItemCard
                 key={menuItem._id}
                 menuItem={menuItem}
-                width={`${MenuItemCardWidth}px`}
+                width={cardWidth}
               />
             );
           })}

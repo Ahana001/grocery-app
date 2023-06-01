@@ -1,0 +1,9 @@
+.PaginationMenuItemListContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: #fff;
+  margin: 12rem auto 0rem;
+  max-width: 110rem;
+  height: 50rem;
+}

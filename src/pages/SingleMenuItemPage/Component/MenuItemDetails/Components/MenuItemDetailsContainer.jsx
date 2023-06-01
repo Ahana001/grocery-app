@@ -81,15 +81,15 @@ export function MenuItemDetailsContainer({ menuItem }) {
   return (
     <div className="MenuItemRightDetailContainer">
       <div className="MenuItemPathContainer">
-        <span onClick={() => navigate("/")}>Home</span> /
+        <span onClick={() => navigate("/")}>Home / </span>
         <span
           onClick={() =>
             navigate(`/main_category/${findMainCategory._id.slice(3)}`)
           }
         >
-          {findMainCategory.name}
+          {findMainCategory.name} /
         </span>
-        /<span>{menuItem.name}</span>
+        <span>{menuItem.name}</span>
       </div>
       <div className="MenuItemDetailsName">
         {menuItem.name} - {selectedVariant.unit}

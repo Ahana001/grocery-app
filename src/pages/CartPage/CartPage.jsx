@@ -13,6 +13,7 @@ export function CartPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const cart = state.cartlist;
+
   useEffect(() => {
     if (!currentUser.token) {
       navigate("/");

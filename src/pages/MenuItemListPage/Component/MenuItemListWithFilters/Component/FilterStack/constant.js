@@ -1,9 +1,9 @@
 export const priceFilter = [
-  "Less than Rs 20",
-  "Rs 21 to Rs 50",
-  "Rs 51 to Rs 100",
-  "Rs 101 to Rs 200",
-  "More than Rs 201",
+  { lower: 0, upper: 20 },
+  { lower: 21, upper: 50 },
+  { lower: 51, upper: 100 },
+  { lower: 101, upper: 200 },
+  { lower: 201, upper: 1000000 },
 ];
 export const ratingFilter = [
   ["R_1", "R_2", "R_3", "R_4", "R_5"],

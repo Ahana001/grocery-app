@@ -6,6 +6,8 @@ export const ActionTypes = {
   CartChange: "CART_CHANGE",
   SetMenuItems: "SET_MENUITEMS",
   SetAddressList: "SET_ADDRESSLIST",
+  ReserFilters: "RESET_FILTERS",
+  SetWishlist: "SET_WISHLIST",
 };
 export const Filters = {
   SortByPrice: "sortByPrice",
