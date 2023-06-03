@@ -7,7 +7,7 @@ export function Pagination({ data, dataLimit, pageLimit, RenderComponent }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   function goToNextPage() {
-    if (currentPage === pages) {
+    if (currentPage === pages || currentPage > pages) {
       return;
     }
     setCurrentPage(currentPage + 1);
@@ -36,29 +36,39 @@ export function Pagination({ data, dataLimit, pageLimit, RenderComponent }) {
     for (let i = 0; i < renderData.length; i++) {
       let pageNo = start + i + 1;
       renderData[i] = pageNo;
-      if (pageNo === pages) {
-        break;
-      }
     }
     return renderData;
   }
   return (
     <>
-      <div className="PaginationMenuItemListContainer">
-        {paginatedData().map((val) => {
-          return <RenderComponent key={val._id} menuItem={val} width="100px" />;
-        })}
-      </div>
-      <div>
-        <button onClick={goToPreviesPage}>Previous</button>
+      <div className="PaginationButtonContainer">
+        <button onClick={goToPreviesPage} className="PaginationPreviousBtn">
+          {"Previous"}
+        </button>
         {paginationGroup().map((buttons) => {
           return (
-            <button key={buttons} onClick={changePage}>
+            <button
+              key={buttons}
+              onClick={changePage}
+              style={{
+                border:
+                  currentPage === buttons
+                    ? "0.1rem solid rgb(238, 238, 238)"
+                    : "none",
+              }}
+            >
               {buttons}
             </button>
           );
         })}
-        <button onClick={goToNextPage}>Next</button>
+        <button onClick={goToNextPage} className="PaginationNextBtn">
+          {"Next"}
+        </button>
+      </div>
+      <div className="PaginationMenuItemListContainer">
+        {paginatedData().map((val) => {
+          return <RenderComponent key={val._id} menuItem={val} width="100px" />;
+        })}
       </div>
     </>
   );

@@ -1,7 +1,9 @@
-import { RxCross1 } from "react-icons/rx";
-import IframeComponent from "./IframeComponent";
-import { stateArray } from "./constant";
 import { useState, useEffect, useContext } from "react";
+
+import { RxCross1 } from "react-icons/rx";
+
+import { stateArray } from "./constant";
+import IframeComponent from "./IframeComponent";
 import { DataContext } from "../../../../context/DataContext";
 import {
   AddAddressToAddressList,
@@ -16,7 +18,6 @@ export function AddressForm({
   addressFormData,
   setAddressFormData,
 }) {
-  console.log(addressFormData);
   const [error, setError] = useState(false);
   const { dispatch } = useContext(DataContext);
   const { currentUser } = useContext(AuthContext);

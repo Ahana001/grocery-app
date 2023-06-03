@@ -1,7 +1,3 @@
-:root {
-  --bannercard-font-color: #716687;
-  --bannercard-title-color: #100c0d;
-}
 .BannerCardContainer {
   height: 14rem;
   width: 18rem;
@@ -17,19 +13,15 @@
   margin-top: -3.5rem;
 }
 .BannerCardContainer .BannerCardTitle {
-  color: var(--bannercard-title-color);
+  color: var(--font-color1);
   font-weight: 600;
   font-size: 1.6rem;
 }
 .BannerCardContainer .BannerCardSubTitle {
-  color: var(--bannercard-font-color);
+  color: var(--font-color);
   padding: 1rem;
   font-size: 1.2rem;
   text-align: center;
-}
-.BannerCardContainer:hover {
-  cursor: pointer;
-  transform: scale(1.1);
 }
 @media (max-width: 640px) {
   .BannerCardContainer {
@@ -56,5 +48,11 @@
   }
   .BannerCardContainer .BannerCardSubTitle {
     font-size: 1rem;
+  }
+}
+@media (hover: hover) {
+  .BannerCardContainer:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
 }

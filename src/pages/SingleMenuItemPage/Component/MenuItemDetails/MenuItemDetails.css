@@ -1,9 +1,3 @@
-:root {
-  --single-item-line-color: rgb(238, 238, 238);
-  --single-item-small-text-color: rgb(79, 79, 79);
-  --single-item-button-border-color: #979797;
-  --link-dark-color: rgb(12, 131, 31);
-}
 .MenuItemDetailsContainer,
 .MenuItemBottomContainer {
   display: flex;
@@ -11,7 +5,7 @@
 .MenuItemLeftSection,
 .MenuItemBottomContainerWrapper {
   flex: 5 1 0%;
-  border-right: 0.1rem solid var(--single-item-line-color);
+  border-right: 0.1rem solid var(--line-color);
   overflow-y: auto;
   height: 100%;
   padding-bottom: 5rem;
@@ -25,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 0.1rem solid var(--single-item-line-color);
+  border-bottom: 0.1rem solid var(--line-color);
 }
 .MenuItemRightSection,
 .BottomRightContainer {
@@ -41,7 +35,7 @@
   top: 2rem;
   left: 2rem;
   background: white;
-  border: 0.1rem solid var(--single-item-line-color);
+  border: 0.1rem solid var(--line-color);
 }
 
 .MenuItemRightDetailContainer {
@@ -57,7 +51,7 @@
   height: auto;
 }
 .SingleMenuItemOutOfStock {
-  color: var(--single-item-small-text-color);
+  color: var(--small-text-color);
   font-size: 1.4rem;
   font-weight: 500;
 }
@@ -69,10 +63,10 @@
 .MenuItemNoteForTax {
   font-weight: 400;
   font-size: 1rem;
-  color: var(--single-item-small-text-color);
+  color: var(--small-text-color);
 }
 .MenuItemRightSection .MenuItemSelectedUnit {
-  color: var(--single-item-small-text-color);
+  color: var(--small-text-color);
   font-size: 1.2rem;
 }
 .AddToCartAndWishListContainer,
@@ -87,7 +81,7 @@
   font-size: 1.6rem;
 }
 .MenuItemQuantity {
-  color: var(--item-button-dark-color);
+  color: var(--main-dark-color);
   font-size: 2rem;
   height: 100%;
   display: flex;
@@ -105,7 +99,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  border: 0.1rem solid var(--single-item-button-border-color);
+  border: 0.1rem solid var(--line-color);
   box-sizing: border-box;
   background-color: white;
   outline: none;
@@ -118,9 +112,9 @@
 .AddToCartAndWishListContainer .MenuItemDetailsAddToCartButton {
   height: 100%;
   flex: 3;
-  border: 0.2rem solid var(--item-button-dark-color);
-  color: var(--item-button-dark-color);
-  background: var(--item-button-light-color);
+  border: 0.2rem solid var(--main-dark-color);
+  color: var(--main-dark-color);
+  background: var(--light-bg-color);
   font-weight: 400;
   border-radius: 0.5rem;
   text-transform: uppercase;
@@ -134,7 +128,7 @@
   height: 100%;
   flex: 2;
   border-radius: 0.5rem;
-  border: 0.1rem solid var(--single-item-button-border-color);
+  border: 0.1rem solid var(--line-color);
   box-sizing: border-box;
   background-color: white;
   text-transform: uppercase;
@@ -143,12 +137,12 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  color: var(--single-item-button-border-color);
+  color: var(--small-text-color);
 }
 .IncreamentQuantityButton,
 .DecreamentQuantityButton {
   flex: 1;
-  color: var(--item-button-dark-color);
+  color: var(--main-dark-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +161,7 @@
   gap: 0.8rem;
   align-items: center;
   justify-content: flex-start;
-  color: var(--single-item-button-border-color);
+  color: var(--small-text-color);
   margin-top: 1rem;
   font-size: 1.2rem;
 }
@@ -206,12 +200,9 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-.MenuItemPathContainer span:hover {
-  color: var(--link-dark-color);
-  cursor: pointer;
-}
-.MenuItemPathContainer span:nth-of-type(3) {
-  color: var(--single-item-small-text-color);
+.MenuItemPathContainer .PathLink {
+  color: black;
+  text-decoration: none;
 }
 @media (max-width: 1024px) {
   .MenuItemDetailsContainer {
@@ -241,4 +232,13 @@
   .MenuItemDetailsAddToCartButton {
     font-size: 1.2rem;
   }
+}
+@media (hover: hover) {
+  .MenuItemPathContainer .PathLink:hover {
+    color: var(--main-dark-color);
+    cursor: pointer;
+  }
+}
+.MenuItemPathContainer .PathLink:nth-child(3) {
+  color: var(--small-text-color);
 }

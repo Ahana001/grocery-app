@@ -1,18 +1,12 @@
 import "./MenuItemCard.css";
 
-import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { useNavigate, Link } from "react-router-dom";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
+
 import { DataContext } from "../../context/DataContext";
-import {
-  addToCartRequest,
-  addToWishlistRequest,
-  changeCartQuantityRequest,
-  removeFromWishlistRequest,
-} from "../../service/Service";
-import { AuthContext } from "../../context/AuthContext";
-import { ActionTypes } from "../../reducer/types";
 import { DisplayContext } from "../../context/DisplayContext";
 // import { QuantityButton } from "../QuantityButton/QuantityButton";
 
@@ -26,16 +20,15 @@ export function MenuItemCard({ menuItem, width }) {
     veg_egg_non,
     rating,
   } = menuItem;
+
+  const { getSelectedVariant, AddToCartHandler, AddToWishListHandler } =
+    useContext(DataContext);
+  const { dropdownVisibility } = useContext(DisplayContext);
+
   const filterDefaultSelectedMenuItemVariant = item_variant?.find(
     (variant) => variant.selected
   );
   const defaultVariant = item_variant.find((variant) => variant.default);
-  const { dispatch } = useContext(DataContext);
-  const { currentUser } = useContext(AuthContext);
-  const { dropdownVisibility, FilterPriceRatingDisplay } =
-    useContext(DisplayContext);
-
-  const navigate = useNavigate();
 
   function getImageByMenuType(veg_egg_non) {
     let resultUrl = "";
@@ -67,110 +60,6 @@ export function MenuItemCard({ menuItem, width }) {
     }
     return stars;
   }
-  function getSelectedVariant(e) {
-    const variantId = e.target.value;
-    menuItem.item_variant = menuItem.item_variant.map((variant) =>
-      variant._id === variantId
-        ? { ...variant, selected: true }
-        : { ...variant, selected: false }
-    );
-
-    dispatch({
-      type: ActionTypes.ChangeItem,
-      payload: {
-        menuItem: menuItem,
-      },
-    });
-  }
-  async function AddToCartHandler() {
-    if (currentUser.token) {
-      const isMenuItemIsCarted = menuItem.item_variant.find(
-        (variant) => variant.carted
-      );
-      menuItem.item_variant = menuItem.item_variant.map((variant) =>
-        variant._id === filterDefaultSelectedMenuItemVariant._id
-          ? {
-              ...variant,
-              carted: true,
-              quantity: 1,
-            }
-          : { ...variant }
-      );
-      dispatch({
-        type: ActionTypes.ChangeItem,
-        payload: {
-          menuItem: menuItem,
-        },
-      });
-      let cartResponse;
-      if (isMenuItemIsCarted) {
-        cartResponse = await changeCartQuantityRequest(
-          menuItem,
-          currentUser.token
-        );
-      } else {
-        cartResponse = await addToCartRequest(menuItem, currentUser.token);
-      }
-      if (cartResponse?.status === 201 || cartResponse?.status === 200) {
-        dispatch({
-          type: ActionTypes.SetCartList,
-          payload: {
-            cart: cartResponse.data.cart,
-          },
-        });
-      }
-    } else {
-      navigate("/user/login", { state: { from: location } });
-    }
-  }
-  async function AddToWishListHandler(menuItem) {
-    if (currentUser.token) {
-      const menuItemAlreadyWished = menuItem.wished;
-      if (menuItemAlreadyWished) {
-        const response = await removeFromWishlistRequest(
-          menuItem._id,
-          currentUser.token
-        );
-        if (response.status === 200) {
-          dispatch({
-            type: ActionTypes.SetWishlist,
-            payload: {
-              wishlist: response.data.wishlist,
-            },
-          });
-          const updatedMenuItem = { ...menuItem, wished: false };
-          dispatch({
-            type: ActionTypes.ChangeItem,
-            payload: {
-              menuItem: updatedMenuItem,
-            },
-          });
-        }
-      } else {
-        const response = await addToWishlistRequest(
-          menuItem,
-          currentUser.token
-        );
-        if (response.status === 201) {
-          dispatch({
-            type: ActionTypes.SetWishlist,
-            payload: {
-              wishlist: response.data.wishlist,
-            },
-          });
-          const updatedMenuItem = { ...menuItem, wished: true };
-          dispatch({
-            type: ActionTypes.ChangeItem,
-            payload: {
-              menuItem: updatedMenuItem,
-            },
-          });
-        }
-      }
-    } else {
-      navigate("/user/login", { state: { from: location } });
-    }
-  }
 
   return (
     <div
@@ -183,19 +72,19 @@ export function MenuItemCard({ menuItem, width }) {
     >
       <div
         className="LikeIconContainer"
-        onClick={() => AddToWishListHandler(menuItem)}
         style={{
-          zIndex: dropdownVisibility || FilterPriceRatingDisplay ? "0" : "100",
+          zIndex: dropdownVisibility ? "0" : "100",
         }}
       >
         {menuItem.wished ? (
           <AiFillHeart
+            onClick={() => AddToWishListHandler(menuItem)}
             style={{
               color: menuItem.wished ? "#dc2626" : "",
             }}
           />
         ) : (
-          <AiOutlineHeart />
+          <AiOutlineHeart onClick={() => AddToWishListHandler(menuItem)} />
         )}
       </div>
       <Link className="MenuItemImageTop" to={`/menu_item/${_id}`}>
@@ -227,7 +116,7 @@ export function MenuItemCard({ menuItem, width }) {
           <>
             <select
               className="MenuItemVarinats"
-              onChange={getSelectedVariant}
+              onChange={(e) => getSelectedVariant(e, menuItem)}
               defaultValue={filterDefaultSelectedMenuItemVariant._id}
             >
               {item_variant.map(({ unit, price, _id, in_stock }) => {
@@ -255,7 +144,10 @@ export function MenuItemCard({ menuItem, width }) {
           //   variant={filterDefaultSelectedMenuItemVariant}
           // />
           defaultVariant.in_stock ? (
-            <div className="AddToCartButton" onClick={AddToCartHandler}>
+            <div
+              className="AddToCartButton"
+              onClick={() => AddToCartHandler(menuItem)}
+            >
               Add
             </div>
           ) : (

@@ -1,50 +1,116 @@
-:root {
-  --wishlist-line-color: rgb(238, 238, 238);
-  --wishlist-header-text-color: rgb(28, 28, 28);
-  --wishlist-button-light-color: #86cb86;
-  --wishlist-button-dark-color: rgb(12, 131, 31);
-  --wishlist-small-text-color: rgb(79, 79, 79);
-}
-.MenuItemListViewListContainer {
+.MenuItemListViewListContainer,
+.PaginationMenuItemDetails {
   display: flex;
-  height: 10rem;
   font-size: 1.5rem;
+  align-items: center;
+  gap: 8rem;
 }
 .PaginationRemoveMenuItemIconContainer {
   font-size: 2rem;
   color: #dc2626;
+  cursor: pointer;
+}
+.PaginationMenuItemImage {
+  border: 0.1rem solid var(--line-color);
 }
 .PaginationMenuItemImage img {
-  height: 12rem;
-  width: 12rem;
+  height: 10rem;
+  width: 10rem;
 }
 .PaginationMenuItemName {
-  color: var(--wishlist-small-text-color);
+  color: var(--small-text-color);
   font-size: 1.4rem;
+  width: 20rem;
 }
 .PaginationMenuItemVariantContainer,
-.PaginationMenuItemDetails {
+.PaginationVariantPriceBtn {
   display: flex;
   align-items: center;
 }
+.PaginationVariantPriceBtn {
+  gap: 2rem;
+}
+.PaginationMenuItemVariantContainer {
+  width: 24rem;
+}
 .PaginationMenuItemVarinats {
   outline: none;
-  border: 0.1rem solid var(--item-line-color);
+  border: 0.1rem solid var(--line-color);
   box-sizing: border-box;
   border-radius: 0.5rem;
   background: white;
   cursor: pointer;
   padding: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 18rem;
+}
+.PaginationPriceContainer {
+  margin-left: 1rem;
 }
 .PaginationMenuItemAddToCartButton,
 .PaginationMenuItemGoToCartButton {
-  border: 0.2rem solid var(--item-button-dark-color);
-  color: var(--item-button-dark-color);
-  background-color: var(--item-button-light-color);
+  border: 0.2rem solid var(--main-dark-color);
+  color: var(--main-dark-color);
+  background-color: var(--light-bg-color);
   font-weight: 400;
   border-radius: 0.5rem;
   text-transform: uppercase;
   padding: 0.8rem 1.2rem;
   cursor: pointer;
   text-decoration: none;
+  font-size: 1.4rem;
+}
+.PaginationMenuItemOutOfStock {
+  font-size: 1.2rem;
+  color: var(--small-text-color);
+}
+@media (max-width: 1024px) {
+  .PaginationMenuItemDetails {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  .PaginationMenuItemName {
+    width: auto;
+  }
+}
+@media (max-width: 798px) {
+  .PaginationVariantPriceBtn {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .MenuItemListViewListContainer,
+  .PaginationMenuItemDetails,
+  .PaginationVariantPriceBtn {
+    gap: 2rem;
+  }
+  .PaginationMenuItemAddToCartButton,
+  .PaginationMenuItemGoToCartButton {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 640px) {
+  .PaginationMenuItemImage img {
+    height: 7rem;
+    width: 7rem;
+  }
+  .PaginationMenuItemVariantContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .PaginationPriceContainer {
+    margin-left: 0rem;
+  }
+  .PaginationMenuItemVariantContainer {
+    width: 100%;
+  }
+  .PaginationMenuItemVarinats {
+    width: 14rem;
+  }
 }

@@ -10,10 +10,13 @@ import { AddressPage } from "./pages/UserProfilePage/Component/AddressPage/Addre
 import { CartPage } from "./pages/CartPage/CartPage";
 import { OrdersPage } from "./pages/UserProfilePage/Component/OrdersPage/OrdersPage";
 import { WishlistPage } from "./pages/WishlistPage/WishlistPage";
+import { Toast } from "./component/Toast/Toast";
+import { Navbar } from "./component/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route
@@ -33,6 +36,7 @@ function App() {
         <Route path="/user/wishlist" element={<WishlistPage />}></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
+      <Toast />;
     </div>
   );
 }

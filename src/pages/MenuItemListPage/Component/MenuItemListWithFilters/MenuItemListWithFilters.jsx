@@ -1,10 +1,12 @@
 import "./MenuItemListWithFilters.css";
 
+import { useEffect, useContext } from "react";
+
 import { MenuItemList } from "./Component/MenuItemList/MenuItemList";
 import { SubCategoryStack } from "./Component/SubCategoryStack/SubCategoryStack";
 import { FilterStack } from "./Component/FilterStack/FilterStack";
-import { useEffect, useContext } from "react";
 import { DisplayContext } from "../../../../context/DisplayContext";
+
 export function MenuItemListWithFilters() {
   const { setFilterPriceRatingDisplay } = useContext(DisplayContext);
 

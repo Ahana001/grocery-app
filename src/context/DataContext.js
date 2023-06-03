@@ -1,14 +1,26 @@
-import { useEffect } from "react";
-import { DataReducer, initialState } from "../reducer/DataReducer";
-import { createContext, useReducer, useState, useContext } from "react";
 import {
+  createContext,
+  useReducer,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
+import { useNavigate } from "react-router-dom";
+
+import {
+  addToCartRequest,
+  addToWishlistRequest,
+  changeCartQuantityRequest,
   getAllMainCategoriesRequest,
   getAllMenuItemRequest,
   getAllSubCategoriesRequest,
   getCartRequest,
+  removeFromWishlistRequest,
+  removeMenuItemFromCartRequest,
 } from "../service/Service";
-import { ActionTypes } from "../reducer/types";
 import { AuthContext } from "./AuthContext";
+import { ActionTypes } from "../reducer/types";
+import { DataReducer, initialState } from "../reducer/DataReducer";
 
 export const DataContext = createContext();
 export function getCurrentDimension() {
@@ -19,12 +31,14 @@ export function getCurrentDimension() {
 }
 
 export function DataContextProvider({ children }) {
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const [state, dispatch] = useReducer(DataReducer, initialState);
   const [loader, setLoader] = useState(true);
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
   const [FilterPriceRatingDisplay, setFilterPriceRatingDisplay] =
     useState(false);
+
   useEffect(() => {
     if (screenSize.width <= 798) {
       setFilterPriceRatingDisplay(false);
@@ -42,6 +56,10 @@ export function DataContextProvider({ children }) {
       window.removeEventListener("resize", updateDimension);
     };
   }, [screenSize]);
+
+  useEffect(() => {
+    FetchInitialData();
+  }, [currentUser.token]);
 
   async function FetchInitialData() {
     try {
@@ -123,9 +141,177 @@ export function DataContextProvider({ children }) {
     }
   }
 
-  useEffect(() => {
-    FetchInitialData();
-  }, [currentUser.token]);
+  async function AddToCartHandler(menuItem) {
+    const filterDefaultSelectedMenuItemVariant = menuItem.item_variant?.find(
+      (variant) => variant.selected
+    );
+    if (currentUser.token) {
+      const isMenuItemIsCarted = menuItem.item_variant.find(
+        (variant) => variant.carted
+      );
+      menuItem.item_variant = menuItem.item_variant.map((variant) =>
+        variant._id === filterDefaultSelectedMenuItemVariant._id
+          ? {
+              ...variant,
+              carted: true,
+              quantity: 1,
+            }
+          : { ...variant }
+      );
+      dispatch({
+        type: ActionTypes.ChangeItem,
+        payload: {
+          menuItem: menuItem,
+        },
+      });
+      let cartResponse;
+      if (isMenuItemIsCarted) {
+        cartResponse = await changeCartQuantityRequest(
+          menuItem,
+          currentUser.token
+        );
+      } else {
+        cartResponse = await addToCartRequest(menuItem, currentUser.token);
+      }
+      if (cartResponse?.status === 201 || cartResponse?.status === 200) {
+        dispatch({
+          type: ActionTypes.SetCartList,
+          payload: {
+            cart: cartResponse.data.cart,
+          },
+        });
+      }
+    } else {
+      navigate("/user/login");
+    }
+  }
+
+  async function removeItemFromCartHandler(menuItem) {
+    const response = await removeMenuItemFromCartRequest(
+      menuItem._id,
+      currentUser.token
+    );
+    if (response.status === 200) {
+      const updatedMenuItems = state.menuItems.map((menuItemInState) =>
+        menuItemInState._id === menuItem._id
+          ? {
+              ...menuItemInState,
+              item_variant: menuItemInState.item_variant.map((varinat) => ({
+                ...varinat,
+                carted: false,
+                quantity: 0,
+              })),
+            }
+          : menuItemInState
+      );
+      dispatch({
+        type: ActionTypes.SetCartList,
+        payload: {
+          cart: response.data.cart,
+        },
+      });
+      dispatch({
+        type: ActionTypes.SetMenuItems,
+        payload: {
+          menuItems: updatedMenuItems,
+        },
+      });
+    }
+  }
+
+  async function AddToWishListHandler(menuItem) {
+    if (currentUser.token) {
+      const menuItemAlreadyWished = menuItem.wished;
+      if (menuItemAlreadyWished) {
+        const response = await removeFromWishlistRequest(
+          menuItem._id,
+          currentUser.token
+        );
+        if (response.status === 200) {
+          dispatch({
+            type: ActionTypes.SetWishlist,
+            payload: {
+              wishlist: response.data.wishlist,
+            },
+          });
+          const updatedMenuItem = { ...menuItem, wished: false };
+          dispatch({
+            type: ActionTypes.ChangeItem,
+            payload: {
+              menuItem: updatedMenuItem,
+            },
+          });
+        }
+      } else {
+        const response = await addToWishlistRequest(
+          menuItem,
+          currentUser.token
+        );
+        if (response.status === 201) {
+          dispatch({
+            type: ActionTypes.SetWishlist,
+            payload: {
+              wishlist: response.data.wishlist,
+            },
+          });
+          const updatedMenuItem = { ...menuItem, wished: true };
+          dispatch({
+            type: ActionTypes.ChangeItem,
+            payload: {
+              menuItem: updatedMenuItem,
+            },
+          });
+        }
+      }
+    } else {
+      navigate("/user/login");
+    }
+  }
+
+  async function removeItemFromWishlist(menuItem) {
+    const response = await removeFromWishlistRequest(
+      menuItem._id,
+      currentUser.token
+    );
+    if (response.status === 200) {
+      const updatedMenuItems = state.menuItems.map((menuItemInState) =>
+        menuItemInState._id === menuItem._id
+          ? {
+              ...menuItemInState,
+              wished: false,
+            }
+          : menuItemInState
+      );
+      dispatch({
+        type: ActionTypes.SetWishlist,
+        payload: {
+          wishlist: response.data.wishlist,
+        },
+      });
+      dispatch({
+        type: ActionTypes.SetMenuItems,
+        payload: {
+          menuItems: updatedMenuItems,
+        },
+      });
+    }
+  }
+
+  function getSelectedVariant(e, menuItem) {
+    const variantId = e.target.value;
+    menuItem.item_variant = menuItem.item_variant.map((variant) =>
+      variant._id === variantId
+        ? { ...variant, selected: true }
+        : { ...variant, selected: false }
+    );
+
+    dispatch({
+      type: ActionTypes.ChangeItem,
+      payload: {
+        menuItem: menuItem,
+      },
+    });
+  }
 
   return (
     <DataContext.Provider
@@ -137,6 +323,11 @@ export function DataContextProvider({ children }) {
         screenSize,
         FilterPriceRatingDisplay,
         setFilterPriceRatingDisplay,
+        AddToCartHandler,
+        removeItemFromCartHandler,
+        AddToWishListHandler,
+        removeItemFromWishlist,
+        getSelectedVariant,
       }}
     >
       {children}

@@ -5,7 +5,6 @@ import { GoLocation } from "react-icons/go";
 import { RiFileList3Line } from "react-icons/ri";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
-import { Navbar } from "../../../../component/Navbar/Navbar";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../../context/AuthContext";
 import { DataContext } from "../../../../context/DataContext";
@@ -24,7 +23,6 @@ export function UserProfileContainer({ children, childName }) {
 
   return (
     <>
-      <Navbar />
       <div className="UserProfileContainer">
         <div className="UserProfileWrapper">
           <div
@@ -68,10 +66,6 @@ export function UserProfileContainer({ children, childName }) {
                   </li>
                   <li
                     className="UserProfileCart"
-                    style={{
-                      backgroundColor:
-                        childName === "orders" ? "#eee" : "white ",
-                    }}
                     onClick={() => navigate("/user/cart")}
                   >
                     <AiOutlineShoppingCart className="UserProfileIcon" />
@@ -79,10 +73,6 @@ export function UserProfileContainer({ children, childName }) {
                   </li>
                   <li
                     className="UserProfileWishlist"
-                    style={{
-                      backgroundColor:
-                        childName === "orders" ? "#eee" : "white ",
-                    }}
                     onClick={() => navigate("/user/wishlist")}
                   >
                     <AiOutlineHeart className="UserProfileIcon" />

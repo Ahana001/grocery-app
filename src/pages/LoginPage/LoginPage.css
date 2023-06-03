@@ -15,16 +15,16 @@
 .LoginForm {
   gap: 1.2rem;
   padding: 1rem 2rem;
-  background-color: #f4f4f4;
+  background-color: var(--bg-color);
   width: 40rem;
 }
 .LoginFormBorder {
   padding: 2rem;
-  border: 0.1rem solid rgb(238, 238, 238);
+  border: 0.1rem solid var(--line-color);
 }
 .LoginFormHeader {
   font-size: 2.4rem;
-  color: rgb(12, 131, 31);
+  color: var(--main-dark-color);
   text-transform: uppercase;
   padding: 1rem;
 }
@@ -37,7 +37,7 @@
   width: 100%;
 }
 .LoginForm input {
-  border: 0.1rem solid rgb(238, 238, 238);
+  border: 0.1rem solid var(--line-color);
   outline: none;
   padding: 1rem;
   width: 100%;
@@ -48,15 +48,15 @@
   font-size: 1.6rem;
 }
 .LoginForm input:focus {
-  border: 0.1rem solid rgb(12, 131, 31);
+  border: 0.1rem solid var(--main-dark-color);
   outline: none;
 }
 .LoginForm button {
   margin-top: 1.8rem;
   padding: 1rem 0rem;
   background-color: rgb(247, 255, 249);
-  color: rgb(12, 131, 31);
-  border: 0.1rem solid rgb(12, 131, 31);
+  color: var(--main-dark-color);
+  border: 0.1rem solid var(--main-dark-color);
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
@@ -69,7 +69,7 @@
   text-align: center;
 }
 .SignUpLink span {
-  color: rgb(12, 131, 31);
+  color: var(--main-dark-color);
   font-weight: 500;
   cursor: pointer;
   user-select: none;

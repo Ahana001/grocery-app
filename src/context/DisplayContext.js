@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { createContext, useState } from "react";
+import { v4 as uuid } from "uuid";
+import { createContext, useState, useCallback, useEffect } from "react";
+
 export const DisplayContext = createContext();
 
 export function getCurrentDimension() {
@@ -14,6 +15,7 @@ export function DisplayContextProvider({ children }) {
   const [FilterPriceRatingDisplay, setFilterPriceRatingDisplay] =
     useState(false);
   const [dropdownVisibility, setDropdownVisibility] = useState(false);
+  const [toastList, setToastList] = useState([]);
 
   useEffect(() => {
     if (screenSize.width <= 798) {
@@ -33,6 +35,40 @@ export function DisplayContextProvider({ children }) {
     };
   }, [screenSize]);
 
+  function showToast(type, description) {
+    let color = "#ebfbf6";
+    switch (type) {
+      case "info": {
+        color = "#799fec";
+        break;
+      }
+      case "success": {
+        color = "#6deaa6";
+        break;
+      }
+      case "warning": {
+        color = "#ef4437";
+        break;
+      }
+    }
+    setToastList(() => [
+      ...toastList,
+      {
+        id: uuid(),
+        description: description,
+        color,
+        type,
+      },
+    ]);
+  }
+  const deleteToast = useCallback(
+    (id) => {
+      const toastListItem = toastList.filter((e) => e.id !== id);
+      setToastList(toastListItem);
+    },
+    [toastList, setToastList]
+  );
+
   return (
     <DisplayContext.Provider
       value={{
@@ -41,6 +77,9 @@ export function DisplayContextProvider({ children }) {
         setFilterPriceRatingDisplay,
         dropdownVisibility,
         setDropdownVisibility,
+        toastList,
+        deleteToast,
+        showToast,
       }}
     >
       {children}

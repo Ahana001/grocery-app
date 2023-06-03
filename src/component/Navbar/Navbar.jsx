@@ -1,15 +1,16 @@
 import "./Navbar.css";
 
-import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
-import { FaShoppingCart, FaSearch, FaRegUserCircle } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
+import { FaShoppingCart, FaSearch, FaRegUserCircle } from "react-icons/fa";
+
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
-import { ActionTypes } from "../../reducer/types";
 import { DisplayContext } from "../../context/DisplayContext";
+import { ActionTypes } from "../../reducer/types";
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -19,21 +20,25 @@ export function Navbar() {
     useContext(DisplayContext);
   const { state, dispatch } = useContext(DataContext);
 
-  function userProfileOnClickHandler() {
-    navigate("/user/login", { state: { from: location } });
-  }
   function userCartOnClickHandler() {
     if (currentUser.token) {
-      navigate("/user/cart", { state: { from: location } });
+      navigate("/user/cart");
     } else {
-      navigate("/user/login", { state: { from: location } });
+      navigate("/user/login");
     }
   }
   function SmallViewUserProfileHandler() {
     if (currentUser.token) {
-      navigate("/user/account", { state: { from: location } });
+      navigate("/user/account");
     } else {
-      navigate("/user/login", { state: { from: location } });
+      navigate("/user/login");
+    }
+  }
+  function userWishlistOnClickHandler() {
+    if (currentUser.token) {
+      navigate("/user/wishlist");
+    } else {
+      navigate("/user/login");
     }
   }
 
@@ -134,15 +139,13 @@ export function Navbar() {
             ></div>
           </>
         ) : (
-          <div className="UserProfile" onClick={userProfileOnClickHandler}>
+          <Link to="/user/login" className="UserProfile">
             Login
-          </div>
+          </Link>
         )}
         <div
           className="WishlistIconContainer"
-          onClick={() =>
-            navigate("/user/wishlist", { state: { from: location } })
-          }
+          onClick={userWishlistOnClickHandler}
         >
           {state.wishlist.length > 0 ? (
             <div className="WishlistItemCountConstainer">

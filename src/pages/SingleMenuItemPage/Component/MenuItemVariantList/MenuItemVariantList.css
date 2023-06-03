@@ -1,15 +1,10 @@
-:root {
-  --variant-bg-light-color: rgb(247, 255, 249);
-  --variant-bg-dark-color: rgb(12, 131, 31);
-  --variant-line-color: rgb(238, 238, 238);
-}
 .MenuItemVariantList {
   display: flex;
   height: 5rem;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border: 0.1rem solid var(--variant-line-color);
+  border: 0.1rem solid var(--line-color);
   border-radius: 0.5rem;
 }
 .MenuItemUnit {

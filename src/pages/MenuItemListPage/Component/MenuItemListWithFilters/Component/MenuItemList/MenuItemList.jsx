@@ -1,16 +1,17 @@
 import "./MenuItemList.css";
 
 import { useContext, useState, useEffect } from "react";
-import { DataContext } from "../../../../../../context/DataContext";
 
-import { Loader } from "../../../../../../component/Loader/Loader";
-import { MenuItemCard } from "../../../../../../component/MenuItemCard/MenuItemCard";
-import { PriceFilterName } from "./constant";
-import { useFilterDataHook } from "../../../../../../Hook/FilterDataHook";
-import { PriceFilter } from "../../../../../../reducer/types";
-import { Filters } from "../../../../../../reducer/types";
-import { ActionTypes } from "../../../../../../reducer/types";
 import { BsFilterCircle } from "react-icons/bs";
+
+import { PriceFilterName } from "./constant";
+import { Filters } from "../../../../../../reducer/types";
+import { PriceFilter } from "../../../../../../reducer/types";
+import { ActionTypes } from "../../../../../../reducer/types";
+import { Loader } from "../../../../../../component/Loader/Loader";
+import { DataContext } from "../../../../../../context/DataContext";
+import { MenuItemCard } from "../../../../../../component/MenuItemCard/MenuItemCard";
+import { useFilterDataHook } from "../../../../../../Hook/FilterDataHook";
 import { DisplayContext } from "../../../../../../context/DisplayContext";
 
 export function MenuItemList() {
@@ -34,6 +35,7 @@ export function MenuItemList() {
       )?.name ?? ""
     );
   }
+
   function sortMenuItemByPriceHandler(e) {
     const type = e.target.value;
     let dispatchType;
@@ -58,7 +60,8 @@ export function MenuItemList() {
       },
     });
   }
-  function getSelectedValue(stateType) {
+
+  function getSelectedSortValue(stateType) {
     let displayType;
     switch (stateType) {
       case PriceFilter.HighToLow: {
@@ -95,7 +98,7 @@ export function MenuItemList() {
             <select
               className="MenuItemSortByPriceFilter"
               onChange={sortMenuItemByPriceHandler}
-              defaultValue={getSelectedValue(state.filter.sortByPrice)}
+              defaultValue={getSelectedSortValue(state.filter.sortByPrice)}
             >
               {PriceFilterName.map((name) => {
                 return (

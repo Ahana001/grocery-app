@@ -13,6 +13,7 @@ export function SubCategoryStack() {
   const filterSubCategies = state.subCategories.filter(
     (subCategory) => subCategory.main_category_id === "MC_" + mainCategoryId
   );
+
   useEffect(() => {
     dispatch({
       type: ActionTypes.ChangeFilter,
@@ -32,6 +33,7 @@ export function SubCategoryStack() {
       },
     });
   }
+
   return (
     <div className="SubCategoryStackContainer">
       <div className="SubCategoryStackItemContainer">

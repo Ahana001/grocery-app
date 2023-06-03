@@ -1,7 +1,3 @@
-:root {
-  --user-profile-nav-color: #666;
-  --user-profile-line-color: #eee;
-}
 .UserProfileWrapper {
   padding: 0;
   background-color: #fff;
@@ -15,19 +11,19 @@
 .UserProfileLeftContainer {
   width: 25.8rem;
   min-height: 56.7rem;
-  border-right: 0.1rem solid var(--user-profile-line-color);
+  border-right: 0.1rem solid var(--line-color);
 }
 .UserProfileRightContainer {
   width: calc(100% - 26rem);
   min-height: 56.7rem;
 }
 .UserProfileNav {
-  color: var(--user-profile-nav-color);
+  color: var(--small-text-color);
 }
 .UserProfileNavDetails {
   padding: 3rem 0;
   text-align: center;
-  border-bottom: 0.1rem solid var(--user-profile-line-color);
+  border-bottom: 0.1rem solid var(--line-color);
 }
 .UserProfileImage {
   height: 9rem;
@@ -54,7 +50,7 @@
 }
 .UserProfileNavList li {
   padding: 0 2rem;
-  border-bottom: 0.1rem solid var(--user-profile-line-color);
+  border-bottom: 0.1rem solid var(--line-color);
   cursor: pointer;
   font-size: 1.2rem;
 }
@@ -64,7 +60,7 @@
 }
 .UserProfileLink {
   text-decoration: none;
-  color: var(--user-profile-nav-color);
+  color: var(--small-text-color);
   height: 100%;
 }
 .UserProfileAddress,
@@ -76,10 +72,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-.UserProfileNavList li:hover {
-  background-color: var(--user-profile-line-color);
-}
-
 @media (max-width: 1024px) {
   .UserProfileRightContainer {
     width: calc(100% - 2rem);
@@ -103,5 +95,10 @@
   .UserProfileNavList li {
     border-bottom: none;
     font-size: 1.6rem;
+  }
+}
+@media (hover: hover) {
+  .UserProfileNavList li:hover {
+    background-color: var(--line-color);
   }
 }

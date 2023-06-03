@@ -1,10 +1,6 @@
-:root {
-  --filter-line-color: rgb(238, 238, 238);
-  --filter-bg-color: rgb(244, 246, 251);
-}
 .FilterContainer {
   width: fit-content;
-  border: 0.1rem solid var(--stack-tab-line-color);
+  border: 0.1rem solid var(--line-color);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 15.1rem);
@@ -42,7 +38,7 @@
 }
 .HorizontalLine {
   height: 0.1rem;
-  background-color: var(--filter-line-color);
+  background-color: var(--line-color);
   margin-top: 0.5rem;
   width: 100%;
 }
@@ -60,7 +56,7 @@
 .ClearAllFilter {
   align-self: flex-end;
   margin: 0.5rem 1rem;
-  background-color: var(--stack-tab-line-color);
+  background-color: var(--line-color);
   padding: 1rem 0.5rem;
   border-radius: 0.36rem;
   cursor: pointer;
@@ -79,12 +75,13 @@
 @media (max-width: 798px) {
   .FilterContainer {
     transform: translateX(100%);
-    background-color: var(--filter-bg-color);
-    -webkit-transition: all 0.7s ease-in-out;
-    -moz-transition: all 0.7s ease-in-out;
-    -ms-transition: all 0.7s ease-in-out;
-    -o-transition: all 0.7s ease-in-out;
-    transition: all 0.7s ease-in-out;
+    background-color: var(--bg-color);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    z-index: 1002;
   }
 }
 @media (width <= 398px) {
