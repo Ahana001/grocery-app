@@ -45,6 +45,6 @@
 }
 @media (hover: hover) {
   .SubCategoryDisk:hover {
-    background: var(--main-light-color);
+    background-color: rgb(195, 232, 202);
   }
 }

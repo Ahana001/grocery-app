@@ -6,9 +6,11 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
 import { DataContext } from "../../context/DataContext";
 import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
+import { DisplayContext } from "../../context/DisplayContext";
 
 export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
-  const { state, screenSize } = useContext(DataContext);
+  const { state } = useContext(DataContext);
+  const { screenSize } = useContext(DisplayContext);
   const [cardWidth, setCardWidth] = useState("17.9rem");
 
   useEffect(() => {

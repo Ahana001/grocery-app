@@ -3,11 +3,10 @@ import "./MenuItemCard.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaRegClock, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 import { DataContext } from "../../context/DataContext";
-import { DisplayContext } from "../../context/DisplayContext";
+import { LikeButton } from "../LikeButton/LikeButton";
 // import { QuantityButton } from "../QuantityButton/QuantityButton";
 
 export function MenuItemCard({ menuItem, width }) {
@@ -21,9 +20,7 @@ export function MenuItemCard({ menuItem, width }) {
     rating,
   } = menuItem;
 
-  const { getSelectedVariant, AddToCartHandler, AddToWishListHandler } =
-    useContext(DataContext);
-  const { dropdownVisibility } = useContext(DisplayContext);
+  const { getSelectedVariant, AddToCartHandler } = useContext(DataContext);
 
   const filterDefaultSelectedMenuItemVariant = item_variant?.find(
     (variant) => variant.selected
@@ -70,23 +67,7 @@ export function MenuItemCard({ menuItem, width }) {
         maxWidth: width,
       }}
     >
-      <div
-        className="LikeIconContainer"
-        style={{
-          zIndex: dropdownVisibility ? "0" : "100",
-        }}
-      >
-        {menuItem.wished ? (
-          <AiFillHeart
-            onClick={() => AddToWishListHandler(menuItem)}
-            style={{
-              color: menuItem.wished ? "#dc2626" : "",
-            }}
-          />
-        ) : (
-          <AiOutlineHeart onClick={() => AddToWishListHandler(menuItem)} />
-        )}
-      </div>
+      <LikeButton menuItem={menuItem} />
       <Link className="MenuItemImageTop" to={`/menu_item/${_id}`}>
         <img src={image} alt={name} />
       </Link>

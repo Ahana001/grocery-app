@@ -6,6 +6,7 @@
   background-color: white;
   border: 0.1rem solid var(--line-color);
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 .MenuItemUnit {
   width: 27%;

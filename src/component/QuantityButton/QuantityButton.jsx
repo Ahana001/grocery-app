@@ -98,7 +98,7 @@ export function QuantityButton({ menuItem, variant }) {
             }
           } else {
             const response = await removeMenuItemFromCartRequest(
-              menuItem,
+              menuItem._id,
               currentUser.token
             );
             if (response?.status === 200) {
