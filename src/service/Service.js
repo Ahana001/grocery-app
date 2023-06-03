@@ -7,7 +7,7 @@ export async function getAllMenuItemRequest() {
       return response;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function getAllMainCategoriesRequest() {
@@ -17,7 +17,7 @@ export async function getAllMainCategoriesRequest() {
       return response;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function getParticularMainCategoriesRequest(id) {
@@ -27,7 +27,7 @@ export async function getParticularMainCategoriesRequest(id) {
       return response;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function getAllSubCategoriesRequest() {
@@ -37,7 +37,7 @@ export async function getAllSubCategoriesRequest() {
       return response;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 export async function loginRequest(email, password) {

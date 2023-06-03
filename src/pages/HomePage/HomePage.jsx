@@ -2,13 +2,12 @@ import "./HomePage.css";
 
 import { useContext, useEffect } from "react";
 
+import { home_main_categories } from "./constant";
 import { DataContext } from "../../context/DataContext";
 import { Loader } from "../../component/Loader/Loader";
-import { Navbar } from "../../component/Navbar/Navbar";
 import { Banner } from "../../component/Banner/Banner";
 import { MainCategoryList } from "./Component/MainCategoryList/MainCategoryList";
 import { MenuItemSliderList } from "../../component/MenuItemSliderList/MenuItemSliderList";
-import { home_main_categories } from "./constant";
 
 export function HomePage() {
   const { loader } = useContext(DataContext);
@@ -19,7 +18,6 @@ export function HomePage() {
 
   return (
     <>
-      <Navbar />
       {loader ? (
         <Loader height="100vh" size="8rem" />
       ) : (

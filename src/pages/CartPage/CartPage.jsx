@@ -1,10 +1,11 @@
 import "./CartPage.css";
+
 import { useContext, useEffect } from "react";
-import { DataContext } from "../../context/DataContext";
-import { CartMenuItem } from "./Component/CartMenuItem";
-import { Navbar } from "../../component/Navbar/Navbar";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import { DataContext } from "../../context/DataContext";
 import { AuthContext } from "../../context/AuthContext";
+import { CartMenuItem } from "./Component/CartMenuItem";
 
 export function CartPage() {
   const { state } = useContext(DataContext);
@@ -37,7 +38,6 @@ export function CartPage() {
   if (cartLength === 0) {
     return (
       <>
-        <Navbar />
         <div className="EmptyCartContainer">
           <div className="EmptyCartImageContainer">
             <img src="../images/empty_cart.webp" alt="empty_cart" />
@@ -67,7 +67,6 @@ export function CartPage() {
   }
   return (
     <>
-      <Navbar />
       <div className="CartPageContainer">
         <div className="LeftCartItemListContainer">
           <div className="FinalDeliveryTime">

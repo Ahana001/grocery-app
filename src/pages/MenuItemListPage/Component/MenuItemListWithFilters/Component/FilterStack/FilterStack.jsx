@@ -13,6 +13,7 @@ export function FilterStack() {
   const { dispatch, state } = useContext(DataContext);
   const { FilterPriceRatingDisplay, setFilterPriceRatingDisplay, screenSize } =
     useContext(DisplayContext);
+
   function filterByPriceRangeHandler(e) {
     let priceRange = [];
     switch (e.target.value) {
@@ -45,6 +46,7 @@ export function FilterStack() {
       },
     });
   }
+
   function filterByRatingHandler(e) {
     dispatch({
       type: ActionTypes.ChangeFilter,
@@ -54,6 +56,7 @@ export function FilterStack() {
       },
     });
   }
+
   function getHumanReadablePriceName({ lower, upper }) {
     if (lower === 0) {
       return "Less than Rs 20";
@@ -63,6 +66,7 @@ export function FilterStack() {
       return `Rs ${lower} to Rs ${upper}`;
     }
   }
+
   function clearAllFilter() {
     dispatch({
       type: ActionTypes.ReserFilters,
@@ -76,6 +80,7 @@ export function FilterStack() {
       },
     });
   }
+
   return (
     <div
       className="FilterContainer"

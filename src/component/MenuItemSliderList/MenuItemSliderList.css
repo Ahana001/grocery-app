@@ -27,6 +27,7 @@
   justify-content: center;
   padding: 0.6rem;
   cursor: pointer;
+  z-index: 2;
 }
 .MenuSliderLeftThumbContainer {
   left: 0rem;

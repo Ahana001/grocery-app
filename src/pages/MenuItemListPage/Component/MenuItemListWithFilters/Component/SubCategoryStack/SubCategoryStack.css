@@ -1,12 +1,6 @@
-:root {
-  --stack-tab-dark-color: #86cb86;
-  --stack-tab-light-color: rgb(195, 232, 202);
-  --stack-tab-line-color: rgb(238, 238, 238);
-}
-
 .SubCategoryStackContainer {
   width: 20rem;
-  border: 0.1rem solid var(--stack-tab-line-color);
+  border: 0.1rem solid var(--line-color);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 15.1rem);
@@ -21,11 +15,8 @@
   display: flex;
   gap: 2rem;
   padding: 1.6rem;
-  border-bottom: 0.1rem solid var(--stack-tab-line-color);
+  border-bottom: 0.1rem solid var(--line-color);
   cursor: pointer;
-}
-.SubCategoryDisk:hover {
-  background: var(--stack-tab-light-color);
 }
 .SubCategoryName {
   -webkit-line-clamp: 2;
@@ -50,5 +41,10 @@
   }
   .SubCategoryDisk {
     padding: 1.6rem 0.2rem;
+  }
+}
+@media (hover: hover) {
+  .SubCategoryDisk:hover {
+    background: var(--main-light-color);
   }
 }

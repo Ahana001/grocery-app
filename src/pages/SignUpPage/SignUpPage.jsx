@@ -1,8 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { Navbar } from "../../component/Navbar/Navbar";
-
 import "./SignUpPage.css";
+
+import { debounce } from "lodash";
 import { useContext, useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../context/AuthContext";
 
 export function SignUpPage() {
@@ -59,9 +60,11 @@ export function SignUpPage() {
       signUpHandler(firstName, lastName, email, password);
     }
   }
+
   useEffect(() => {
     setError(() => null);
   }, []);
+
   useEffect(() => {
     if (currentUser.token) {
       navigate(location?.state?.from.pathname || "/", { replace: true });
@@ -71,7 +74,6 @@ export function SignUpPage() {
   if (location.pathname === "/user/signup") {
     return (
       <>
-        <Navbar />
         <div className="SignUpPageContainer">
           <div className="SignUpFormBorder">
             <form className="SignUpForm" onSubmit={submitSignUpRequest}>
@@ -83,12 +85,14 @@ export function SignUpPage() {
                   id="firstName"
                   required={true}
                   placeholder="John"
-                  onChange={(e) =>
-                    setSignUpFormData({
-                      ...signUpFormData,
-                      firstName: e.target.value,
-                    })
-                  }
+                  onChange={debounce(
+                    (e) =>
+                      setSignUpFormData({
+                        ...signUpFormData,
+                        firstName: e.target.value,
+                      }),
+                    300
+                  )}
                 />
                 {signFormError.name && (
                   <div
@@ -110,12 +114,14 @@ export function SignUpPage() {
                   id="lastName"
                   required={true}
                   placeholder="Doe"
-                  onChange={(e) =>
-                    setSignUpFormData({
-                      ...signUpFormData,
-                      lastName: e.target.value,
-                    })
-                  }
+                  onChange={debounce(
+                    (e) =>
+                      setSignUpFormData({
+                        ...signUpFormData,
+                        lastName: e.target.value,
+                      }),
+                    300
+                  )}
                 />
                 {signFormError.name && (
                   <div
@@ -138,12 +144,14 @@ export function SignUpPage() {
                   id="email"
                   required={true}
                   placeholder="abc@gmail.com"
-                  onChange={(e) =>
-                    setSignUpFormData({
-                      ...signUpFormData,
-                      email: e.target.value,
-                    })
-                  }
+                  onChange={debounce(
+                    (e) =>
+                      setSignUpFormData({
+                        ...signUpFormData,
+                        email: e.target.value,
+                      }),
+                    300
+                  )}
                 />
                 {signFormError.email && (
                   <div
@@ -166,12 +174,14 @@ export function SignUpPage() {
                   id="password"
                   required={true}
                   placeholder="abc@1234"
-                  onChange={(e) =>
-                    setSignUpFormData({
-                      ...signUpFormData,
-                      password: e.target.value,
-                    })
-                  }
+                  onChange={debounce(
+                    (e) =>
+                      setSignUpFormData({
+                        ...signUpFormData,
+                        password: e.target.value,
+                      }),
+                    300
+                  )}
                 />
               </div>
               <div className="SignUpFormConfirmPasswordContainer">
@@ -181,12 +191,12 @@ export function SignUpPage() {
                   id="confirmPassword"
                   required={true}
                   placeholder="abc@1234"
-                  onChange={(e) => {
+                  onChange={debounce((e) => {
                     setSignUpFormData({
                       ...signUpFormData,
                       confirmPassword: e.target.value,
                     });
-                  }}
+                  }, 300)}
                 />
                 {signFormError.password && (
                   <div

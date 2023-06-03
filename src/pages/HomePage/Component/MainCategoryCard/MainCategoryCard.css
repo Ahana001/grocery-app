@@ -8,6 +8,8 @@
   background-color: #9aceaa;
   border-radius: 1rem;
   margin-top: 1.5rem;
+  text-decoration: none;
+  color: black;
 }
 .MainCategoryCardContainer img {
   height: 14rem;
@@ -34,10 +36,6 @@
     transition: transform 0.25s ease-out;
     opacity: 0.3;
   }
-
-  &:hover:before {
-    transform: scale(17);
-  }
 }
 
 @media (max-width: 1024px) {
@@ -56,9 +54,6 @@
   .MainCategoryCardContainer img {
     height: 8rem;
     width: 8rem;
-  }
-  .MainCategoryCardContainer:before {
-    transition: none;
   }
 }
 @media (max-width: 640px) {
@@ -107,5 +102,12 @@
   .MainCategoryCardContainer img {
     height: 8rem;
     width: 8rem;
+  }
+}
+@media (hover: hover) {
+  .MainCategoryCardContainer {
+    &:hover:before {
+      transform: scale(17);
+    }
   }
 }

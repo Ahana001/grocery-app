@@ -1,0 +1,66 @@
+.ToastListContainer {
+  font-size: 1.4rem;
+  position: fixed;
+  z-index: 10000;
+  bottom: 1rem;
+  right: 1rem;
+}
+.ToastNotification {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 10px #999;
+  color: #000;
+  transition: 0.3 ease;
+  height: 8rem;
+  width: 36.5rem;
+  padding: 1rem;
+  padding-bottom: 0;
+  background-color: white;
+  position: relative;
+}
+.ToastProgressLine {
+  position: absolute;
+  height: 0.8rem;
+  width: 100%;
+  bottom: 0rem;
+  left: 0rem;
+  right: 0rem;
+  animation: progress 2s linear forwards;
+}
+.ToastNotification:last-of-type {
+  animation: toast-in-right 0.7s normal;
+}
+.ToastCloseConatiner {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.IconWithDescription {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ToastIcon {
+  font-size: 3rem;
+}
+.ToastNotificationDescription {
+  margin: 0;
+  text-align: left;
+}
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+@keyframes toast-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

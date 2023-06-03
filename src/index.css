@@ -1,3 +1,15 @@
+:root {
+  --header-color: #a0addb;
+  --font-color: #716687;
+  --font-color1: #100c0d;
+  --main-light-color: #86cb86;
+  --main-dark-color: rgb(12, 131, 31);
+  --bg-color: #f4f4f4;
+  --light-bg-color: rgb(247, 255, 249);
+  --line-color: rgb(238, 238, 238);
+  --small-text-color: rgb(79, 79, 79);
+}
+
 * *::after,
 *::before {
   margin: 0;

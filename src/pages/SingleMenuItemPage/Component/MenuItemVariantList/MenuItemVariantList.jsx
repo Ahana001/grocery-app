@@ -1,6 +1,9 @@
-import { useContext } from "react";
 import "./MenuItemVariantList.css";
+
+import { useContext } from "react";
+
 import { TiTick } from "react-icons/ti";
+
 import { DataContext } from "../../../../context/DataContext";
 import { ActionTypes } from "../../../../reducer/types";
 

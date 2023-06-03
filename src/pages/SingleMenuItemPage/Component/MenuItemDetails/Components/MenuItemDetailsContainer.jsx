@@ -1,16 +1,17 @@
+import { useContext } from "react";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+
 import { BsTruck } from "react-icons/bs";
 
+import { ActionTypes } from "../../../../../reducer/types";
 import { MenuItemVariantList } from "../../MenuItemVariantList/MenuItemVariantList";
-import { useContext } from "react";
 import { AuthContext } from "../../../../../context/AuthContext";
-import { useLocation, useNavigate } from "react-router-dom";
 import {
   addToCartRequest,
   changeCartQuantityRequest,
   removeMenuItemFromCartRequest,
 } from "../../../../../service/Service";
 import { DataContext } from "../../../../../context/DataContext";
-import { ActionTypes } from "../../../../../reducer/types";
 
 export function MenuItemDetailsContainer({ menuItem }) {
   const { dispatch, state } = useContext(DataContext);
@@ -81,15 +82,16 @@ export function MenuItemDetailsContainer({ menuItem }) {
   return (
     <div className="MenuItemRightDetailContainer">
       <div className="MenuItemPathContainer">
-        <span onClick={() => navigate("/")}>Home / </span>
-        <span
-          onClick={() =>
-            navigate(`/main_category/${findMainCategory._id.slice(3)}`)
-          }
+        <Link to="/" className="PathLink">
+          Home /{" "}
+        </Link>
+        <Link
+          to={`/main_category/${findMainCategory._id.slice(3)}`}
+          className="PathLink"
         >
           {findMainCategory.name} /
-        </span>
-        <span>{menuItem.name}</span>
+        </Link>
+        <Link className="PathLink">{menuItem.name}</Link>
       </div>
       <div className="MenuItemDetailsName">
         {menuItem.name} - {selectedVariant.unit}

@@ -1,9 +1,11 @@
 import "./MenuItemSliderList.css";
 
 import { useContext, useEffect, useState } from "react";
-import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
-import { DataContext } from "../../context/DataContext";
+
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+
+import { DataContext } from "../../context/DataContext";
+import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
 
 export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
   const { state, screenSize } = useContext(DataContext);

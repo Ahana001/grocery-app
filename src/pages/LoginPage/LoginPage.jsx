@@ -1,10 +1,10 @@
 import "./LoginPage.css";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
 import { useContext, useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
-import { Navbar } from "../../component/Navbar/Navbar";
 
 export function LoginPage() {
   const location = useLocation();
@@ -29,17 +29,19 @@ export function LoginPage() {
 
   function submitLoginRequestAsGuest(e) {
     e.preventDefault();
+    setLoginFormData({ email: guestUser.email, password: guestUser.password });
     loginHandler(guestUser.email, guestUser.password);
   }
+
   useEffect(() => {
     if (currentUser.token) {
       navigate(location?.state?.from.pathname || "/", { replace: true });
     }
   }, [currentUser.token]);
+
   if (location.pathname === "/user/login") {
     return (
       <>
-        <Navbar />
         <div className="LoginPageContainer">
           <div className="LoginFormBorder">
             <form className="LoginForm" onSubmit={submitLoginRequest}>
@@ -51,12 +53,12 @@ export function LoginPage() {
                   id="email"
                   required={true}
                   placeholder="abc@gmail.com"
-                  onChange={(e) =>
+                  onChange={debounce((e) => {
                     setLoginFormData(() => ({
                       ...LoginformData,
                       email: e.target.value,
-                    }))
-                  }
+                    }));
+                  }, 300)}
                 />
               </div>
               <div className="LoginFormPasswordContainer">
@@ -66,12 +68,14 @@ export function LoginPage() {
                   id="password"
                   required={true}
                   placeholder="abc@1234"
-                  onChange={(e) =>
-                    setLoginFormData(() => ({
-                      ...LoginformData,
-                      password: e.target.value,
-                    }))
-                  }
+                  onChange={debounce(
+                    (e) =>
+                      setLoginFormData(() => ({
+                        ...LoginformData,
+                        password: e.target.value,
+                      })),
+                    300
+                  )}
                 />
               </div>
               {error && (
