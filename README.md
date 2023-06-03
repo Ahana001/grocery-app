@@ -9,7 +9,7 @@
 </div>
 
 <h3 align="center">
-          Live Project : https://grocery-app-khaki.vercel.app/
+          Live Project : https://grossy-app.vercel.app/
 </h3>
 <br />
 
