@@ -21,6 +21,7 @@ import {
 import { AuthContext } from "./AuthContext";
 import { ActionTypes } from "../reducer/types";
 import { DataReducer, initialState } from "../reducer/DataReducer";
+import { DisplayContext } from "./DisplayContext";
 
 export const DataContext = createContext();
 export function getCurrentDimension() {
@@ -35,27 +36,7 @@ export function DataContextProvider({ children }) {
   const { currentUser } = useContext(AuthContext);
   const [state, dispatch] = useReducer(DataReducer, initialState);
   const [loader, setLoader] = useState(true);
-  const [screenSize, setScreenSize] = useState(getCurrentDimension());
-  const [FilterPriceRatingDisplay, setFilterPriceRatingDisplay] =
-    useState(false);
-
-  useEffect(() => {
-    if (screenSize.width <= 798) {
-      setFilterPriceRatingDisplay(false);
-    } else {
-      setFilterPriceRatingDisplay(true);
-    }
-  }, [screenSize]);
-
-  useEffect(() => {
-    const updateDimension = () => {
-      setScreenSize(getCurrentDimension());
-    };
-    window.addEventListener("resize", updateDimension);
-    return () => {
-      window.removeEventListener("resize", updateDimension);
-    };
-  }, [screenSize]);
+  const { showToast } = useContext(DisplayContext);
 
   useEffect(() => {
     FetchInitialData();
@@ -172,6 +153,7 @@ export function DataContextProvider({ children }) {
         );
       } else {
         cartResponse = await addToCartRequest(menuItem, currentUser.token);
+        showToast("success", `${menuItem.name} added in cart`);
       }
       if (cartResponse?.status === 201 || cartResponse?.status === 200) {
         dispatch({
@@ -216,6 +198,7 @@ export function DataContextProvider({ children }) {
           menuItems: updatedMenuItems,
         },
       });
+      showToast("info", `${menuItem.name} removed from cart`);
     }
   }
 
@@ -241,6 +224,7 @@ export function DataContextProvider({ children }) {
               menuItem: updatedMenuItem,
             },
           });
+          showToast("info", `${menuItem.name} removed from wishlist`);
         }
       } else {
         const response = await addToWishlistRequest(
@@ -261,6 +245,7 @@ export function DataContextProvider({ children }) {
               menuItem: updatedMenuItem,
             },
           });
+          showToast("success", `${menuItem.name} added in wishlist`);
         }
       }
     } else {
@@ -294,6 +279,7 @@ export function DataContextProvider({ children }) {
           menuItems: updatedMenuItems,
         },
       });
+      showToast("info", `${menuItem.name} removed from wishlist`);
     }
   }
 
@@ -320,9 +306,6 @@ export function DataContextProvider({ children }) {
         dispatch,
         loader,
         setLoader,
-        screenSize,
-        FilterPriceRatingDisplay,
-        setFilterPriceRatingDisplay,
         AddToCartHandler,
         removeItemFromCartHandler,
         AddToWishListHandler,

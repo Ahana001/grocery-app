@@ -45,7 +45,7 @@
 }
 .MenuItemSortByPriceFilter {
   padding: 0.5rem;
-  color: var(--main-color);
+  color: var(--main-dark-color);
   font-weight: 600;
   border: 0.1rem solid var(--line-color);
   background-color: white;

@@ -33,13 +33,11 @@
 .PriceFilterList,
 .RatingHeader,
 .RatingFilterList {
-  margin-top: 0.5rem;
-  margin: 1.6rem;
+  margin: 0.5rem 1.6rem;
 }
 .HorizontalLine {
   height: 0.1rem;
   background-color: var(--line-color);
-  margin-top: 0.5rem;
   width: 100%;
 }
 .PriceFilterList,
@@ -51,7 +49,7 @@
 }
 .FilterContainerCloseButton {
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
 }
 .ClearAllFilter {
   align-self: flex-end;
@@ -75,7 +73,7 @@
 @media (max-width: 798px) {
   .FilterContainer {
     transform: translateX(100%);
-    background-color: var(--bg-color);
+    background-color: white;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;

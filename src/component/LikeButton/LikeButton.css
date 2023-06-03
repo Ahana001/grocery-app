@@ -1,0 +1,12 @@
+.LikeIconContainer {
+  font-size: 2.2rem;
+  color: var(--main-dark-color);
+  padding: 1rem;
+  height: 3rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}

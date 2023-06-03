@@ -12,10 +12,12 @@ import {
   removeMenuItemFromCartRequest,
 } from "../../../../../service/Service";
 import { DataContext } from "../../../../../context/DataContext";
+import { DisplayContext } from "../../../../../context/DisplayContext";
 
 export function MenuItemDetailsContainer({ menuItem }) {
-  const { dispatch, state } = useContext(DataContext);
+  const { dispatch, state, AddToWishListHandler } = useContext(DataContext);
   const { currentUser } = useContext(AuthContext);
+  const { showToast } = useContext(DisplayContext);
   const location = useLocation();
   const navigate = useNavigate();
   const selectedVariant = menuItem.item_variant.find(
@@ -64,6 +66,7 @@ export function MenuItemDetailsContainer({ menuItem }) {
           );
         } else {
           cartResponse = await addToCartRequest(menuItem, currentUser.token);
+          showToast("info", `${menuItem.name} added in wishlist`);
         }
         if (cartResponse?.status === 201 || cartResponse?.status === 200) {
           dispatch({
@@ -230,7 +233,16 @@ export function MenuItemDetailsContainer({ menuItem }) {
               >
                 Add To Basket
               </div>
-              <div className="MenuItemDetailsAddToWishListButton">Save</div>
+              {menuItem.wished ? (
+                <div className="MenuItemDetailsAddToWishListButton">Saved</div>
+              ) : (
+                <div
+                  className="MenuItemDetailsAddToWishListButton"
+                  onClick={() => AddToWishListHandler(menuItem)}
+                >
+                  Save
+                </div>
+              )}
             </div>
           )}
 

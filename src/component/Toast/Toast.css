@@ -10,13 +10,12 @@
   flex-direction: column;
   margin-bottom: 1rem;
   border-radius: 0.3rem;
-  box-shadow: 0 0 10px #999;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   color: #000;
   transition: 0.3 ease;
-  height: 8rem;
+  height: auto;
   width: 36.5rem;
-  padding: 1rem;
-  padding-bottom: 0;
   background-color: white;
   position: relative;
 }
@@ -28,12 +27,13 @@
   left: 0rem;
   right: 0rem;
   animation: progress 2s linear forwards;
+  border-radius: 0.36rem;
 }
 .ToastNotification:last-of-type {
   animation: toast-in-right 0.7s normal;
 }
 .ToastCloseConatiner {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 1rem 0rem;
   font-size: 1.6rem;
   cursor: pointer;
   align-self: flex-end;
@@ -43,6 +43,8 @@
   gap: 0.8rem;
   align-items: center;
   justify-content: flex-start;
+  margin: 0rem 1.4rem;
+  margin-bottom: 1.8rem;
 }
 .ToastIcon {
   font-size: 3rem;
@@ -62,5 +64,20 @@
   }
   to {
     transform: translateX(0);
+  }
+}
+@media (max-width: 640px) {
+  .ToastNotification {
+    height: auto;
+    width: 28.5rem;
+  }
+  .IconWithDescription {
+    margin-bottom: 1.6rem;
+  }
+  .ToastIcon {
+    font-size: 2rem;
+  }
+  .ToastListContainer {
+    font-size: 1.2rem;
   }
 }

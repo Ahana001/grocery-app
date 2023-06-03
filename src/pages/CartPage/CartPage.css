@@ -53,6 +53,7 @@
 .CartMenuItemImage img {
   max-height: 100%;
   width: 12rem;
+  position: relative;
 }
 .CartMenuItemDetails {
   display: flex;
@@ -251,6 +252,9 @@
   .EmptyCartImageContainer img {
     height: 35rem;
     width: 35rem;
+  }
+  .CartMenuItemImage {
+    align-self: center;
   }
   .CartMenuItemImage img {
     width: 8rem;

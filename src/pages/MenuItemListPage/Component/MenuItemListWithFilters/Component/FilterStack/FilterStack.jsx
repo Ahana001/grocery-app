@@ -90,20 +90,20 @@ export function FilterStack() {
           : "translateX(100%)",
       }}
     >
+      <RxCross1
+        className="FilterContainerCloseButton"
+        onClick={() => setFilterPriceRatingDisplay(false)}
+        style={{
+          display:
+            FilterPriceRatingDisplay && screenSize.width <= 798
+              ? "block"
+              : "none",
+        }}
+      />
       <div className="ClearAllFilter" onClick={clearAllFilter}>
         Clear All
       </div>
       <div className="PriceFilterContainer">
-        <RxCross1
-          className="FilterContainerCloseButton"
-          onClick={() => setFilterPriceRatingDisplay(false)}
-          style={{
-            display:
-              FilterPriceRatingDisplay && screenSize.width <= 798
-                ? "block"
-                : "none",
-          }}
-        />
         <div className="PriceHeader">Price</div>
         <div className="HorizontalLine"></div>
         <div className="PriceFilterList">

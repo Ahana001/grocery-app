@@ -32,6 +32,7 @@ export function Toast() {
     }
     return icon;
   }
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (toastList.length) {

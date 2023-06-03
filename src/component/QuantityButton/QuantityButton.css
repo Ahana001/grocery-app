@@ -1,6 +1,6 @@
 .QuantityContainer {
   display: flex;
-  background-color: var(--cart-button-light-color);
+  background-color: var(--main-light-color);
   width: 5rem;
   height: 2rem;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 .Increament {
   font-size: 1.6rem;
   cursor: pointer;
-  background-color: var(--cart-button-light-color);
+  background-color: var(--main-light-color);
   border: none;
   outline: none;
 }
