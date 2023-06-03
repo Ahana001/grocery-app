@@ -26,7 +26,7 @@
   bottom: 0rem;
   left: 0rem;
   right: 0rem;
-  animation: progress 2s linear forwards;
+  animation: progress 1.8s linear forwards;
   border-radius: 0.36rem;
 }
 .ToastNotification:last-of-type {
@@ -73,9 +73,6 @@
   }
   .IconWithDescription {
     margin-bottom: 1.6rem;
-  }
-  .ToastIcon {
-    font-size: 2rem;
   }
   .ToastListContainer {
     font-size: 1.2rem;

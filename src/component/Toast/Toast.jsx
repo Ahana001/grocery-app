@@ -38,7 +38,7 @@ export function Toast() {
       if (toastList.length) {
         deleteToast(toastList[0].id);
       }
-    }, 2000);
+    }, 1800);
     return () => {
       clearInterval(interval);
     };
@@ -60,10 +60,10 @@ export function Toast() {
               {toast.description}
             </div>
           </div>
-          <div
+          {/* <div
             className="ToastProgressLine"
             style={{ backgroundColor: toast.color }}
-          ></div>
+          ></div> */}
         </div>
       ))}
     </div>
