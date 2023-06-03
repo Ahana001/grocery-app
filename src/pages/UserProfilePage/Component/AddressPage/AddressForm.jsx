@@ -34,10 +34,6 @@ export function AddressForm({
         addressFormData["title"] === "Title" ||
         addressFormData["state"] === "Choose State"
       ) {
-        console.log(key);
-        console.log(key !== "_id");
-        console.log(key !== "_id" || key !== "createdAt");
-        console.log("ERROR SET");
         isErrorSet = true;
         setError(() => true);
       }
