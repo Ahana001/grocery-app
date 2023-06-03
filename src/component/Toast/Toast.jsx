@@ -49,6 +49,10 @@ export function Toast() {
       {toastList.map((toast) => (
         <div key={toast.id} className="ToastNotification">
           <div
+            className="ToastHorizontalLine"
+            style={{ backgroundColor: toast.color }}
+          ></div>
+          <div
             className="ToastCloseConatiner"
             onClick={() => deleteToast(toast.id)}
           >
