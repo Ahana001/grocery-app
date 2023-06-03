@@ -150,7 +150,7 @@
 @media (max-width: 640px) {
   .GoToCartButton,
   .AddToCartButton {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.8rem;
   }
 }
