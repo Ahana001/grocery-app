@@ -8,6 +8,7 @@ export const initialState = {
     search: "",
     priceRange: [],
   },
+  selectedAddress: {},
   menuItems: [],
   mainCategories: [],
   subCategories: [],
@@ -141,6 +142,13 @@ export function DataReducer(state, action) {
       result = {
         ...state,
         wishlist: action.payload.wishlist,
+      };
+      break;
+    }
+    case ActionTypes.SelectAddress: {
+      result = {
+        ...state,
+        selectedAddress: { ...action.payload.selectedAddress },
       };
       break;
     }

@@ -14,6 +14,7 @@ import { Toast } from "./component/Toast/Toast";
 import { Navbar } from "./component/Navbar/Navbar";
 import { PrivateRoutes } from "./component/PrivateRoutes/PrivateRoutes";
 import { Footer } from "./component/Footer/Footer";
+import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
@@ -47,6 +48,14 @@ function App() {
           element={
             <PrivateRoutes>
               <WishlistPage />
+            </PrivateRoutes>
+          }
+        ></Route>
+        <Route
+          path="/user/checkout"
+          element={
+            <PrivateRoutes>
+              <CheckoutPage />
             </PrivateRoutes>
           }
         ></Route>

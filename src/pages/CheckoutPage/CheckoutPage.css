@@ -1,0 +1,122 @@
+.CheckoutPageContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0rem 3rem;
+  margin-top: 8.6rem;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+.LeftAddressListContainer {
+  width: 48rem;
+  display: flex;
+  justify-content: center;
+}
+.RightCheckoutBillContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+.CheckoutBillSummeryContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 40rem;
+}
+.CheckoutBillHeader {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.CheckoutBillSummeryContainer .HorizontaLine {
+  background-color: var(--line-color);
+  height: 0.1rem;
+  margin-top: 2rem;
+}
+.CheckoutBillSummeryContainer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+.CheckoutBillSummeryContainer li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.CheckoutBillListHeader {
+  color: var(--small-text-color);
+}
+.Delivery {
+  color: var(--main-dark-color);
+}
+.Delivery span {
+  text-decoration: line-through;
+  color: black;
+}
+.CheckoutGrandTotalContainer {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.PlaceOrderButton {
+  margin-top: 5rem;
+  align-self: flex-end;
+  background-color: var(--main-light-color);
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.36rem;
+  color: black;
+  font-size: 1.4rem;
+}
+@media (max-width: 1024px) {
+  .CheckoutPageContainer {
+    margin: 0rem 1rem;
+    margin-top: 14rem;
+    flex-direction: column;
+  }
+  .RightCheckoutBillContainer,
+  .LeftAddressListContainer {
+    max-width: 60rem;
+  }
+  .CheckoutBillSummeryContainer {
+    width: 100%;
+  }
+  .LeftAddressListContainer {
+    border-right: none;
+  }
+}
+@media (max-width: 640px) {
+  .RightCheckoutBillContainer,
+  .LeftAddressListContainer {
+    width: 100%;
+  }
+  .RightCheckoutBillContainer {
+    width: 42rem;
+  }
+  .CheckoutPageContainer {
+    margin: 0rem 0.1rem;
+  }
+  .RightCheckoutBillContainer {
+    padding: 0rem;
+  }
+}
+@media (max-width: 430px) {
+  .RightCheckoutBillContainer {
+    width: 36rem;
+  }
+}
+@media (width <= 395px) {
+  .RightCheckoutBillContainer {
+    width: 26rem;
+  }
+}

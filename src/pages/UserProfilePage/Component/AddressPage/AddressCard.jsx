@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineHome } from "react-icons/ai";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { TiTick } from "react-icons/ti";
 
 import { removeAddressFromAddressList } from "../../../../service/Service";
 import { AuthContext } from "../../../../context/AuthContext";
@@ -11,7 +12,7 @@ import { ActionTypes } from "../../../../reducer/types";
 
 export function AddressCard({ address, setIsOpenForm, setAddressFormData }) {
   const { currentUser } = useContext(AuthContext);
-  const { dispatch } = useContext(DataContext);
+  const { dispatch, state } = useContext(DataContext);
 
   async function deleteAddressFromAddressList(id) {
     const response = await removeAddressFromAddressList(id, currentUser.token);
@@ -24,9 +25,24 @@ export function AddressCard({ address, setIsOpenForm, setAddressFormData }) {
       });
     }
   }
-
+  async function selectAddress() {
+    dispatch({
+      type: ActionTypes.SelectAddress,
+      payload: {
+        selectedAddress: { ...address },
+      },
+    });
+  }
   return (
-    <div className="AddressCardContainer">
+    <div
+      className="AddressCardContainer"
+      style={{
+        backgroundColor:
+          address._id === state.selectedAddress?._id
+            ? "rgb(195, 232, 202)"
+            : "white",
+      }}
+    >
       <div className="AddressCardIcon">
         {address.addressType === "Home" ? (
           <AiOutlineHome />
@@ -65,6 +81,15 @@ export function AddressCard({ address, setIsOpenForm, setAddressFormData }) {
             </div>
           </div>
         </div>
+      </div>
+      <div
+        className="AddressCheckBox"
+        onClick={selectAddress}
+        style={{
+          height: location.pathname !== "user/checkout" ? "" : "100%",
+        }}
+      >
+        {address._id === state.selectedAddress?._id ? <TiTick /> : undefined}
       </div>
     </div>
   );

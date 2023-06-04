@@ -167,6 +167,8 @@
   flex-direction: column;
   align-items: center;
   padding: 0rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 .AddressListAddAddresBtn {
   display: flex;
@@ -183,6 +185,7 @@
   color: var(--main-dark-color);
   box-sizing: border-box;
   font-size: 1.6rem;
+  border-radius: 0.36rem;
 }
 .MapContainer {
   padding: 2rem;
@@ -214,6 +217,8 @@
   border: 0.1rem solid var(--line-color);
   border-bottom: none;
   padding: 1.5rem;
+  cursor: pointer;
+  border-radius: 0.36rem;
 }
 .AddressCardIcon {
   font-size: 2rem;
@@ -247,7 +252,16 @@
 .AddressDeleteButton {
   cursor: pointer;
 }
-
+.AddressCheckBox {
+  font-size: 2rem;
+  border-radius: 0.36rem;
+  border: 0.1rem solid black;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
 @media (max-width: 1024px) {
   .UserProfileLeftContainer {
     display: none;

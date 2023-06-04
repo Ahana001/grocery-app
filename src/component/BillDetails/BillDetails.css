@@ -75,6 +75,7 @@
   line-height: 1.6rem;
   height: 3.5rem;
   font-size: 1.4rem;
+  font-weight: 500;
 }
 .CartMenuItemVariantContainer {
   display: flex;
@@ -102,12 +103,12 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 1.5rem;
-  width: 42rem;
 }
 .BillSummeryContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin-top: 1rem;
+  width: 40rem;
 }
 .BillHeader {
   font-size: 2rem;
@@ -118,35 +119,35 @@
   height: 0.1rem;
   margin-top: 2rem;
 }
-.CartBillMenuItems {
-  width: 100%;
-  padding-inline-start: 0px;
-}
-.CartBillListItem {
+.BillSummeryContainer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
-}
-.CartBillMenuItemName {
+  align-items: flex-start;
+  gap: 1rem;
   font-size: 1.2rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-top: 2rem;
 }
-.CartBillVariantList {
-  width: 100%;
-  list-style: none;
-  padding-inline-start: 0px;
-}
-.CartMenuItemBillVariantDetails {
+.BillSummeryContainer li {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+.BillListHeader {
+  color: var(--small-text-color);
+}
+.Delivery {
+  color: var(--main-dark-color);
+}
+.Delivery span {
+  text-decoration: line-through;
+  color: black;
 }
 .GrandTotalContainer {
   margin-top: 2rem;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
@@ -161,10 +162,6 @@
   padding: 1rem 2rem;
   cursor: pointer;
   user-select: none;
-  text-decoration: none;
-  color: black;
-  border-radius: 0.36rem;
-  font-size: 1.4rem;
 }
 .EmptyCartContainer {
   display: flex;

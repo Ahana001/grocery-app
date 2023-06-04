@@ -8,6 +8,7 @@ export const ActionTypes = {
   SetAddressList: "SET_ADDRESSLIST",
   ReserFilters: "RESET_FILTERS",
   SetWishlist: "SET_WISHLIST",
+  SelectAddress: "SELECT_ADDRESS",
 };
 export const Filters = {
   SortByPrice: "sortByPrice",
