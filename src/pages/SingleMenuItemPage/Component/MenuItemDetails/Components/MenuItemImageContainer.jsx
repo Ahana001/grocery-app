@@ -1,9 +1,15 @@
 import ReactImageMagnify from "react-image-magnify";
+import { useContext } from "react";
+
+import { DisplayContext } from "../../../../../context/DisplayContext";
 
 export function MenuItemImageContainer({ menuItem }) {
+  const { screenSize } = useContext(DisplayContext);
+
   return (
     <div className="MenuItemTopImageContainer">
       <ReactImageMagnify
+        className="MenuItemMagnifierImage"
         {...{
           smallImage: {
             alt: menuItem.name,
@@ -18,6 +24,12 @@ export function MenuItemImageContainer({ menuItem }) {
           enlargedImagePortalId: "ZoomImage",
           enlargedImageContainerClassName: "ZoomImageContainer",
         }}
+      />
+      <img
+        style={{ display: screenSize.width < 1024 ? "block" : "none" }}
+        className="SinglePageMenuItemImage"
+        src={menuItem.image}
+        alt={menuItem.name}
       />
 
       <div className="MenuItemTypeIcon">

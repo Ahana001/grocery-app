@@ -1,25 +1,22 @@
 import "./CartPage.css";
 
 import { useContext, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 import { DataContext } from "../../context/DataContext";
-import { AuthContext } from "../../context/AuthContext";
 import { CartMenuItem } from "./Component/CartMenuItem";
 
 export function CartPage() {
   const { state } = useContext(DataContext);
-  const { currentUser } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
-  const cart = state.cartlist;
 
   useEffect(() => {
-    if (!currentUser.token) {
-      navigate("/");
-    }
-  }, [currentUser.token]);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  const cart = state.cartlist;
 
   const cartLength = cart.length;
   function getCartTotal() {
@@ -93,20 +90,44 @@ export function CartPage() {
             <button>Apply</button>
           </div> */}
           <div className="BillSummeryContainer">
-            <div className="BillHeader">Bill Details</div>
+            <div className="BillHeader">Cart Summery Details</div>
             <div className="HorizontaLine"></div>
-            <ul>
-              <li>
-                <div className="BillListHeader">MRP</div>
-                <div>Rs. {parseFloat(getCartTotal().total).toFixed(2)}</div>
-              </li>
-              <li>
-                <div className="BillListHeader">Delivery charge</div>
-                <div className="Delivery">
-                  <span>Rs. 15</span> FREE
-                </div>
-              </li>
+            <ul className="CartBillMenuItems">
+              {cart.map((cartMenuItem) => {
+                return (
+                  <li className="CartBillListItem" key={cartMenuItem._id}>
+                    <div className="CartBillMenuItemName">
+                      {cartMenuItem.name}
+                    </div>
+                    <ul className="CartBillVariantList">
+                      {cartMenuItem.item_variant.map((cartItemVariant) => {
+                        return (
+                          cartItemVariant.carted && (
+                            <li
+                              className="CartMenuItemBillVariantDetails"
+                              key={cartItemVariant._id}
+                            >
+                              <div className="CartMenuItemBillVariant">
+                                <em>{cartItemVariant.unit}</em> x
+                                {cartItemVariant.quantity}
+                              </div>
+                              <div className="CartBillMenuItemPrice">
+                                Rs.
+                                {parseFloat(
+                                  cartItemVariant.price *
+                                    cartItemVariant.quantity
+                                ).toFixed(2)}
+                              </div>
+                            </li>
+                          )
+                        );
+                      })}
+                    </ul>
+                  </li>
+                );
+              })}
             </ul>
+            <div className="HorizontaLine"></div>
             <div className="GrandTotalContainer">
               <div className="GrandTotalHeader">Grand total</div>
               <div className="GrandTotal">
@@ -114,7 +135,9 @@ export function CartPage() {
               </div>
             </div>
           </div>
-          <div className="CheckOutButton">CHECK OUT</div>
+          <Link to="/user/checkout" className="CheckOutButton">
+            CHECK OUT
+          </Link>
         </div>
       </div>
     </>

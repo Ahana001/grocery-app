@@ -17,10 +17,12 @@
   padding: 1rem 2rem;
   background-color: var(--bg-color);
   width: 40rem;
+  border-radius: 0.36rem;
 }
 .LoginFormBorder {
   padding: 2rem;
   border: 0.1rem solid var(--line-color);
+  border-radius: 0.36rem;
 }
 .LoginFormHeader {
   font-size: 2.4rem;
@@ -42,6 +44,7 @@
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0.36rem;
 }
 .LoginForm label {
   font-weight: 500;
@@ -62,6 +65,7 @@
   font-weight: 600;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0.36rem;
 }
 .SignUpLink {
   padding: 1rem;

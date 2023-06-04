@@ -66,7 +66,7 @@ export function MenuItemDetailsContainer({ menuItem }) {
           );
         } else {
           cartResponse = await addToCartRequest(menuItem, currentUser.token);
-          showToast("info", `${menuItem.name} added in wishlist`);
+          showToast("info", menuItem.name, "successfully added in wishlist");
         }
         if (cartResponse?.status === 201 || cartResponse?.status === 200) {
           dispatch({

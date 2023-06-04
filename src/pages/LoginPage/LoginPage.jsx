@@ -99,7 +99,7 @@ export function LoginPage() {
 
               <div className="SignUpLink">
                 Don&apos;t have an account ?
-                <span onClick={redirectToSignUpOnHandler}>Sing Up</span>
+                <span onClick={redirectToSignUpOnHandler}>Sign Up</span>
               </div>
             </form>
           </div>

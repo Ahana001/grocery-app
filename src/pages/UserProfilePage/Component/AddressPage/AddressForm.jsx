@@ -154,6 +154,7 @@ export function AddressForm({
                     Receiver&#39;s name
                   </label>
                   <input
+                    autoComplete="off"
                     type="text"
                     id="ReceiverName"
                     value={addressFormData.receiverName}
@@ -179,6 +180,7 @@ export function AddressForm({
                   Street / Society / Office Name
                 </label>
                 <input
+                  autoComplete="off"
                   type="text"
                   id="AreaName"
                   value={addressFormData.areaName}
@@ -202,6 +204,7 @@ export function AddressForm({
                     City
                   </label>
                   <input
+                    autoComplete="off"
                     id="City"
                     type="text"
                     onChange={(e) => setFormDataOnChangeHandler(e, "city")}
@@ -224,6 +227,7 @@ export function AddressForm({
                     Pin Code
                   </label>
                   <input
+                    autoComplete="off"
                     id="PinCode"
                     type="number"
                     maxLength={6}
@@ -324,6 +328,7 @@ export function AddressForm({
                   Nickname Of your address
                 </label>
                 <input
+                  autoComplete="off"
                   type="text"
                   id="AdressName"
                   value={

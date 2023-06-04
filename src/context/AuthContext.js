@@ -37,11 +37,13 @@ export function AuthContextProvider({ children }) {
         user: foundUser,
         token: encodedToken,
       }));
-      showToast("success", "successfully logeed in");
+      showToast("success", "", "successfully logeed in");
     } else if (status === 404) {
       setError(() => data.statusText);
+      showToast("warning", "", `${data.statusText}`);
     } else if (status === 401) {
       setError(() => data.statusText);
+      showToast("warning", "", `${data.statusText}`);
     }
   }
 
@@ -67,16 +69,17 @@ export function AuthContextProvider({ children }) {
         user: createdUser,
         token: encodedToken,
       }));
-      showToast("success", "successfully signed up");
+      showToast("success", "", "successfully signed up");
     } else if (status === 422) {
       setError(() => data.statusText);
+      showToast("warning", "", `${data.statusText}`);
     }
   }
 
   async function LogOutHandler() {
     localStorage.removeItem("loginDetails");
     setCurrentUser(() => ({ token: null, user: null }));
-    showToast("success", "successfully logged out ");
+    showToast("success", "", "successfully logged out ");
   }
   return (
     <AuthContext.Provider

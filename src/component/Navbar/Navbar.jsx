@@ -91,18 +91,20 @@ export function Navbar() {
           <>
             <div className="UserProfile">
               <div className="UserProfileDropDown">
-                <button className="UserProfileDropDownBtn">Account</button>
-                <div
-                  className="UserProfileArrow"
+                <button
+                  className="UserProfileDropDownBtn"
                   onClick={() => setDropdownVisibility(true)}
-                ></div>
+                >
+                  Account
+                  <div className="UserProfileArrow"></div>
+                </button>
               </div>
               <div
                 className="UserProfileDropDownContent"
                 style={{
                   display: dropdownVisibility ? "block" : "none",
                   top: location.pathname.includes("main_category")
-                    ? "10.5rem"
+                    ? "5.5rem"
                     : "5rem",
                 }}
               >
@@ -110,10 +112,20 @@ export function Navbar() {
                   {currentUser.user.firstName}
                 </div>
                 <ul className="UserProfileDropDownList">
-                  <li onClick={() => navigate("/user/account/orders")}>
+                  <li
+                    onClick={() => {
+                      setDropdownVisibility(false);
+                      navigate("/user/account/orders");
+                    }}
+                  >
                     My Orders
                   </li>
-                  <li onClick={() => navigate("/user/account/address")}>
+                  <li
+                    onClick={() => {
+                      setDropdownVisibility(false);
+                      navigate("/user/account/address");
+                    }}
+                  >
                     Saved Address
                   </li>
                   <li
@@ -125,6 +137,7 @@ export function Navbar() {
                           cart: [],
                         },
                       });
+                      setDropdownVisibility(false);
                     }}
                   >
                     Logout
@@ -147,7 +160,7 @@ export function Navbar() {
           className="WishlistIconContainer"
           onClick={userWishlistOnClickHandler}
         >
-          {state.wishlist.length > 0 ? (
+          {state.wishlist.length > 0 && currentUser.token ? (
             <div className="WishlistItemCountConstainer">
               {state.wishlist.length > 9 ? "9+" : state.wishlist.length}
             </div>

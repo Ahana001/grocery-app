@@ -5,19 +5,14 @@ import { DataContext } from "../../context/DataContext";
 import { Pagination } from "../../component/Pagination/Pagination";
 import { MenuItemListCard } from "../../component/MenuItemListCard/MenuItemListCard";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 
 export function WishlistPage() {
   const { state } = useContext(DataContext);
-  const { currentUser } = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!currentUser.token) {
-      navigate("/");
-    }
-  }, [currentUser.token]);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>

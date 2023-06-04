@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 0.36rem;
 }
 .SignUpPageContainer {
   margin-top: 12rem;
@@ -17,6 +18,7 @@
 .SignUpFormBorder {
   border: 0.1rem solid var(--line-color);
   padding: 2rem;
+  border-radius: 0.36rem;
 }
 .SignUpForm {
   gap: 1.8rem;
@@ -36,6 +38,7 @@
   border: 0.1rem solid var(--line-color);
   padding: 1rem;
   outline: none;
+  border-radius: 0.36rem;
 }
 .SignUpForm input:focus {
   outline: 0.1rem solid var(--main-dark-color);
@@ -64,6 +67,7 @@
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
+  border-radius: 0.36rem;
 }
 .LoginLink span {
   color: var(--main-dark-color);
@@ -71,6 +75,10 @@
   font-weight: 500;
   user-select: none;
   cursor: pointer;
+}
+.SignUpErrorMessage {
+  width: 80%;
+  margin-bottom: 1rem;
 }
 @media (max-width: 1024px) {
   .SignUpPageContainer {

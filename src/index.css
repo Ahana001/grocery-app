@@ -15,22 +15,23 @@
   margin: 0;
   padding: 0;
 }
-html,
-body {
+html {
   overflow-x: hidden;
-  min-height: 100vh;
+}
+body {
+  min-height: calc(100vh - 20rem);
+  padding-bottom: 20rem;
+  position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 @media (width <= 395px) {
   html {
     font-size: 30%;
@@ -64,6 +65,10 @@ code {
 @media (max-width: 1024px) {
   html {
     font-size: 55%;
+  }
+  body {
+    min-height: calc(100vh - 30rem);
+    padding-bottom: 30rem;
   }
 }
 @media (max-width: 1280px) {

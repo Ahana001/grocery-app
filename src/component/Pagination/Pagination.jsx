@@ -1,10 +1,17 @@
 import "./Pagination.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Pagination({ data, dataLimit, pageLimit, RenderComponent }) {
-  const pages = Math.round(data.length / dataLimit);
+  const pages = Math.ceil(data.length / dataLimit);
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const pages = Math.ceil(data.length / dataLimit);
+    if (currentPage > pages) {
+      setCurrentPage(pages);
+    }
+  }, [data, dataLimit]);
 
   function goToNextPage() {
     if (currentPage === pages || currentPage > pages) {
@@ -36,6 +43,9 @@ export function Pagination({ data, dataLimit, pageLimit, RenderComponent }) {
     for (let i = 0; i < renderData.length; i++) {
       let pageNo = start + i + 1;
       renderData[i] = pageNo;
+      if (pageNo === pages) {
+        break;
+      }
     }
     return renderData;
   }
