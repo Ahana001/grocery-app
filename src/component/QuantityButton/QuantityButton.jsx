@@ -22,42 +22,6 @@ export function QuantityButton({ menuItem, variant }) {
     <div className="QuantityContainer">
       <button
         disabled={isAdding}
-        className="Increament"
-        onClick={async () => {
-          setAdding(true);
-          menuItem.item_variant = menuItem.item_variant.map((MenuItemVariant) =>
-            MenuItemVariant._id === variant._id && MenuItemVariant.quantity < 5
-              ? {
-                  ...MenuItemVariant,
-                  quantity: MenuItemVariant.quantity + 1,
-                }
-              : MenuItemVariant
-          );
-          dispatch({
-            type: ActionTypes.ChangeItem,
-            payload: {
-              menuItem: menuItem,
-            },
-          });
-          const response = await changeCartQuantityRequest(
-            menuItem,
-            currentUser.token
-          );
-          if (response?.status === 200) {
-            dispatch({
-              type: ActionTypes.SetCartList,
-              payload: {
-                cart: response.data.cart,
-              },
-            });
-          }
-        }}
-      >
-        +
-      </button>
-      <div className="Quantity">{variant.quantity}</div>
-      <button
-        disabled={isAdding}
         className="Decreament"
         onClick={async () => {
           setAdding(true);
@@ -113,6 +77,42 @@ export function QuantityButton({ menuItem, variant }) {
         }}
       >
         -
+      </button>
+      <div className="Quantity">{variant.quantity}</div>
+      <button
+        disabled={isAdding}
+        className="Increament"
+        onClick={async () => {
+          setAdding(true);
+          menuItem.item_variant = menuItem.item_variant.map((MenuItemVariant) =>
+            MenuItemVariant._id === variant._id && MenuItemVariant.quantity < 5
+              ? {
+                  ...MenuItemVariant,
+                  quantity: MenuItemVariant.quantity + 1,
+                }
+              : MenuItemVariant
+          );
+          dispatch({
+            type: ActionTypes.ChangeItem,
+            payload: {
+              menuItem: menuItem,
+            },
+          });
+          const response = await changeCartQuantityRequest(
+            menuItem,
+            currentUser.token
+          );
+          if (response?.status === 200) {
+            dispatch({
+              type: ActionTypes.SetCartList,
+              payload: {
+                cart: response.data.cart,
+              },
+            });
+          }
+        }}
+      >
+        +
       </button>
     </div>
   );

@@ -12,6 +12,8 @@ import { OrdersPage } from "./pages/UserProfilePage/Component/OrdersPage/OrdersP
 import { WishlistPage } from "./pages/WishlistPage/WishlistPage";
 import { Toast } from "./component/Toast/Toast";
 import { Navbar } from "./component/Navbar/Navbar";
+import { PrivateRoutes } from "./component/PrivateRoutes/PrivateRoutes";
+import { Footer } from "./component/Footer/Footer";
 
 function App() {
   return (
@@ -32,11 +34,26 @@ function App() {
         <Route path="/user/account" element={<UserProfilePage />}></Route>
         <Route path="/user/account/address" element={<AddressPage />}></Route>
         <Route path="/user/account/orders" element={<OrdersPage />}></Route>
-        <Route path="/user/cart" element={<CartPage />}></Route>
-        <Route path="/user/wishlist" element={<WishlistPage />}></Route>
+        <Route
+          path="/user/cart"
+          element={
+            <PrivateRoutes>
+              <CartPage />
+            </PrivateRoutes>
+          }
+        ></Route>
+        <Route
+          path="/user/wishlist"
+          element={
+            <PrivateRoutes>
+              <WishlistPage />
+            </PrivateRoutes>
+          }
+        ></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
-      <Toast />;
+      <Footer />
+      <Toast />
     </div>
   );
 }

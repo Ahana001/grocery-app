@@ -16,7 +16,6 @@
   transition: 0.3 ease;
   height: auto;
   width: 36.5rem;
-  background-color: white;
   position: relative;
 }
 .ToastProgressLine {
@@ -43,14 +42,25 @@
   gap: 0.8rem;
   align-items: center;
   justify-content: flex-start;
-  margin: 0rem 1.4rem 1.8rem 1.6rem;
+  margin: 0rem 1.4rem 0rem 1.6rem;
 }
 .ToastIcon {
   font-size: 3rem;
 }
-.ToastNotificationDescription {
-  margin: 0;
-  text-align: left;
+.ToastNotificationDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 1rem 0rem;
+}
+.ToastNotificationTitle {
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ToastHorizontalLine {
   position: absolute;

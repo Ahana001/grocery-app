@@ -35,19 +35,23 @@ export function DisplayContextProvider({ children }) {
     };
   }, [screenSize]);
 
-  function showToast(type, description) {
-    let color = "#ebfbf6";
+  function showToast(type, title, description) {
+    let color = "#34d39d";
+    let backgroundColor = "#ebfbf6";
     switch (type) {
       case "info": {
-        color = "#799fec";
+        color = "#01d0e9";
+        backgroundColor = "#e6fafd";
         break;
       }
       case "success": {
-        color = "#6deaa6";
+        color = "#34d39d";
+        backgroundColor = "#ebfbf6";
         break;
       }
       case "warning": {
-        color = "#ef4437";
+        color = "#ef4e61";
+        backgroundColor = "#fdedee";
         break;
       }
     }
@@ -55,8 +59,10 @@ export function DisplayContextProvider({ children }) {
       ...toastList,
       {
         id: uuid(),
+        title,
         description: description,
         color,
+        backgroundColor,
         type,
       },
     ]);

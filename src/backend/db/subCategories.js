@@ -86,4 +86,10 @@ export const sub_categories = [
     name: "Sweet & Salty",
     main_category_id: "MC_2",
   },
+  /* MAIN CATEGORY : Cold Drinks & Juices */
+  {
+    _id: "SC_17",
+    name: "Fruit Juices",
+    main_category_id: "MC_4",
+  },
 ];

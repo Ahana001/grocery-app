@@ -21,6 +21,9 @@
   justify-content: center;
   border-bottom: 0.1rem solid var(--line-color);
 }
+.SinglePageMenuItemImage {
+  display: none;
+}
 .MenuItemRightSection,
 .BottomRightContainer {
   flex: 4 1 0%;
@@ -218,6 +221,18 @@
   }
   .BottomRightContainer {
     display: none;
+  }
+  .MenuItemMagnifierImage {
+    display: none;
+  }
+  .MenuItemRightSection {
+    position: static;
+  }
+  .MenuItemLeftSection {
+    padding-bottom: 2rem;
+  }
+  .MenuItemTopImageContainer {
+    margin-top: 13rem;
   }
 }
 @media (max-width: 640px) {

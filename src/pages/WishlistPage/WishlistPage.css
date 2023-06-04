@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 14rem;
 }
 .EmptyWishlistContainers img {
+  padding-top: 8.6rem;
   width: 28rem;
   height: 28rem;
 }
@@ -29,9 +29,13 @@
   border-radius: 0.36rem;
   user-select: none;
 }
+
 @media (max-width: 1024px) {
   .WishlistContainer {
     margin: 0rem 5rem;
+  }
+  .EmptyWishlistContainers img {
+    padding-top: 12.5rem;
   }
 }
 @media (max-width: 640px) {

@@ -4,22 +4,19 @@ import { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { DataContext } from "../../context/DataContext";
-import { AuthContext } from "../../context/AuthContext";
 import { CartMenuItem } from "./Component/CartMenuItem";
 
 export function CartPage() {
   const { state } = useContext(DataContext);
-  const { currentUser } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
-  const cart = state.cartlist;
 
   useEffect(() => {
-    if (!currentUser.token) {
-      navigate("/");
-    }
-  }, [currentUser.token]);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  const cart = state.cartlist;
 
   const cartLength = cart.length;
   function getCartTotal() {

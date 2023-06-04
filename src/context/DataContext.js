@@ -153,7 +153,7 @@ export function DataContextProvider({ children }) {
         );
       } else {
         cartResponse = await addToCartRequest(menuItem, currentUser.token);
-        showToast("success", `${menuItem.name} added in cart`);
+        showToast("info", menuItem.name, " successfully added in cart");
       }
       if (cartResponse?.status === 201 || cartResponse?.status === 200) {
         dispatch({
@@ -198,7 +198,7 @@ export function DataContextProvider({ children }) {
           menuItems: updatedMenuItems,
         },
       });
-      showToast("info", `${menuItem.name} removed from cart`);
+      showToast("info", menuItem.name, "successfully removed from cart");
     }
   }
 
@@ -224,7 +224,11 @@ export function DataContextProvider({ children }) {
               menuItem: updatedMenuItem,
             },
           });
-          showToast("info", `${menuItem.name} removed from wishlist`);
+          showToast(
+            "info",
+            menuItem.name,
+            " successfully removed from wishlist"
+          );
         }
       } else {
         const response = await addToWishlistRequest(
@@ -245,7 +249,7 @@ export function DataContextProvider({ children }) {
               menuItem: updatedMenuItem,
             },
           });
-          showToast("success", `${menuItem.name} added in wishlist`);
+          showToast("info", menuItem.name, "successfully added in wishlist");
         }
       }
     } else {
@@ -279,7 +283,7 @@ export function DataContextProvider({ children }) {
           menuItems: updatedMenuItems,
         },
       });
-      showToast("info", `${menuItem.name} removed from wishlist`);
+      showToast("info", menuItem.name, "successfully removed from wishlist");
     }
   }
 

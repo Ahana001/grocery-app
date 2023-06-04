@@ -1663,4 +1663,83 @@ export const menu_items = [
       },
     ],
   },
+  /* SUB CATEGORY : Fruit Juices */
+  {
+    _id: "78",
+    name: "Real Fruit Power Cranberry Juice",
+    sub_category_id: "SC_17",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685884885/grocery/fruit_juices/78_mzfzhj.webp",
+    rating: 3.8,
+    delivery_time_in_mins: 20,
+    item_variant: [
+      {
+        _id: "V_100",
+        unit: "1 l",
+        price: 130,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_101",
+        unit: "2 x 1 l",
+        price: 234,
+        in_stock: true,
+        default: false,
+      },
+      {
+        _id: "V_102",
+        unit: "3 x 1 l",
+        price: 343,
+        in_stock: true,
+        default: false,
+      },
+    ],
+  },
+  {
+    _id: "79",
+    name: "B Natural Select - No Added Sugar Mixed Fruit Juice",
+    sub_category_id: "SC_17",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685885005/grocery/fruit_juices/79_pg8fvy.webp",
+    rating: 4.8,
+    delivery_time_in_mins: 18,
+    item_variant: [
+      {
+        _id: "V_103",
+        unit: "200 ml",
+        price: 54,
+        in_stock: true,
+        default: true,
+      },
+    ],
+  },
+  {
+    _id: "80",
+    name: "Raw Pressery Alphonso Mango Juice",
+    sub_category_id: "SC_17",
+    veg_egg_non: "veg",
+    image:
+      "https://res.cloudinary.com/dcu6sympq/image/upload/v1685885065/grocery/fruit_juices/80_b6ceua.webp",
+    rating: 4.2,
+    delivery_time_in_mins: 20,
+    item_variant: [
+      {
+        _id: "V_104",
+        unit: "1 l",
+        price: 232,
+        in_stock: true,
+        default: true,
+      },
+      {
+        _id: "V_105",
+        unit: "2 x 1l",
+        price: 430,
+        in_stock: false,
+        default: false,
+      },
+    ],
+  },
 ];

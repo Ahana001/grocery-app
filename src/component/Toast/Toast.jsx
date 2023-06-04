@@ -3,7 +3,7 @@ import "./Toast.css";
 import { useContext, useEffect } from "react";
 
 import { AiFillInfoCircle, AiFillWarning } from "react-icons/ai";
-import { IoMdCheckmarkCircle, IoMdClose } from "react-icons/io";
+import { IoMdCheckmarkCircle /*IoMdClose*/ } from "react-icons/io";
 
 import { DisplayContext } from "../../context/DisplayContext";
 
@@ -38,7 +38,7 @@ export function Toast() {
       if (toastList.length) {
         deleteToast(toastList[0].id);
       }
-    }, 1800);
+    }, 1000);
     return () => {
       clearInterval(interval);
     };
@@ -47,21 +47,31 @@ export function Toast() {
   return (
     <div className="ToastListContainer">
       {toastList.map((toast) => (
-        <div key={toast.id} className="ToastNotification">
+        <div
+          key={toast.id}
+          className="ToastNotification"
+          style={{ backgroundColor: toast.backgroundColor }}
+        >
           <div
             className="ToastHorizontalLine"
             style={{ backgroundColor: toast.color }}
           ></div>
-          <div
+          {/* <div
             className="ToastCloseConatiner"
             onClick={() => deleteToast(toast.id)}
           >
-            <IoMdClose className="ToastCloseBtn" />
-          </div>
+            <IoMdClose
+              className="ToastCloseBtn"
+              style={{ color: toast.color }}
+            />
+          </div> */}
           <div className="IconWithDescription">
             {getToastNotificationIcon(toast.type, toast.color)}
-            <div className="ToastNotificationDescription">
-              {toast.description}
+            <div className="ToastNotificationDetails">
+              <div className="ToastNotificationTitle">{toast.title}</div>
+              <div className="ToastNotificationDescription">
+                {toast.description}
+              </div>
             </div>
           </div>
           {/* <div

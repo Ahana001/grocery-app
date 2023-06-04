@@ -163,6 +163,7 @@
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 1.8rem;
+  font-weight: 400;
 }
 .UserProfile {
   position: relative;
@@ -190,6 +191,9 @@
   outline: none;
   font-size: 2rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .NavContainer .UserProfile .UserProfileDropDownContent {
   display: none;

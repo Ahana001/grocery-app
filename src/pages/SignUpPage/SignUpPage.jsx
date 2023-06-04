@@ -213,6 +213,7 @@ export function SignUpPage() {
               </div>
               {error && (
                 <div
+                  className="SignUpErrorMessage"
                   style={{
                     fontSize: "small",
                     color: "red",
