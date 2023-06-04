@@ -15,6 +15,7 @@ import {
   getAllMenuItemRequest,
   getAllSubCategoriesRequest,
   getCartRequest,
+  getWishlistRequest,
   removeFromWishlistRequest,
   removeMenuItemFromCartRequest,
 } from "../service/Service";
@@ -81,6 +82,15 @@ export function DataContextProvider({ children }) {
             },
           });
         }
+        const getWishlist = await getWishlistRequest(currentUser.token);
+        if (getWishlist.status === 200) {
+          dispatch({
+            type: ActionTypes.SetWishlist,
+            payload: {
+              wishlist: getWishlist.data.wishlist,
+            },
+          });
+        }
         const menuItemResponse = await getAllMenuItemRequest();
         if (menuItemResponse.status === 200) {
           const updatedMenuItems = menuItemResponse.data.menuItems.map(
@@ -88,8 +98,13 @@ export function DataContextProvider({ children }) {
               const findMenuItemInCart = getCart.data.cart.find(
                 (cartMenuItem) => cartMenuItem._id === menuItem._id
               );
-              if (findMenuItemInCart) {
-                return findMenuItemInCart;
+              const findMenuItemInWishlist = getWishlist.data.wishlist.find(
+                (wishlistMenuItem) => wishlistMenuItem._id === menuItem._id
+              );
+              if (findMenuItemInCart && findMenuItemInWishlist) {
+                return { ...findMenuItemInCart, wished: true };
+              } else if (findMenuItemInCart && !findMenuItemInWishlist) {
+                return { ...findMenuItemInCart, wished: false };
               } else {
                 menuItem.item_variant = menuItem.item_variant.map((variant) =>
                   variant.default
@@ -106,7 +121,7 @@ export function DataContextProvider({ children }) {
                         quantity: 0,
                       }
                 );
-                return menuItem;
+                return { ...menuItem, wished: false };
               }
             }
           );

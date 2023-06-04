@@ -233,3 +233,17 @@ export async function removeFromWishlistRequest(id, token) {
     console.error(error);
   }
 }
+export async function getWishlistRequest(token) {
+  try {
+    const response = await axios.get("/api/user/wishlist", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

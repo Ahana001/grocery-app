@@ -160,7 +160,7 @@ export function Navbar() {
           className="WishlistIconContainer"
           onClick={userWishlistOnClickHandler}
         >
-          {state.wishlist.length > 0 ? (
+          {state.wishlist.length > 0 && currentUser.token ? (
             <div className="WishlistItemCountConstainer">
               {state.wishlist.length > 9 ? "9+" : state.wishlist.length}
             </div>
