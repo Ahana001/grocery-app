@@ -29,6 +29,7 @@ export function HomePage() {
               <MenuItemSliderList
                 key={mainCategory._id}
                 mainCategory={mainCategory}
+                sliderlistHeader={mainCategory.name}
                 MenuListClassName={`SliderList${mainCategory._id}`}
               />
             );

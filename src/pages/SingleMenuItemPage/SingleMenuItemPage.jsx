@@ -38,6 +38,7 @@ export function SingleMenuItemPage() {
         <MenuItemDetails menuItem={menuItem} />
         <div className="HorizontalLine"></div>
         <MenuItemSliderList
+          sliderlistHeader="Similar Products"
           mainCategory={mainCategory}
           MenuListClassName={`SliderList${mainCategory._id}`}
         />

@@ -8,7 +8,11 @@ import { DataContext } from "../../context/DataContext";
 import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
 import { DisplayContext } from "../../context/DisplayContext";
 
-export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
+export function MenuItemSliderList({
+  mainCategory,
+  sliderlistHeader,
+  MenuListClassName,
+}) {
   const { state } = useContext(DataContext);
   const { screenSize } = useContext(DisplayContext);
   const [cardWidth, setCardWidth] = useState("17.9rem");
@@ -71,7 +75,7 @@ export function MenuItemSliderList({ mainCategory, MenuListClassName }) {
 
   return (
     <div className="MenuItemSliderListContainer">
-      <div className="MenuItemSliderListHeader">{mainCategory.name}</div>
+      <div className="MenuItemSliderListHeader">{sliderlistHeader}</div>
       <div className="MenuItemSliderListWrapper">
         <div className="MenuSliderLeftThumbContainer">
           <div className="MenuSliderLeftThumb" onClick={slidePreviosHandler}>
