@@ -25,7 +25,14 @@ export function AddressChild({ setIsOpenForm, isOpenForm }) {
     return (
       <>
         <div className="NoAddressContainer">
-          <img src="../../images/no_address.webp" alt="No Address" />
+          <img
+            src="../../images/no_address.webp"
+            alt="No Address"
+            style={{
+              display:
+                location.pathname === "/user/checkout" ? "none" : "block",
+            }}
+          />
           <div className="NoAddressHeader">You have no saved addresses</div>
           <div className="NoAddressSubTitle">
             Tell us where you want your orders delivered

@@ -1,6 +1,6 @@
 .FilterContainer {
   width: fit-content;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 15.1rem);

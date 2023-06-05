@@ -11,6 +11,9 @@
   display: flex;
   justify-content: center;
 }
+.CheckoutAddressListContainer {
+  width: 100%;
+}
 .RightCheckoutBillContainer {
   display: flex;
   flex-direction: column;
@@ -84,8 +87,11 @@
     margin-top: 14rem;
     flex-direction: column;
   }
-  .RightCheckoutBillContainer,
   .LeftAddressListContainer {
+    width: 100%;
+  }
+  .RightCheckoutBillContainer,
+  .CheckoutAddressListContainer {
     max-width: 60rem;
   }
   .CheckoutBillSummeryContainer {
@@ -93,14 +99,15 @@
   }
   .LeftAddressListContainer {
     border-right: none;
+    justify-content: flex-start;
   }
 }
 @media (max-width: 640px) {
-  .RightCheckoutBillContainer,
-  .LeftAddressListContainer {
+  .RightCheckoutBillContainer {
     width: 100%;
   }
-  .RightCheckoutBillContainer {
+  .RightCheckoutBillContainer,
+  .CheckoutAddressListContainer {
     width: 42rem;
   }
   .CheckoutPageContainer {
@@ -109,14 +116,19 @@
   .RightCheckoutBillContainer {
     padding: 0rem;
   }
+  .LeftAddressListContainer {
+    margin-top: 10rem;
+  }
 }
 @media (max-width: 430px) {
-  .RightCheckoutBillContainer {
+  .RightCheckoutBillContainer,
+  .CheckoutAddressListContainer {
     width: 36rem;
   }
 }
 @media (width <= 395px) {
-  .RightCheckoutBillContainer {
+  .RightCheckoutBillContainer,
+  .CheckoutAddressListContainer {
     width: 26rem;
   }
 }

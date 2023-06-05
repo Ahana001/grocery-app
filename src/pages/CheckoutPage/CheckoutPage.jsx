@@ -12,7 +12,6 @@ export function CheckoutPage() {
 
   const [isOpenForm, setIsOpenForm] = useState(false);
   const cart = state.cartlist;
-  const addressListLength = state.addresslist.length;
 
   function getCartTotal() {
     const total = cart.reduce((accumulator, menuItem) => {
@@ -33,11 +32,10 @@ export function CheckoutPage() {
   }
   return (
     <div className="CheckoutPageContainer">
-      <div
-        className="LeftAddressListContainer"
-        style={{ marginTop: addressListLength === 0 ? "-10rem" : "0rem" }}
-      >
-        <AddressChild isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
+      <div className="LeftAddressListContainer">
+        <div className="CheckoutAddressListContainer">
+          <AddressChild isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
+        </div>
       </div>
       <div className="RightCheckoutBillContainer">
         <div className="CheckoutBillSummeryContainer">

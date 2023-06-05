@@ -26,12 +26,21 @@ export function AddressCard({ address, setIsOpenForm, setAddressFormData }) {
     }
   }
   async function selectAddress() {
-    dispatch({
-      type: ActionTypes.SelectAddress,
-      payload: {
-        selectedAddress: { ...address },
-      },
-    });
+    if (state.selectedAddress?._id == address._id) {
+      dispatch({
+        type: ActionTypes.SelectAddress,
+        payload: {
+          selectedAddress: {},
+        },
+      });
+    } else {
+      dispatch({
+        type: ActionTypes.SelectAddress,
+        payload: {
+          selectedAddress: { ...address },
+        },
+      });
+    }
   }
   return (
     <div
@@ -82,13 +91,7 @@ export function AddressCard({ address, setIsOpenForm, setAddressFormData }) {
           </div>
         </div>
       </div>
-      <div
-        className="AddressCheckBox"
-        onClick={selectAddress}
-        style={{
-          height: location.pathname !== "user/checkout" ? "" : "100%",
-        }}
-      >
+      <div className="AddressCheckBox" onClick={selectAddress}>
         {address._id === state.selectedAddress?._id ? <TiTick /> : undefined}
       </div>
     </div>

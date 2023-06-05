@@ -1,6 +1,6 @@
 .SubCategoryStackContainer {
   width: 20rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 15.1rem);
@@ -15,7 +15,7 @@
   display: flex;
   gap: 2rem;
   padding: 1.6rem;
-  border-bottom: 0.1rem solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
   cursor: pointer;
 }
 .SubCategoryName {

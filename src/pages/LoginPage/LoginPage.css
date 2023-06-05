@@ -21,7 +21,7 @@
 }
 .LoginFormBorder {
   padding: 2rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   border-radius: 0.36rem;
 }
 .LoginFormHeader {
@@ -39,7 +39,7 @@
   width: 100%;
 }
 .LoginForm input {
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   outline: none;
   padding: 1rem;
   width: 100%;

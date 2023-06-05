@@ -88,7 +88,7 @@
 }
 .Title,
 .StateContainer {
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   padding: 1rem 2rem;
   color: var(--small-text-color);
   background-color: white;
@@ -117,7 +117,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 1rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   border-radius: 0.36rem;
 }
 
@@ -151,7 +151,7 @@
 }
 .SaveAddressAs ul li {
   padding: 1rem 2rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   border-radius: 0.3rem;
   margin-top: 1rem;
   cursor: pointer;
@@ -175,7 +175,7 @@
   gap: 1rem;
   width: 100%;
   margin-top: 5rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   cursor: pointer;
   height: 5rem;
   user-select: none;
@@ -209,12 +209,12 @@
   margin-top: 1rem;
 }
 .AddressList .AddressCardContainer:last-of-type {
-  border-bottom: 0.1rem solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
 }
 .AddressCardContainer {
   display: flex;
   gap: 1rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   border-bottom: none;
   padding: 1.5rem;
   cursor: pointer;
@@ -237,6 +237,8 @@
   display: flex;
   justify-content: space-between;
   color: var(--small-text-color);
+  gap: 1rem;
+  flex-direction: column;
 }
 .AddressCardDetails span {
   color: black;
@@ -257,6 +259,7 @@
   border-radius: 0.36rem;
   border: 0.1rem solid black;
   width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,6 +300,9 @@
   }
   .SaveAddressBtn {
     width: 14rem;
+  }
+  .AddressListContainer {
+    padding: 0rem 0.3rem;
   }
 }
 @media (width <= 395px) {

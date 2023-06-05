@@ -5,7 +5,7 @@
 .MenuItemLeftSection,
 .MenuItemBottomContainerWrapper {
   flex: 5 1 0%;
-  border-right: 0.1rem solid var(--line-color);
+  border-right: 1px solid var(--line-color);
   overflow-y: auto;
   height: 100%;
   padding-bottom: 5rem;
@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 0.1rem solid var(--line-color);
+  border-bottom: 1px solid var(--line-color);
 }
 .SinglePageMenuItemImage {
   display: none;
@@ -38,7 +38,7 @@
   top: 2rem;
   left: 2rem;
   background: white;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
 }
 
 .MenuItemRightDetailContainer {
@@ -102,7 +102,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   box-sizing: border-box;
   background-color: white;
   outline: none;
@@ -131,7 +131,7 @@
   height: 100%;
   flex: 2;
   border-radius: 0.5rem;
-  border: 0.1rem solid var(--line-color);
+  border: 1px solid var(--line-color);
   box-sizing: border-box;
   background-color: white;
   text-transform: uppercase;
