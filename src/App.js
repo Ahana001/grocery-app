@@ -13,7 +13,7 @@ import { WishlistPage } from "./pages/WishlistPage/WishlistPage";
 import { Toast } from "./component/Toast/Toast";
 import { Navbar } from "./component/Navbar/Navbar";
 import { PrivateRoutes } from "./component/PrivateRoutes/PrivateRoutes";
-import { Footer } from "./component/Footer/Footer";
+// import { Footer } from "./component/Footer/Footer";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
@@ -61,7 +61,7 @@ function App() {
         ></Route>
         <Route path="/mockman" element={<Mockman />}></Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
       <Toast />
     </div>
   );

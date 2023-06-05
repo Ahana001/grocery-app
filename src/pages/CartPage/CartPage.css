@@ -248,7 +248,7 @@
   }
   .CartMenuItemVariantContainer,
   .cartMenuItemName {
-    width: 22rem;
+    width: auto;
   }
 }
 @media (width <= 395px) {
