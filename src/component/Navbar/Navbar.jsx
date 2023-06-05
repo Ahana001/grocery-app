@@ -20,6 +20,7 @@ export function Navbar() {
     useContext(DisplayContext);
   const { state, dispatch } = useContext(DataContext);
 
+  const { areaName, city } = state.selectedAddress;
   function userCartOnClickHandler() {
     if (currentUser.token) {
       navigate("/user/cart");
@@ -64,7 +65,11 @@ export function Navbar() {
             )}
             <div className="LocationContainer">
               <div>Delivery in 19 minutes</div>
-              <div className="LocationDetail">Ahmedabad, Gujarat, India</div>
+              <div className="LocationDetail">
+                {state.selectedAddress?._id
+                  ? `${areaName}, ${city}, ${state.selectedAddress.state}`
+                  : "No Address Selected"}
+              </div>
             </div>
           </div>
           <div className="SmallNavRightContainer">

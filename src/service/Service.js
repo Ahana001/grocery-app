@@ -201,6 +201,21 @@ export async function removeAddressFromAddressList(id, token) {
     console.error(error);
   }
 }
+export async function getAddressListRequest(token) {
+  try {
+    const response = await axios.get("/api/user/address", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function addToWishlistRequest(menuItem, token) {
   try {
     const response = await axios.post(

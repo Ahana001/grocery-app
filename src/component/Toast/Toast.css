@@ -17,6 +17,7 @@
   height: auto;
   width: 36.5rem;
   position: relative;
+  min-height: 5rem;
 }
 .ToastProgressLine {
   position: absolute;

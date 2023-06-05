@@ -11,6 +11,7 @@ import {
   addToCartRequest,
   addToWishlistRequest,
   changeCartQuantityRequest,
+  getAddressListRequest,
   getAllMainCategoriesRequest,
   getAllMenuItemRequest,
   getAllSubCategoriesRequest,
@@ -73,6 +74,16 @@ export function DataContextProvider({ children }) {
         });
       }
       if (currentUser.token) {
+        const getAddresslist = await getAddressListRequest(currentUser.token);
+        if (getWishlist.status === 200) {
+          dispatch({
+            type: ActionTypes.SetAddressList,
+            payload: {
+              addresslist: getAddresslist.data.addresslist,
+            },
+          });
+        }
+
         const getCart = await getCartRequest(currentUser.token);
         if (getCart.status === 200) {
           dispatch({
