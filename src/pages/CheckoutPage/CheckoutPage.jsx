@@ -27,7 +27,7 @@ export function CheckoutPage() {
   }
   function placeOrder() {
     if (!state.selectedAddress?._id) {
-      showToast("warning", "", "You have no saved address");
+      showToast("warning", "", "You have not selected any address");
     }
   }
   return (

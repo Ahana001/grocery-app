@@ -66,6 +66,26 @@ export const useFilterDataHook = () => {
       }
     }
   }
-
-  return filteredMenuItems;
+  const sortFilteredMenuItemByInStock = filteredMenuItems.sort((a, b) => {
+    const findStatusOfStockOfMenuItemA = a.item_variant.find(
+      (variant) => variant.default
+    );
+    const findStatusOfStockOfMenuItemB = b.item_variant.find(
+      (variant) => variant.default
+    );
+    if (
+      findStatusOfStockOfMenuItemA.in_stock &&
+      !findStatusOfStockOfMenuItemB.in_stock
+    ) {
+      return -1;
+    }
+    if (
+      !findStatusOfStockOfMenuItemA.in_stock &&
+      findStatusOfStockOfMenuItemB.in_stock
+    ) {
+      return 1;
+    }
+    return 0;
+  });
+  return sortFilteredMenuItemByInStock;
 };

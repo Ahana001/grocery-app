@@ -4,16 +4,15 @@ import { useContext, useEffect, useState } from "react";
 
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
-import { DataContext } from "../../context/DataContext";
 import { MenuItemCard } from "../MenuItemCard/MenuItemCard";
 import { DisplayContext } from "../../context/DisplayContext";
 
 export function MenuItemSliderList({
   mainCategory,
+  SliderList,
   sliderlistHeader,
   MenuListClassName,
 }) {
-  const { state } = useContext(DataContext);
   const { screenSize } = useContext(DisplayContext);
   const [cardWidth, setCardWidth] = useState("17.9rem");
 
@@ -35,27 +34,6 @@ export function MenuItemSliderList({
       setCardWidth(() => "17.9rem");
     }
   }, [screenSize]);
-
-  const filterSubCategoriesIds = state.subCategories.reduce(
-    (accumulator, subCategory) => {
-      if (subCategory.main_category_id === mainCategory._id) {
-        return [...accumulator, subCategory._id];
-      }
-      return accumulator;
-    },
-    []
-  );
-
-  const filterMenuItems = state.menuItems.filter((menuItem) =>
-    filterSubCategoriesIds.includes(menuItem.sub_category_id)
-  );
-
-  const filteredInStockedMenuItems = filterMenuItems.filter((menuItem) => {
-    const defaultVarint = menuItem.item_variant.find(
-      (variant) => variant.default
-    );
-    return defaultVarint.in_stock;
-  });
 
   function slidePreviosHandler() {
     const box = document.querySelector(`.SliderList${mainCategory._id}`);
@@ -83,7 +61,7 @@ export function MenuItemSliderList({
           </div>
         </div>
         <div className={`MenuItemSliderList  ${MenuListClassName}`}>
-          {filteredInStockedMenuItems.map((menuItem) => {
+          {SliderList.map((menuItem) => {
             return (
               <MenuItemCard
                 key={menuItem._id}

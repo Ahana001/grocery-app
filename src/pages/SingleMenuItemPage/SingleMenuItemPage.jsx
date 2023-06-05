@@ -31,6 +31,29 @@ export function SingleMenuItemPage() {
   if (!menuItem || !subCategory || !mainCategory) {
     return <Loader height="100vh" size="8rem" />;
   }
+  const filterSubCategoriesIds = state.subCategories.reduce(
+    (accumulator, subCategory) => {
+      if (subCategory.main_category_id === mainCategory._id) {
+        return [...accumulator, subCategory._id];
+      }
+      return accumulator;
+    },
+    []
+  );
+
+  const filterMenuItems = state.menuItems.filter((menuItem) =>
+    filterSubCategoriesIds.includes(menuItem.sub_category_id)
+  );
+
+  const filteredInStockedMenuItems = filterMenuItems.filter((menuItem) => {
+    const defaultVarint = menuItem.item_variant.find(
+      (variant) => variant.default
+    );
+    return defaultVarint.in_stock;
+  });
+  const removeSingleViewMenuItem = filteredInStockedMenuItems.filter(
+    (menuItem) => menuItem._id !== menuItemId
+  );
   return (
     <>
       <div className="SingleMenuItemPageContainer">
@@ -38,8 +61,9 @@ export function SingleMenuItemPage() {
         <MenuItemDetails menuItem={menuItem} />
         <div className="HorizontalLine"></div>
         <MenuItemSliderList
-          sliderlistHeader="Similar Products"
           mainCategory={mainCategory}
+          SliderList={removeSingleViewMenuItem}
+          sliderlistHeader="Similar Products"
           MenuListClassName={`SliderList${mainCategory._id}`}
         />
       </div>

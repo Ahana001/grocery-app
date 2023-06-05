@@ -1,6 +1,6 @@
 import "./MenuItemListPage.css";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 import { DataContext } from "../../context/DataContext";
 import { Loader } from "../../component/Loader/Loader";
@@ -9,10 +9,6 @@ import { MenuItemListWithFilters } from "./Component/MenuItemListWithFilters/Men
 
 export function MenuItemListPage() {
   const { loader } = useContext(DataContext);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
 
   return (
     <>

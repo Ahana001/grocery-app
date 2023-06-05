@@ -1,6 +1,6 @@
 import "./CartPage.css";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
 import { DataContext } from "../../context/DataContext";
@@ -11,10 +11,6 @@ export function CartPage() {
 
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
 
   const cart = state.cartlist;
 

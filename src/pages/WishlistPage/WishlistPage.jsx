@@ -1,6 +1,6 @@
 import "./WishlistPage.css";
 
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import { Pagination } from "../../component/Pagination/Pagination";
 import { MenuItemListCard } from "../../component/MenuItemListCard/MenuItemListCard";
@@ -9,11 +9,6 @@ import { useNavigate } from "react-router-dom";
 export function WishlistPage() {
   const { state } = useContext(DataContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
-
   return (
     <>
       {state.wishlist.length > 0 ? (
