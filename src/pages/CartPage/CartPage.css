@@ -142,6 +142,7 @@
   padding-inline-start: 0px;
 }
 .CartMenuItemBillVariantDetails {
+  margin: 0.5rem 0rem;
   display: flex;
   justify-content: space-between;
 }
@@ -228,12 +229,15 @@
   .RightCartBillContainer,
   .LeftCartItemListContainer {
     width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
   }
   .RightCartBillContainer {
     width: 42rem;
   }
   .CartMenuItemVariantContainer,
-  .cartMenuItemName {
+  .cartMenuItemName,
+  .CartMenuItemDetails {
     width: 28rem;
   }
   .CartPageContainer {
@@ -248,8 +252,9 @@
     width: 36rem;
   }
   .CartMenuItemVariantContainer,
-  .cartMenuItemName {
-    width: auto;
+  .cartMenuItemName,
+  .CartMenuItemDetails {
+    width: 20rem;
   }
 }
 @media (width <= 395px) {
@@ -270,7 +275,8 @@
   .RightCartBillContainer {
     width: 26rem;
   }
-  .cartMenuItemName {
+  .cartMenuItemName,
+  .CartMenuItemDetails {
     width: 16rem;
   }
   .DeliveryTimeTextHeader {
