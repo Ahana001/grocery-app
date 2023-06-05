@@ -15,12 +15,15 @@
   margin: 0;
   padding: 0;
 }
-html {
+/* html {
   overflow-x: hidden;
-}
+} */
+html,
 body {
-  min-height: calc(100vh - 20rem);
-  padding-bottom: 20rem;
+  overflow-x: hidden;
+  min-height: 100vh;
+  /* min-height: calc(100vh - 20rem); */
+  /* padding-bottom: 20rem; */
   position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -66,10 +69,10 @@ code {
   html {
     font-size: 55%;
   }
-  body {
+  /* body {
     min-height: calc(100vh - 30rem);
     padding-bottom: 30rem;
-  }
+  } */
 }
 @media (max-width: 1280px) {
   html {

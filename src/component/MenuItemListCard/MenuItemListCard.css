@@ -12,6 +12,7 @@
 }
 .PaginationMenuItemImage {
   border: 1px solid var(--line-color);
+  cursor: pointer;
 }
 .PaginationMenuItemImage img {
   height: 10rem;

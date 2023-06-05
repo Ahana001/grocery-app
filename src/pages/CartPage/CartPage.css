@@ -49,6 +49,7 @@
 .CartMenuItemContainer .CartMenuItemImage {
   border: 1px solid var(--line-color);
   border-radius: 0.3rem;
+  cursor: pointer;
 }
 .CartMenuItemImage img {
   max-height: 100%;
@@ -248,7 +249,7 @@
   }
   .CartMenuItemVariantContainer,
   .cartMenuItemName {
-    width: 22rem;
+    width: auto;
   }
 }
 @media (width <= 395px) {

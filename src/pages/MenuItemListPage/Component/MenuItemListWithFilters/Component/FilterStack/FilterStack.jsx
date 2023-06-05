@@ -87,7 +87,7 @@ export function FilterStack() {
       style={{
         transform: FilterPriceRatingDisplay
           ? "translateX(0)"
-          : "translateX(100%)",
+          : "translateX(200%)",
       }}
     >
       <RxCross1

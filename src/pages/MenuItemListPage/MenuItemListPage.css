@@ -1,5 +1,6 @@
 .MenuItemListPageContainer {
   margin: 0rem 11rem;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1280px) {

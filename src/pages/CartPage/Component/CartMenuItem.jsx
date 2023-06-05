@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { RxCrossCircled } from "react-icons/rx";
 
@@ -11,9 +12,9 @@ export function CartMenuItem({ menuItem }) {
   return (
     <li>
       <div className="CartMenuItemContainer">
-        <div className="CartMenuItemImage">
+        <Link className="CartMenuItemImage" to={`/menu_item/${menuItem._id}`}>
           <img src={menuItem.image} alt={menuItem.name} />
-        </div>
+        </Link>
         <div className="CartMenuItemDetails">
           <div
             className="RemoveItemFromCartIconContainer"
