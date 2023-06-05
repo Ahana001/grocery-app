@@ -41,9 +41,12 @@ export function MenuItemListCard({ menuItem: { _id } }) {
       >
         <MdDelete />
       </div>
-      <div className="PaginationMenuItemImage">
+      <Link
+        className="PaginationMenuItemImage"
+        to={`/menu_item/${menuItem._id}`}
+      >
         <img src={menuItem.image} alt={menuItem.name} />
-      </div>
+      </Link>
       <div className="PaginationMenuItemDetails">
         <div className="PaginationMenuItemName">{menuItem.name}</div>
         <div className="PaginationVariantPriceBtn">
