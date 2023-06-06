@@ -44,8 +44,14 @@
 .RatingFilterList {
   margin-top: 1rem;
 }
-.Star {
+/* .Star {
   color: orange;
+} */
+.StarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 90%;
 }
 .FilterContainerCloseButton {
   font-size: 1.5rem;
