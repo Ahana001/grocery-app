@@ -8,12 +8,23 @@ import { Loader } from "../../component/Loader/Loader";
 import { Banner } from "../../component/Banner/Banner";
 import { MainCategoryList } from "./Component/MainCategoryList/MainCategoryList";
 import { MenuItemSliderList } from "../../component/MenuItemSliderList/MenuItemSliderList";
+import { Helmet } from "react-helmet";
 
 export function HomePage() {
   const { loader, state } = useContext(DataContext);
 
   return (
     <>
+      <Helmet>
+        <title>Grossy</title>
+        <meta
+          name="description"
+          content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+        />
+        <meta name="author" content="Ankita" />
+        <meta name="keyword" content=" grocery app" />
+      </Helmet>
       {loader ? (
         <Loader height="100vh" size="8rem" />
       ) : (

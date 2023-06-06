@@ -1,6 +1,8 @@
 import "./WishlistPage.css";
 
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
+
 import { DataContext } from "../../context/DataContext";
 import { Pagination } from "../../component/Pagination/Pagination";
 import { MenuItemListCard } from "../../component/MenuItemListCard/MenuItemListCard";
@@ -11,6 +13,16 @@ export function WishlistPage() {
   const navigate = useNavigate();
   return (
     <>
+      <Helmet>
+        <title>Wishlist</title>
+        <meta
+          name="description"
+          content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+        />
+        <meta name="author" content="Ankita" />
+        <meta name="keyword" content=" grocery app" />
+      </Helmet>
       {state.wishlist.length > 0 ? (
         <div className="WishlistContainer">
           <Pagination
