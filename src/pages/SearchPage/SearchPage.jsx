@@ -7,6 +7,7 @@ import { trending_searches_list } from "./constants";
 import { TrendingSearchCard } from "./Component/TrendingSearchCard/TrendingSearchCard";
 import { DataContext } from "../../context/DataContext";
 import { MenuItemCard } from "../../component/MenuItemCard/MenuItemCard";
+import { Helmet } from "react-helmet";
 
 export function SearchPage() {
   const { state } = useContext(DataContext);
@@ -51,6 +52,16 @@ export function SearchPage() {
   });
   return (
     <>
+      <Helmet>
+        <title>Search</title>
+        <meta
+          name="description"
+          content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+        />
+        <meta name="author" content="Ankita" />
+        <meta name="keyword" content=" grocery app" />
+      </Helmet>
       <div className="SearchPageContainer">
         <div
           className="TrendingSearchItemList"

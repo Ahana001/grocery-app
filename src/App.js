@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
+
 import { HomePage } from "./pages/HomePage/HomePage";
 import { MenuItemListPage } from "./pages/MenuItemListPage/MenuItemListPage";
 import { SingleMenuItemPage } from "./pages/SingleMenuItemPage/SingleMenuItemPage";
@@ -17,6 +18,7 @@ import { Footer } from "./component/Footer/Footer";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 import { SlideTopOfPage } from "./component/SlideTopOfPage/SlideTopOfPage";
 import { SearchPage } from "./pages/SearchPage/SearchPage";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
@@ -121,7 +123,24 @@ function App() {
             </SlideTopOfPage>
           }
         ></Route>
-        <Route path="/mockman" element={<Mockman />}></Route>
+        <Route
+          path="/mockman"
+          element={
+            <>
+              <Helmet>
+                <title>Grossy</title>
+                <meta
+                  name="description"
+                  content="Shop on the go and get anything delivered in minutes. Buy everything
+  from groceries to fresh fruits & vegetable"
+                />
+                <meta name="author" content="Ankita" />
+                <meta name="keyword" content=" grocery app" />
+              </Helmet>
+              <Mockman />
+            </>
+          }
+        ></Route>
       </Routes>
       <Footer />
       <Toast />

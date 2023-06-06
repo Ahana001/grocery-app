@@ -5,6 +5,7 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 
 import { DataContext } from "../../context/DataContext";
 import { CartMenuItem } from "./Component/CartMenuItem";
+import { Helmet } from "react-helmet";
 
 export function CartPage() {
   const { state } = useContext(DataContext);
@@ -31,6 +32,16 @@ export function CartPage() {
   if (cartLength === 0) {
     return (
       <>
+        <Helmet>
+          <title>Cart</title>
+          <meta
+            name="description"
+            content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+          />
+          <meta name="author" content="Ankita" />
+          <meta name="keyword" content=" grocery app" />
+        </Helmet>
         <div className="EmptyCartContainer">
           <div className="EmptyCartImageContainer">
             <img src="../images/empty_cart.webp" alt="empty_cart" />

@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 
 import { AuthContext } from "../../context/AuthContext";
+import { Helmet } from "react-helmet";
 
 export function SignUpPage() {
   const location = useLocation();
@@ -81,6 +82,16 @@ export function SignUpPage() {
   if (location.pathname === "/user/signup") {
     return (
       <>
+        <Helmet>
+          <title>Sign Up</title>
+          <meta
+            name="description"
+            content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+          />
+          <meta name="author" content="Ankita" />
+          <meta name="keyword" content=" grocery app" />
+        </Helmet>
         <div className="SignUpPageContainer">
           <div className="SignUpFormBorder">
             <form className="SignUpForm" onSubmit={submitSignUpRequest}>

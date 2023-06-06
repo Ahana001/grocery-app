@@ -1,6 +1,7 @@
 import "./LoginPage.css";
 
 import { debounce } from "lodash";
+import { Helmet } from "react-helmet";
 import { useContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -45,6 +46,16 @@ export function LoginPage() {
   if (location.pathname === "/user/login") {
     return (
       <>
+        <Helmet>
+          <title>Login</title>
+          <meta
+            name="description"
+            content="Shop on the go and get anything delivered in minutes. Buy everything
+      from groceries to fresh fruits & vegetable"
+          />
+          <meta name="author" content="Ankita" />
+          <meta name="keyword" content=" grocery app" />
+        </Helmet>
         <div className="LoginPageContainer">
           <div className="LoginFormBorder">
             <form className="LoginForm" onSubmit={submitLoginRequest}>
