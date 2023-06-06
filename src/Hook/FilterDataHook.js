@@ -66,6 +66,7 @@ export const useFilterDataHook = () => {
       }
     }
   }
+
   const sortFilteredMenuItemByInStock = filteredMenuItems.sort((a, b) => {
     const findStatusOfStockOfMenuItemA = a.item_variant.find(
       (variant) => variant.default
@@ -87,5 +88,6 @@ export const useFilterDataHook = () => {
     }
     return 0;
   });
+
   return sortFilteredMenuItemByInStock;
 };

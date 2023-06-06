@@ -151,14 +151,12 @@ export function SignUpPage() {
                   id="email"
                   required={true}
                   placeholder="abc@gmail.com"
-                  onChange={debounce(
-                    (e) =>
-                      setSignUpFormData({
-                        ...signUpFormData,
-                        email: e.target.value,
-                      }),
-                    300
-                  )}
+                  onChange={debounce((e) => {
+                    setSignUpFormData({
+                      ...signUpFormData,
+                      email: e.target.value,
+                    });
+                  }, 300)}
                 />
                 {signFormError.email && (
                   <div

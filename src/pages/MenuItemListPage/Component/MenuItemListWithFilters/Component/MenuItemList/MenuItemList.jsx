@@ -19,8 +19,7 @@ export function MenuItemList() {
   const [menuListLoader, setMenuListLoader] = useState(false);
   const { setFilterPriceRatingDisplay } = useContext(DisplayContext);
 
-  const filteredMenuItems = useFilterDataHook();
-
+  let filteredMenuItems = useFilterDataHook();
   useEffect(() => {
     setMenuListLoader(() => true);
     setTimeout(() => {

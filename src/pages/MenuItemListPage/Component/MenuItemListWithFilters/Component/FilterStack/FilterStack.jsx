@@ -3,7 +3,7 @@ import "./FilterStack.css";
 import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 
-import { priceFilter, ratingFilter } from "./constant";
+import { priceFilter /* ratingFilter */ } from "./constant";
 import { DataContext } from "../../../../../../context/DataContext";
 import { ActionTypes, Filters } from "../../../../../../reducer/types";
 import { RxCross1 } from "react-icons/rx";
@@ -133,7 +133,7 @@ export function FilterStack() {
         <div className="RatingHeader">Rating</div>
         <div className="HorizontalLine"></div>
         <div className="RatingFilterList">
-          {ratingFilter.map((rating) => {
+          {/* {ratingFilter.map((rating) => {
             return (
               <div key={rating}>
                 <input
@@ -152,7 +152,33 @@ export function FilterStack() {
                 })}
               </div>
             );
-          })}
+          })} */}
+          <div className="RatingContainer">
+            <div className="StarContainer">
+              {[1, 2, 3, 4, 5].map((rating) => {
+                return (
+                  <span
+                    key={rating}
+                    style={{
+                      color:
+                        Number(rating) <= Number(state.filter.rating)
+                          ? "orange"
+                          : "rgb(238, 238, 238)",
+                    }}
+                  >
+                    <FaStar />
+                  </span>
+                );
+              })}
+            </div>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              value={state.filter.rating}
+              onChange={filterByRatingHandler}
+            />
+          </div>
         </div>
       </div>
     </div>
