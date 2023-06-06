@@ -75,7 +75,7 @@ export function DataContextProvider({ children }) {
       }
       if (currentUser.token) {
         const getAddresslist = await getAddressListRequest(currentUser.token);
-        if (getWishlist.status === 200) {
+        if (getAddresslist.status === 200) {
           dispatch({
             type: ActionTypes.SetAddressList,
             payload: {

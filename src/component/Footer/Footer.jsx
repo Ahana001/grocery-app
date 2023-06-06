@@ -1,12 +1,16 @@
 import "./Footer.css";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { BsTwitter, BsGithub, BsLinkedin } from "react-icons/bs";
 
 export function Footer() {
+  const location = useLocation();
   return (
-    <div className="FooterContainer">
+    <div
+      className="FooterContainer"
+      style={{ display: location?.pathname?.includes("/s") ? "none" : "block" }}
+    >
       <div className="FooterHorizontalLine"></div>
       <div className="FooterWrapperContainer">
         <div className="FooterAboutUsContainer">

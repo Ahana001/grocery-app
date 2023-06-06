@@ -1,16 +1,18 @@
 import "./Navbar.css";
 
+// import { debounce } from "lodash";
 import { useContext } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { FaShoppingCart, FaSearch, FaRegUserCircle } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 import { AuthContext } from "../../context/AuthContext";
 import { DataContext } from "../../context/DataContext";
 import { DisplayContext } from "../../context/DisplayContext";
-import { ActionTypes } from "../../reducer/types";
+import { ActionTypes, Filters } from "../../reducer/types";
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ export function Navbar() {
   const { setDropdownVisibility, dropdownVisibility } =
     useContext(DisplayContext);
   const { state, dispatch } = useContext(DataContext);
+  const { screenSize } = useContext(DisplayContext);
 
   const { areaName, city } = state.selectedAddress;
   function userCartOnClickHandler() {
@@ -54,7 +57,15 @@ export function Navbar() {
         <div className="VerticleDivider"></div>
       </div>
       <div className="LocationAndSearchContainer">
-        <div className="LocationAndProfileContainer">
+        <div
+          className="LocationAndProfileContainer"
+          style={{
+            display:
+              location.pathname.includes("/s") && screenSize.width < 1024
+                ? "none"
+                : "flex",
+          }}
+        >
           <div className="BackArrowAndLocationContainer">
             {location.pathname === "/" ? (
               <></>
@@ -73,21 +84,76 @@ export function Navbar() {
             </div>
           </div>
           <div className="SmallNavRightContainer">
-            {location.pathname === "/" ? (
-              <FaRegUserCircle onClick={SmallViewUserProfileHandler} />
-            ) : (
-              <FaSearch />
-            )}
+            <FaRegUserCircle onClick={SmallViewUserProfileHandler} />
           </div>
         </div>
-        <div className="SearchContainer">
-          <div className="SearchBox">
+        <div
+          className="SearchContainer"
+          style={{
+            marginTop:
+              location.pathname.includes("/s") || screenSize.width < 1024
+                ? "1rem"
+                : "0rem",
+          }}
+        >
+          <Link
+            className="SearchBox"
+            to="/s"
+            style={{ display: location.pathname !== "/s" ? "flex" : "none" }}
+          >
             <div className="SearchIcon">
               <FaSearch />
             </div>
             <div className="SearchAnimatedContainer">
               <div className="AnimatedSearchText">Search</div>
             </div>
+          </Link>
+          <div
+            className="SearchContainer"
+            style={{ display: location.pathname === "/s" ? "block" : "none" }}
+          >
+            <BiArrowBack
+              onClick={() => navigate(-1)}
+              className="SearchBackArrow"
+              style={{ display: screenSize.width < 1024 ? "block" : "none" }}
+            />
+            <input
+              type="text"
+              value={state.filter.search}
+              onChange={(event) => {
+                dispatch({
+                  type: ActionTypes.ChangeFilter,
+                  payload: {
+                    filterType: Filters.Search,
+                    filterValue: event.target.value,
+                  },
+                });
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Backspace") {
+                  dispatch({
+                    type: ActionTypes.ChangeFilter,
+                    payload: {
+                      filterType: Filters.Search,
+                      filterValue: event.target.value.slice(0, -1),
+                    },
+                  });
+                }
+              }}
+            />
+            <IoMdClose
+              className="SearchClose"
+              onClick={() => {
+                dispatch({
+                  type: ActionTypes.ChangeFilter,
+                  payload: {
+                    filterType: Filters.Search,
+                    filterValue: "",
+                  },
+                });
+              }}
+              style={{ display: state.filter.search !== "" ? "block" : "none" }}
+            />
           </div>
         </div>
       </div>
@@ -98,7 +164,7 @@ export function Navbar() {
               <div className="UserProfileDropDown">
                 <button
                   className="UserProfileDropDownBtn"
-                  onClick={() => setDropdownVisibility(true)}
+                  onClick={() => setDropdownVisibility(!dropdownVisibility)}
                 >
                   Account
                   <div className="UserProfileArrow"></div>
@@ -172,11 +238,11 @@ export function Navbar() {
           ) : undefined}
           <AiOutlineHeart className="WishlistIcon" />
         </div>
-        <div className="CartContainer">
+        <div className="CartContainer" onClick={userCartOnClickHandler}>
           <div className="CartIcon">
             <FaShoppingCart />
           </div>
-          <div className="CartText" onClick={userCartOnClickHandler}>
+          <div className="CartText">
             {state.cartlist.length === 0
               ? "My Cart"
               : `${state.cartlist.length} items`}

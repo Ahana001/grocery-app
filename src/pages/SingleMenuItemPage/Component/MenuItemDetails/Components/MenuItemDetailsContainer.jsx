@@ -111,37 +111,6 @@ export function MenuItemDetailsContainer({ menuItem }) {
           {selectedVariant.quantity > 0 && selectedVariant.carted ? (
             <div className="AddedToCartQuantitySelectorContainer">
               <div
-                className="IncreamentQuantityButton"
-                onClick={async () => {
-                  menuItem.item_variant = menuItem.item_variant.map((variant) =>
-                    variant.selected && variant.quantity < 5
-                      ? { ...variant, quantity: variant.quantity + 1 }
-                      : variant
-                  );
-                  dispatch({
-                    type: ActionTypes.ChangeItem,
-                    payload: {
-                      menuItem: menuItem,
-                    },
-                  });
-                  const response = await changeCartQuantityRequest(
-                    menuItem,
-                    currentUser.token
-                  );
-                  if (response?.status === 200) {
-                    dispatch({
-                      type: ActionTypes.SetCartList,
-                      payload: {
-                        cart: response.data.cart,
-                      },
-                    });
-                  }
-                }}
-              >
-                +
-              </div>
-              <div className="MenuItemQuantity">{selectedVariant.quantity}</div>
-              <div
                 className="DecreamentQuantityButton"
                 onClick={async () => {
                   (menuItem.item_variant = menuItem.item_variant.map(
@@ -195,6 +164,37 @@ export function MenuItemDetailsContainer({ menuItem }) {
                 }}
               >
                 -
+              </div>
+              <div className="MenuItemQuantity">{selectedVariant.quantity}</div>
+              <div
+                className="IncreamentQuantityButton"
+                onClick={async () => {
+                  menuItem.item_variant = menuItem.item_variant.map((variant) =>
+                    variant.selected && variant.quantity < 5
+                      ? { ...variant, quantity: variant.quantity + 1 }
+                      : variant
+                  );
+                  dispatch({
+                    type: ActionTypes.ChangeItem,
+                    payload: {
+                      menuItem: menuItem,
+                    },
+                  });
+                  const response = await changeCartQuantityRequest(
+                    menuItem,
+                    currentUser.token
+                  );
+                  if (response?.status === 200) {
+                    dispatch({
+                      type: ActionTypes.SetCartList,
+                      payload: {
+                        cart: response.data.cart,
+                      },
+                    });
+                  }
+                }}
+              >
+                +
               </div>
             </div>
           ) : (
