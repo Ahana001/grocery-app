@@ -80,6 +80,24 @@
   width: 80%;
   margin-bottom: 1rem;
 }
+.SignUpFormConfirmPasswordContainer,
+.SignUpFormPasswordContainer {
+  position: relative;
+}
+.PasswordVisibility,
+.confirmPasswordVisibility {
+  position: absolute;
+  height: 3rem;
+  width: 3rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 @media (max-width: 1024px) {
   .SignUpPageContainer {
     margin-top: 16rem;

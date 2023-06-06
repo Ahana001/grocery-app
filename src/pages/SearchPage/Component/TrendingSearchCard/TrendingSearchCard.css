@@ -1,0 +1,47 @@
+.TrendingSearchCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+.TrendingSearchImageContainer {
+  padding: 1.2rem 0.8rem;
+  border-radius: 0.36rem;
+}
+.TrendingSearchCardContainer img {
+  height: 12rem;
+  width: 12rem;
+}
+.TrendingSearchCardText {
+  font-size: 1.8rem;
+}
+@media (max-width: 1024px) {
+  .TrendingSearchCardContainer img {
+    height: 10rem;
+    width: 10rem;
+  }
+}
+@media (max-width: 798px) {
+  .TrendingSearchCardContainer img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .TrendingSearchCardText {
+    font-size: 1.6rem;
+  }
+}
+@media (width <= 395px) {
+  .TrendingSearchCardContainer img {
+    height: 7rem;
+    width: 7rem;
+  }
+  .TrendingSearchCardText {
+    font-size: 1.4rem;
+  }
+
+  .TrendingSearchImageContainer {
+    padding: 1rem 0.5rem;
+  }
+}

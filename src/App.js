@@ -16,6 +16,7 @@ import { PrivateRoutes } from "./component/PrivateRoutes/PrivateRoutes";
 import { Footer } from "./component/Footer/Footer";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 import { SlideTopOfPage } from "./component/SlideTopOfPage/SlideTopOfPage";
+import { SearchPage } from "./pages/SearchPage/SearchPage";
 
 function App() {
   return (
@@ -32,11 +33,7 @@ function App() {
         ></Route>
         <Route
           path="/main_category/:mainCategoryId"
-          element={
-            <SlideTopOfPage>
-              <MenuItemListPage />
-            </SlideTopOfPage>
-          }
+          element={<MenuItemListPage />}
         ></Route>
         <Route
           path="/menu_item/:menuItemId"
@@ -113,6 +110,14 @@ function App() {
               <PrivateRoutes>
                 <CheckoutPage />
               </PrivateRoutes>
+            </SlideTopOfPage>
+          }
+        ></Route>
+        <Route
+          path="/s"
+          element={
+            <SlideTopOfPage>
+              <SearchPage />
             </SlideTopOfPage>
           }
         ></Route>

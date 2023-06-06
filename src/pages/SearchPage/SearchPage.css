@@ -1,0 +1,64 @@
+.SearchPageContainer {
+  margin: 12rem 10rem 0rem;
+  border-radius: 0.36rem;
+  padding: 1rem;
+}
+.TrendingSearchHeader,
+.SerachedListHeader {
+  display: flex;
+  font-size: 1.4rem;
+  gap: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.TrendingSearchList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
+.SearchedListContainer {
+  background-color: rgb(245, 248, 250);
+  padding: 2rem;
+  border-radius: 0.36rem;
+}
+.SerachedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  grid-gap: 1.5rem;
+  box-sizing: border-box;
+}
+.NoSearchResultFoundImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.NoSearchResultFoundImage img {
+  width: 28rem;
+  height: 28rem;
+}
+.NoSearchResultFoundText {
+  font-size: 2rem;
+  color: var(--small-text-color);
+}
+@media (max-width: 925px) {
+  .SearchPageContainer {
+    margin: 9rem 2rem 0rem;
+  }
+  .TrendingSearchList {
+    gap: 2rem;
+  }
+}
+@media (max-width: 640px) {
+  .TrendingSearchList {
+    gap: 1rem;
+  }
+}
+@media (width <= 395px) {
+  .SearchPageContainer {
+    margin: 8rem 0.2rem 0rem;
+  }
+  .TrendingSearchList {
+    gap: 0.5rem;
+  }
+}

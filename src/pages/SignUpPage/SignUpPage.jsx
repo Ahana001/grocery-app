@@ -4,6 +4,8 @@ import { debounce } from "lodash";
 import { useContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+
 import { AuthContext } from "../../context/AuthContext";
 
 export function SignUpPage() {
@@ -11,6 +13,11 @@ export function SignUpPage() {
   const navigate = useNavigate();
   const { signUpHandler, currentUser, error, setError } =
     useContext(AuthContext);
+  const [passwordVisibility, setPasswordVisibility] = useState({
+    passwordVisibility: false,
+    confirmPasswordVisibility: false,
+  });
+
   const [signUpFormData, setSignUpFormData] = useState({
     firstName: "",
     lastName: "",
@@ -170,7 +177,9 @@ export function SignUpPage() {
               <div className="SignUpFormPasswordContainer">
                 <label htmlFor="password">Enter Password</label>
                 <input
-                  type="text"
+                  type={
+                    passwordVisibility.passwordVisibility ? "text" : "password"
+                  }
                   id="password"
                   required={true}
                   placeholder="abc@1234"
@@ -183,11 +192,40 @@ export function SignUpPage() {
                     300
                   )}
                 />
+                <div
+                  className="PasswordVisibility"
+                  onClick={() =>
+                    setPasswordVisibility({
+                      ...passwordVisibility,
+                      passwordVisibility:
+                        !passwordVisibility.passwordVisibility,
+                    })
+                  }
+                >
+                  <AiOutlineEye
+                    style={{
+                      display: passwordVisibility.passwordVisibility
+                        ? "block"
+                        : "none",
+                    }}
+                  />
+                  <AiOutlineEyeInvisible
+                    style={{
+                      display: passwordVisibility.passwordVisibility
+                        ? "none"
+                        : "block",
+                    }}
+                  />
+                </div>
               </div>
               <div className="SignUpFormConfirmPasswordContainer">
                 <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
-                  type="text"
+                  type={
+                    passwordVisibility.confirmPasswordVisibility
+                      ? "text"
+                      : "password"
+                  }
                   id="confirmPassword"
                   required={true}
                   placeholder="abc@1234"
@@ -198,6 +236,31 @@ export function SignUpPage() {
                     });
                   }, 300)}
                 />
+                <div
+                  className="confirmPasswordVisibility"
+                  onClick={() =>
+                    setPasswordVisibility({
+                      ...passwordVisibility,
+                      confirmPasswordVisibility:
+                        !passwordVisibility.confirmPasswordVisibility,
+                    })
+                  }
+                >
+                  <AiOutlineEye
+                    style={{
+                      display: passwordVisibility.confirmPasswordVisibility
+                        ? "block"
+                        : "none",
+                    }}
+                  />
+                  <AiOutlineEyeInvisible
+                    style={{
+                      display: passwordVisibility.confirmPasswordVisibility
+                        ? "none"
+                        : "block",
+                    }}
+                  />
+                </div>
                 {signFormError.password && (
                   <div
                     style={{
