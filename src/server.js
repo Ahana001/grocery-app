@@ -5,6 +5,7 @@ import {
 } from "./backend/controllers/AuthController";
 import {
   addItemToCartHandler,
+  clearCartHandler,
   getCartItemsHandler,
   removeItemFromCartHandler,
   updateCartItemHandler,
@@ -36,6 +37,10 @@ import {
   removeAddressFromAddressListHandler,
   updateAddressFromAddressListHandler,
 } from "./backend/controllers/AddressController";
+import {
+  addOrderToOrderlistHandler,
+  getOrderlistHandler,
+} from "./backend/controllers/OrderController";
 
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
@@ -111,6 +116,7 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/cart/:menuItemId",
         removeItemFromCartHandler.bind(this)
       );
+      this.delete("/user/cart/", clearCartHandler.bind(this));
 
       // wishlist routes (private)
       this.get("/user/wishlist", getWishlistItemsHandler.bind(this));
@@ -131,6 +137,9 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/address/:addressId",
         removeAddressFromAddressListHandler.bind(this)
       );
+
+      this.post("/user/orderlist", addOrderToOrderlistHandler.bind(this));
+      this.get("/user/orderlist", getOrderlistHandler.bind(this));
     },
   });
 }

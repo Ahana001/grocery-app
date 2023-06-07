@@ -5,6 +5,7 @@
   margin-top: 8.6rem;
   gap: 1.5rem;
   padding-top: 2rem;
+  min-height: 42rem;
 }
 .LeftAddressListContainer {
   width: 48rem;
