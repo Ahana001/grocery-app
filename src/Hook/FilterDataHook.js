@@ -34,7 +34,15 @@ export const useFilterDataHook = () => {
           }
         }
       );
-      return [...accumulator, ...menuItemInSideParticularRange];
+      if (
+        !accumulator.find(
+          (alreadyInListMenuItem) =>
+            alreadyInListMenuItem._id === menuItemInSideParticularRange._id
+        )
+      ) {
+        return [...accumulator, ...menuItemInSideParticularRange];
+      }
+      return accumulator;
     }, []);
   }
 
