@@ -3,9 +3,6 @@
 </h1>
 
 <div align="center">
-
-![Badge](https://img.shields.io/badge/Tech_Stack-HTML-blue) ![Badge](https://img.shields.io/badge/CSS-orange) ![Badge](https://img.shields.io/badge/-JS%20-blue) ![Badge](https://img.shields.io/badge/Version-1.0-green) 
-
 </div>
 
 <h3 align="center">
@@ -13,12 +10,11 @@
 </h3>
 <br />
 
-## Tech Stack : <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/JS%20-%FFFF00.svg?&style=for-the-badge&logo=javascript&logoColor=white"/>
+## Tech Stack :
 
-
-- **Frontend:** HTML,CSS,JS
+- **Frontend:** HTML,CSS,JS, React
 - **Version Control:** Git and GitHub
-- **Hosting:** Netlify
+- **Hosting:** Vercel
 - **Code Editor and tools**: VS Code
 
  <br />
