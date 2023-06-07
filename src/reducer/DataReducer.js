@@ -152,6 +152,13 @@ export function DataReducer(state, action) {
       };
       break;
     }
+    case ActionTypes.SetOrder: {
+      result = {
+        ...state,
+        orderlist: action.payload.orderlist,
+      };
+      break;
+    }
   }
   return result;
 }

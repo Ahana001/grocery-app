@@ -16,6 +16,7 @@ import {
   getAllMenuItemRequest,
   getAllSubCategoriesRequest,
   getCartRequest,
+  getOrderLsit,
   getWishlistRequest,
   removeFromWishlistRequest,
   removeMenuItemFromCartRequest,
@@ -80,6 +81,15 @@ export function DataContextProvider({ children }) {
             type: ActionTypes.SetAddressList,
             payload: {
               addresslist: getAddresslist.data.addresslist,
+            },
+          });
+        }
+        const getOrderlist = await getOrderLsit(currentUser.token);
+        if (getAddresslist.status === 200) {
+          dispatch({
+            type: ActionTypes.SetOrder,
+            payload: {
+              orderlist: getOrderlist.data.orderlist,
             },
           });
         }

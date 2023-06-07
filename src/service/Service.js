@@ -20,6 +20,7 @@ export async function getAllMainCategoriesRequest() {
     console.error(error);
   }
 }
+
 export async function getParticularMainCategoriesRequest(id) {
   try {
     const response = await axios.get(`/api/main_category/${id}`);
@@ -40,6 +41,7 @@ export async function getAllSubCategoriesRequest() {
     console.error(error);
   }
 }
+
 export async function loginRequest(email, password) {
   try {
     const response = await axios.post("/api/auth/login", { email, password });
@@ -83,6 +85,7 @@ export async function signUpRequest(firstName, lastName, email, password) {
     console.error(error);
   }
 }
+
 export async function addToCartRequest(menuItem, token) {
   try {
     const response = await axios.post(
@@ -147,6 +150,21 @@ export async function getCartRequest(token) {
     console.error(error);
   }
 }
+export async function clearCartRequest(token) {
+  try {
+    const response = await axios.delete("/api/user/cart", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function AddAddressToAddressList(address, token) {
   try {
     const response = await axios.post(
@@ -251,6 +269,41 @@ export async function removeFromWishlistRequest(id, token) {
 export async function getWishlistRequest(token) {
   try {
     const response = await axios.get("/api/user/wishlist", {
+      headers: {
+        authorization: token,
+      },
+    });
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function AddOrderToOrderLsit(order, token) {
+  try {
+    const response = await axios.post(
+      "/api/user/orderlist",
+      {
+        order,
+      },
+      {
+        headers: {
+          authorization: token,
+        },
+      }
+    );
+    if (response.status === 201) {
+      return response;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function getOrderLsit(token) {
+  try {
+    const response = await axios.get("/api/user/orderlist", {
       headers: {
         authorization: token,
       },
