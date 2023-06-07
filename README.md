@@ -2,12 +2,6 @@
        ✨  Grossy  ✨
 </h1>
 
-<div align="center">
-![Badge](https://img.shields.io/badge/Tech_Stack-HTML-blue) ![Badge](https://img.shields.io/badge/CSS-orange) ![Badge](https://img.shields.io/badge/React.js-cyan)
- ![Badge](https://img.shields.io/badge/-JS%20-blue) ![Badge](https://img.shields.io/badge/Version-1.0-green) 
-
-</div>
-
 <h3 align="center">
           Live Project : https://grossy-app.vercel.app/
 </h3>
