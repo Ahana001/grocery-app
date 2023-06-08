@@ -27,22 +27,20 @@ export const useFilterDataHook = () => {
           const itemVariantInsideRange = menu_item.item_variant.find(
             ({ price }) => price >= lower && price <= upper
           );
-          if (itemVariantInsideRange) {
+          if (
+            itemVariantInsideRange &&
+            !accumulator.find(
+              (alreadyInListMenuItem) =>
+                alreadyInListMenuItem._id === menu_item._id
+            )
+          ) {
             return true;
           } else {
             return false;
           }
         }
       );
-      if (
-        !accumulator.find(
-          (alreadyInListMenuItem) =>
-            alreadyInListMenuItem._id === menuItemInSideParticularRange._id
-        )
-      ) {
-        return [...accumulator, ...menuItemInSideParticularRange];
-      }
-      return accumulator;
+      return [...accumulator, ...menuItemInSideParticularRange];
     }, []);
   }
 

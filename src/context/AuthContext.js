@@ -9,7 +9,6 @@ export function AuthContextProvider({ children }) {
   const [error, setError] = useState(null);
   const [currentUser, setCurrentUser] = useState({ token: null, user: null });
   const { showToast } = useContext(DisplayContext);
-
   useEffect(() => {
     const localStorageData = JSON.parse(localStorage.getItem("loginDetails"));
     if (localStorageData) {
