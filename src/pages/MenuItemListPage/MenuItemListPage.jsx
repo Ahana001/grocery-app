@@ -1,16 +1,19 @@
 import "./MenuItemListPage.css";
 
 import { useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { DataContext } from "../../context/DataContext";
 import { Loader } from "../../component/Loader/Loader";
 import { MainCategoryTabBar } from "./Component/MainCategoryTabBar/MainCategoryTabBar";
 import { MenuItemListWithFilters } from "./Component/MenuItemListWithFilters/MenuItemListWithFilters";
 import { ActionTypes } from "../../reducer/types";
-import { Helmet } from "react-helmet";
 
 export function MenuItemListPage() {
-  const { loader, dispatch } = useContext(DataContext);
+  const { state, loader, dispatch } = useContext(DataContext);
+  const { mainCategoryId } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch({
@@ -25,6 +28,13 @@ export function MenuItemListPage() {
       },
     });
   }, []);
+  if (
+    !state.mainCategories.find(
+      (mainCategory) => mainCategory._id === "MC_" + mainCategoryId
+    )
+  ) {
+    navigate("/404");
+  }
   return (
     <>
       <Helmet>

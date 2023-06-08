@@ -174,6 +174,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 52rem;
 }
 .EmptyCartImageContainer img {
   height: 40rem;

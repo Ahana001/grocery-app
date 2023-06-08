@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 52rem;
 }
 .EmptyWishlistContainers img {
   padding-top: 8.6rem;
