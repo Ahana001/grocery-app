@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Mockman from "mockman-js";
 
 import { HomePage } from "./pages/HomePage/HomePage";
@@ -19,6 +19,7 @@ import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 import { SlideTopOfPage } from "./component/SlideTopOfPage/SlideTopOfPage";
 import { SearchPage } from "./pages/SearchPage/SearchPage";
 import { Helmet } from "react-helmet";
+import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 
 function App() {
   return (
@@ -141,6 +142,8 @@ function App() {
             </>
           }
         ></Route>
+        <Route path="/404" element={<ErrorPage />} />
+        <Route path="*" element={<Navigate to={"/404"} />} />
       </Routes>
       <Footer />
       <Toast />

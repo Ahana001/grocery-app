@@ -45,7 +45,9 @@ export function Navbar() {
       navigate("/user/login");
     }
   }
-
+  if (location.pathname === "/404") {
+    return null;
+  }
   return (
     <header className="NavContainer">
       <div className="NavLeftContainer">
