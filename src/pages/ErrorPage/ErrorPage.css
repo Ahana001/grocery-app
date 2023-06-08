@@ -1,0 +1,28 @@
+.NotFoundPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.6rem;
+}
+.NotFoundPageImageContainer img {
+  height: 28rem;
+  width: 28rem;
+}
+.NotFoundPageTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.NotFoundPageTextContainer div:first-of-type {
+  font-weight: 500;
+}
+.NotFoundPageLink {
+  display: block;
+  color: var(--main-dark-color);
+}
+@media (max-width: 595px) {
+  .NotFoundPage {
+    flex-direction: column;
+  }
+}

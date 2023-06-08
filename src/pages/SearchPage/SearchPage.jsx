@@ -1,6 +1,6 @@
 import "./SearchPage.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FiTrendingUp } from "react-icons/fi";
 
 import { trending_searches_list } from "./constants";
@@ -8,9 +8,10 @@ import { TrendingSearchCard } from "./Component/TrendingSearchCard/TrendingSearc
 import { DataContext } from "../../context/DataContext";
 import { MenuItemCard } from "../../component/MenuItemCard/MenuItemCard";
 import { Helmet } from "react-helmet";
+import { ActionTypes, Filters } from "../../reducer/types";
 
 export function SearchPage() {
-  const { state } = useContext(DataContext);
+  const { state, dispatch } = useContext(DataContext);
   const { filter, menuItems } = state;
 
   let filteredMenuItems = menuItems;
@@ -50,6 +51,17 @@ export function SearchPage() {
     );
     return defaultVarint.in_stock;
   });
+
+  useEffect(() => {
+    dispatch({
+      type: ActionTypes.ChangeFilter,
+      payload: {
+        filterType: Filters.Search,
+        filterValue: "",
+      },
+    });
+  }, []);
+
   return (
     <>
       <Helmet>

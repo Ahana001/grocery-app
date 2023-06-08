@@ -6,6 +6,9 @@ import { BsTwitter, BsGithub, BsLinkedin } from "react-icons/bs";
 
 export function Footer() {
   const location = useLocation();
+  if (location.pathname === "/404") {
+    return null;
+  }
   return (
     <div
       className="FooterContainer"
