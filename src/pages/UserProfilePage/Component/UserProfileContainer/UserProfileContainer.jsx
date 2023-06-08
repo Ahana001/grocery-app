@@ -85,6 +85,12 @@ export function UserProfileContainer({ children, childName }) {
                       onClick={() => {
                         LogOutHandler();
                         dispatch({
+                          type: ActionTypes.SelectAddress,
+                          payload: {
+                            selectedAddress: {},
+                          },
+                        });
+                        dispatch({
                           type: ActionTypes.SetCartList,
                           payload: {
                             cart: [],

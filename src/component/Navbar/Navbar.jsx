@@ -203,6 +203,12 @@ export function Navbar() {
                     onClick={() => {
                       LogOutHandler();
                       dispatch({
+                        type: ActionTypes.SelectAddress,
+                        payload: {
+                          selectedAddress: {},
+                        },
+                      });
+                      dispatch({
                         type: ActionTypes.SetCartList,
                         payload: {
                           cart: [],
